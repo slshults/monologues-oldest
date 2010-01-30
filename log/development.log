@@ -1479,3 +1479,203 @@ Completed in 27ms (View: 21, DB: 2) | 200 OK [http://0.0.0.0/monologues]
   [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
   [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
   [4;36;1mPlay Create (0.6ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-30 17:25:29', 'Hamlet', '2010-01-30 17:25:29', 1)[0m
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-30 09:37:04) [GET]
+  [4;36;1mMonologue Load (0.7ms)[0m   [0;1mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;36;1mGender Load (0.2ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 2) [0m
+  [4;36;1mGender Load (0.4ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 2) [0m
+Completed in 90ms (View: 84, DB: 2) | 200 OK [http://localhost/monologues]
+
+
+Processing MonologuesController#edit (for 127.0.0.1 at 2010-01-30 09:37:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mMonologue Load (0.2ms)[0m   [0mSELECT * FROM "monologues" WHERE ("monologues"."id" = 1) [0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" [0m
+  [4;35;1mGender Load (0.3ms)[0m   [0mSELECT * FROM "genders" [0m
+Rendering template within layouts/monologues
+Rendering monologues/edit
+Completed in 25ms (View: 14, DB: 1) | 200 OK [http://localhost/monologues/1/edit]
+
+
+Processing PlaysController#index (for 127.0.0.1 at 2010-01-30 09:37:15) [GET]
+  [4;36;1mPlay Load (0.6ms)[0m   [0;1mSELECT * FROM "plays" [0m
+Rendering template within layouts/plays
+Rendering plays/index
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://localhost/plays]
+
+
+Processing PlaysController#destroy (for 127.0.0.1 at 2010-01-30 09:37:20) [DELETE]
+  Parameters: {"authenticity_token"=>"JDi1NSQKwYVvmNlkpKDudMO0XmAycRq89y9oFMfCIjI=", "id"=>"3"}
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 3) [0m
+  [4;36;1mPlay Destroy (0.5ms)[0m   [0;1mDELETE FROM "plays" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/plays
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/plays/3]
+
+
+Processing PlaysController#index (for 127.0.0.1 at 2010-01-30 09:37:20) [GET]
+  [4;35;1mPlay Load (0.5ms)[0m   [0mSELECT * FROM "plays" [0m
+Rendering template within layouts/plays
+Rendering plays/index
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/plays]
+
+
+Processing MonologuesController#edit (for 127.0.0.1 at 2010-01-30 09:38:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMonologue Load (0.3ms)[0m   [0;1mSELECT * FROM "monologues" WHERE ("monologues"."id" = 1) [0m
+  [4;35;1mPlay Load (0.4ms)[0m   [0mSELECT * FROM "plays" [0m
+  [4;36;1mGender Load (0.4ms)[0m   [0;1mSELECT * FROM "genders" [0m
+Rendering template within layouts/monologues
+Rendering monologues/edit
+Completed in 114ms (View: 17, DB: 1) | 200 OK [http://localhost/monologues/1/edit]
+
+
+Processing MonologuesController#update (for 127.0.0.1 at 2010-01-30 09:41:41) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"JDi1NSQKwYVvmNlkpKDudMO0XmAycRq89y9oFMfCIjI=", "id"=>"1", "monologue"=>{"name"=>"If music be the food of love, play on", "section"=>"I i 1", "character"=>"Orsino", "body"=>"If music be the food of love, play on;\r\nGive me excess of it, that, surfeiting,\r\nThe appetite may sicken, and so die.\r\nThat strain again! it had a dying fall: \r\nO, it came o'er my ear like the sweet sound,\r\nThat breathes upon a bank of violets,\r\nStealing and giving odour! Enough; no more:\r\n'Tis not so sweet now as it was before.\r\nO spirit of love! how quick and fresh art thou,\r\nThat, notwithstanding thy capacity\r\nReceiveth as the sea, nought enters there,\r\nOf what validity and pitch soe'er,\r\nBut falls into abatement and low price,\r\nEven in a minute: so full of shapes is fancy \r\nThat it alone is high fantastical.", "gender_id"=>"3", "style"=>"Verse", "play_id"=>"1"}}
+  [4;35;1mMonologue Load (0.3ms)[0m   [0mSELECT * FROM "monologues" WHERE ("monologues"."id" = 1) [0m
+Redirected to http://localhost:3000/monologues/1
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/monologues/1]
+
+
+Processing MonologuesController#show (for 127.0.0.1 at 2010-01-30 09:41:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMonologue Load (0.2ms)[0m   [0;1mSELECT * FROM "monologues" WHERE ("monologues"."id" = 1) [0m
+Rendering template within layouts/monologues
+Rendering monologues/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/monologues/1]
+
+
+Processing PlaysController#index (for 127.0.0.1 at 2010-01-30 09:41:49) [GET]
+  [4;35;1mPlay Load (0.5ms)[0m   [0mSELECT * FROM "plays" [0m
+Rendering template within layouts/plays
+Rendering plays/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/plays]
+
+
+Processing PlaysController#edit (for 127.0.0.1 at 2010-01-30 09:41:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+Rendering template within layouts/plays
+Rendering plays/edit
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/plays/1/edit]
+
+
+Processing PlaysController#edit (for 127.0.0.1 at 2010-01-30 09:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+Rendering template within layouts/plays
+Rendering plays/edit
+
+ActionView::TemplateError (undefined method `author_id=' for #<ActionView::Helpers::FormBuilder:0x10326bc00>) on line #5 of app/views/plays/edit.html.erb:
+2: 
+3: <% form_for(@play) do |f| %>
+4:   <%= f.error_messages %>
+5:   <% f.author_id = 1 %>
+6: 
+7:   <p>
+8:     <%= f.label :title %><br />
+
+    app/views/plays/edit.html.erb:5
+    app/views/plays/edit.html.erb:3
+
+Rendered rescues/_trace (46.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlaysController#edit (for 127.0.0.1 at 2010-01-30 09:48:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+Rendering template within layouts/plays
+Rendering plays/edit
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/plays/1/edit]
+
+
+Processing PlaysController#update (for 127.0.0.1 at 2010-01-30 09:48:36) [PUT]
+  Parameters: {"play"=>{"title"=>"Twelfth Night"}, "commit"=>"Update", "authenticity_token"=>"JDi1NSQKwYVvmNlkpKDudMO0XmAycRq89y9oFMfCIjI=", "id"=>"1"}
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+Redirected to http://localhost:3000/plays/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/plays/1]
+
+
+Processing PlaysController#show (for 127.0.0.1 at 2010-01-30 09:48:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+Rendering template within layouts/plays
+Rendering plays/show
+Completed in 12ms (View: 3, DB: 0) | 200 OK [http://localhost/plays/1]
+
+
+Processing PlaysController#index (for 127.0.0.1 at 2010-01-30 09:48:38) [GET]
+  [4;35;1mPlay Load (0.5ms)[0m   [0mSELECT * FROM "plays" [0m
+Rendering template within layouts/plays
+Rendering plays/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/plays]
+
+
+Processing PlaysController#new (for 127.0.0.1 at 2010-01-30 09:48:40) [GET]
+Rendering template within layouts/plays
+Rendering plays/new
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/plays/new]
+
+
+Processing PlaysController#new (for 127.0.0.1 at 2010-01-30 09:49:05) [GET]
+Rendering template within layouts/plays
+Rendering plays/new
+Completed in 19ms (View: 9, DB: 0) | 200 OK [http://localhost/plays/new]
+
+
+Processing PlaysController#index (for 127.0.0.1 at 2010-01-30 09:53:53) [GET]
+  [4;36;1mPlay Load (0.5ms)[0m   [0;1mSELECT * FROM "plays" [0m
+Rendering template within layouts/plays
+Rendering plays/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/plays]
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-30 10:02:03) [GET]
+  [4;35;1mMonologue Load (0.7ms)[0m   [0mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;35;1mGender Load (0.2ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 2) [0m
+  [4;35;1mGender Load (0.2ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 2) [0m
+Completed in 91ms (View: 84, DB: 2) | 200 OK [http://localhost/monologues]
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-30 10:02:39) [GET]
+  [4;36;1mMonologue Load (0.7ms)[0m   [0;1mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;36;1mGender Load (0.3ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 2) [0m
+  [4;36;1mGender Load (0.2ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 2) [0m
+Completed in 29ms (View: 22, DB: 2) | 200 OK [http://localhost/monologues]
+
+
+Processing MonologuesController#edit (for 127.0.0.1 at 2010-01-30 10:02:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mMonologue Load (0.2ms)[0m   [0mSELECT * FROM "monologues" WHERE ("monologues"."id" = 1) [0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" [0m
+  [4;35;1mGender Load (0.3ms)[0m   [0mSELECT * FROM "genders" [0m
+Rendering template within layouts/monologues
+Rendering monologues/edit
+Completed in 21ms (View: 10, DB: 1) | 200 OK [http://localhost/monologues/1/edit]
+
+
+Processing PlaysController#index (for 127.0.0.1 at 2010-01-30 10:02:55) [GET]
+  [4;36;1mPlay Load (0.5ms)[0m   [0;1mSELECT * FROM "plays" [0m
+Rendering template within layouts/plays
+Rendering plays/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/plays]

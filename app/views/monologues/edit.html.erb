@@ -5,7 +5,7 @@
 
   <p>
     <%= f.label :play_id %><br />
-    <%= f.text_field :play_id %>
+    <%= f.collection_select :play_id, @plays, :id, :title %>
   </p>
   <p>
     <%= f.label :section %><br />
@@ -29,7 +29,7 @@
   </p>
   <p>
     <%= f.label :gender_id %><br />
-    <%= f.text_field :gender_id %>
+    <%= f.collection_select( :gender_id, @genders, :id, :name ) %>
   </p>
   <p>
     <%= f.submit 'Update' %>
