@@ -1,0 +1,38 @@
+<p>
+  <b>Play:</b>
+  <%=h @monologue.play_id %>
+</p>
+
+<p>
+  <b>Section:</b>
+  <%=h @monologue.section %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @monologue.name %>
+</p>
+
+<p>
+  <b>Character:</b>
+  <%=h @monologue.character %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%=h @monologue.style %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @monologue.body %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%=h @monologue.gender_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_monologue_path(@monologue) %> |
+<%= link_to 'Back', monologues_path %>

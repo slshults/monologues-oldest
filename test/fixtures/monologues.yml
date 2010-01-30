@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  play_id: 1
+  section: MyString
+  name: MyString
+  body: MyText
+  gender_id: 1
+
+two:
+  play_id: 1
+  section: MyString
+  name: MyString
+  body: MyText
+  gender_id: 2

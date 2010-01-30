@@ -5,3 +5,8 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+Gender.create(:name => 'Both')
+Gender.create(:name => 'Women')
+Gender.create(:name => 'Men')
+Author.create(:name => 'Shakespeare')
