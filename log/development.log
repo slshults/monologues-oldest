@@ -1476,3 +1476,6 @@ Rendering monologues/index
   [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 2) [0m
   [4;35;1mGender Load (0.2ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 2) [0m
 Completed in 27ms (View: 21, DB: 2) | 200 OK [http://0.0.0.0/monologues]
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Create (0.6ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-30 17:25:29', 'Hamlet', '2010-01-30 17:25:29', 1)[0m
