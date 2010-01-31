@@ -1,5 +1,4 @@
-<h1>Listing monologues</h1>
-
+<% title 'Monologues' %>
 <table>
   <tr>
     <th>Play</th>
@@ -16,7 +15,7 @@
     <td><%=h monologue.character %></td>
     <td><%=h monologue.style %></td>
     <td><%=h monologue.section %></td>
-    <td><div title="<%=h monologue.body %>"><%=h monologue.name %></div></td>
+    <td><%= link_to h(monologue.name), monologue %></td>
     <td><%=h monologue.gender.name %></td>
     <td><%= link_to 'Show', monologue %></td>
     <td><%= link_to 'Edit', edit_monologue_path(monologue) %></td>
