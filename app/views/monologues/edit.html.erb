@@ -1,40 +1,8 @@
-<h1>Editing monologue</h1>
+<% title "Edit Monologue" %>
 
-<% form_for(@monologue) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => 'form' %>
 
-  <p>
-    <%= f.label :play_id %><br />
-    <%= f.collection_select :play_id, @plays, :id, :title %>
-  </p>
-  <p>
-    <%= f.label :section %><br />
-    <%= f.text_field :section %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.label :character %><br />
-    <%= f.text_field :character %>
-  </p>
-  <p>
-    <%= f.label :style %><br />
-    <%= f.text_field :style %>
-  </p>
-  <p>
-    <%= f.label :gender_id %><br />
-    <%= f.collection_select( :gender_id, @genders, :id, :name ) %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @monologue %> |
-<%= link_to 'Back', monologues_path %>
+<p>
+  <%= link_to "Show", @monologue %> |
+  <%= link_to "View All", monologues_path %>
+</p>

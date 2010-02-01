@@ -1,45 +1,54 @@
 require 'test_helper'
 
 class MonologuesControllerTest < ActionController::TestCase
-  test "should get index" do
+  def test_index
     get :index
-    assert_response :success
-    assert_not_nil assigns(:monologues)
+    assert_template 'index'
   end
-
-  test "should get new" do
+  
+  def test_show
+    get :show, :id => Monologue.first
+    assert_template 'show'
+  end
+  
+  def test_new
     get :new
-    assert_response :success
+    assert_template 'new'
   end
-
-  test "should create monologue" do
-    assert_difference('Monologue.count') do
-      post :create, :monologue => { }
-    end
-
-    assert_redirected_to monologue_path(assigns(:monologue))
+  
+  def test_create_invalid
+    Monologue.any_instance.stubs(:valid?).returns(false)
+    post :create
+    assert_template 'new'
   end
-
-  test "should show monologue" do
-    get :show, :id => monologues(:one).to_param
-    assert_response :success
+  
+  def test_create_valid
+    Monologue.any_instance.stubs(:valid?).returns(true)
+    post :create
+    assert_redirected_to monologue_url(assigns(:monologue))
   end
-
-  test "should get edit" do
-    get :edit, :id => monologues(:one).to_param
-    assert_response :success
+  
+  def test_edit
+    get :edit, :id => Monologue.first
+    assert_template 'edit'
   end
-
-  test "should update monologue" do
-    put :update, :id => monologues(:one).to_param, :monologue => { }
-    assert_redirected_to monologue_path(assigns(:monologue))
+  
+  def test_update_invalid
+    Monologue.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Monologue.first
+    assert_template 'edit'
   end
-
-  test "should destroy monologue" do
-    assert_difference('Monologue.count', -1) do
-      delete :destroy, :id => monologues(:one).to_param
-    end
-
-    assert_redirected_to monologues_path
+  
+  def test_update_valid
+    Monologue.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Monologue.first
+    assert_redirected_to monologue_url(assigns(:monologue))
+  end
+  
+  def test_destroy
+    monologue = Monologue.first
+    delete :destroy, :id => monologue
+    assert_redirected_to monologues_url
+    assert !Monologue.exists?(monologue.id)
   end
 end

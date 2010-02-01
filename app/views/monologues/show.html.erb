@@ -1,38 +1,40 @@
+<% title "Monologue" %>
+
 <p>
-  <b>Play:</b>
+  <strong>Play:</strong>
   <%=h @monologue.play_id %>
 </p>
-
 <p>
-  <b>Section:</b>
+  <strong>Section:</strong>
   <%=h @monologue.section %>
 </p>
-
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%=h @monologue.name %>
 </p>
-
 <p>
-  <b>Character:</b>
-  <%=h @monologue.character %>
-</p>
-
-<p>
-  <b>Style:</b>
-  <%=h @monologue.style %>
-</p>
-
-<p>
-  <b>Body:</b>
+  <strong>Body:</strong>
   <%=h @monologue.body %>
 </p>
-
 <p>
-  <b>Gender:</b>
+  <strong>Gender:</strong>
   <%=h @monologue.gender_id %>
 </p>
+<p>
+  <strong>Character:</strong>
+  <%=h @monologue.character %>
+</p>
+<p>
+  <strong>Style:</strong>
+  <%=h @monologue.style %>
+</p>
+<p>
+  <strong>Link:</strong>
+  <%=h @monologue.link %>
+</p>
 
-
-<%= link_to 'Edit', edit_monologue_path(@monologue) %> |
-<%= link_to 'Back', monologues_path %>
+<p>
+  <%= link_to "Edit", edit_monologue_path(@monologue) %> |
+  <%= link_to "Destroy", @monologue, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", monologues_path %>
+</p>

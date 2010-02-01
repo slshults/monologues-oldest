@@ -2083,3 +2083,1934 @@ Processing MonologuesController#show (for 127.0.0.1 at 2010-01-31 01:24:46) [GET
 Rendering template within layouts/monologues
 Rendering monologues/show
 Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/monologues/5]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (12.5ms)[0m   [0;1mCREATE TABLE "genders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "monologues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "play_id" integer, "section" varchar(255), "name" varchar(255), "body" text, "gender_id" integer, "created_at" datetime, "updated_at" datetime, "character" varchar(255), "style" varchar(255)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "plays" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (33.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130065904')[0m
+  [4;35;1mSQL (11.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100130062358')[0m
+  [4;36;1mSQL (14.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130062614')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100130062711')[0m
+  [4;36;1mSQL (31.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130063006')[0m
+  [4;35;1mGender Create (0.3ms)[0m   [0mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Both', '2010-01-31 09:26:37', '2010-01-31 09:26:37')[0m
+  [4;36;1mGender Create (0.3ms)[0m   [0;1mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Women', '2010-01-31 09:26:38', '2010-01-31 09:26:38')[0m
+  [4;35;1mGender Create (0.4ms)[0m   [0mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Men', '2010-01-31 09:26:38', '2010-01-31 09:26:38')[0m
+  [4;36;1mAuthor Create (0.3ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('Shakespeare', '2010-01-31 09:26:38', '2010-01-31 09:26:38')[0m
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Create (0.3ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:26:38', 'Hamlet', '2010-01-31 09:26:38', 1)[0m
+  [4;35;1mPlay Create (0.4ms)[0m   [0mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:26:38', 'Twelfth Night', '2010-01-31 09:26:38', 1)[0m
+  [4;36;1mPlay Create (0.4ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:26:38', 'Romeo and Juliet', '2010-01-31 09:26:38', 1)[0m
+  [4;35;1mMonologue Create (0.7ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'Rebellious subjects, enemies to peace', '2010-01-31 09:26:38', 'Rebellious subjects, enemies to peace,
+Profaners of this neighbour-stained steel,--
+Will they not hear? What, ho! you men, you beasts,
+That quench the fire of your pernicious rage
+With purple fountains issuing from your veins,
+On pain of torture, from those bloody hands
+Throw your mistemper''d weapons to the ground,
+And hear the sentence of your moved prince.
+Three civil brawls, bred of an airy word,
+By thee, old Capulet, and Montague,
+Have thrice disturb''d the quiet of our streets,
+And made Verona''s ancient citizens
+Cast by their grave beseeming ornaments,
+To wield old partisans, in hands as old,
+Canker''d with peace, to part your canker''d hate:
+If ever you disturb our streets again,
+Your lives shall pay the forfeit of the peace.
+For this time, all the rest depart away:
+You Capulet; shall go along with me:
+And, Montague, come you this afternoon,
+To know our further pleasure in this case,
+To old Free-town, our common judgment-place.
+Once more, on pain of death, all men depart.', 'Prince', '2010-01-31 09:26:38', 3, 3, 'Verse')[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'If music be the food of love, play on', '2010-01-31 09:26:38', 'If music be the food of love, play on;
+Give me excess of it, that, surfeiting,
+The appetite may sicken, and so die.
+That strain again! it had a dying fall:
+O, it came o''er my ear like the sweet sound,
+That breathes upon a bank of violets,
+Stealing and giving odour! Enough; no more:
+''Tis not so sweet now as it was before.
+O spirit of love! how quick and fresh art thou,
+That, notwithstanding thy capacity
+Receiveth as the sea, nought enters there,
+Of what validity and pitch soe''er,
+But falls into abatement and low price,
+Even in a minute: so full of shapes is fancy
+That it alone is high fantastical.', 'Orsino', '2010-01-31 09:26:38', 3, 2, 'Verse')[0m
+  [4;35;1mMonologue Create (0.3ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'O what a noble mind is here o''erthrown', '2010-01-31 09:26:38', 'O, what a noble mind is here o''erthrown!
+The courtier''s, scholar''s, soldier''s, eye, tongue, sword,
+Th'' expectancy and rose of the fair state,
+The glass of fashion and the mould of form,
+Th'' observ''d of all observers- quite, quite down!
+And I, of ladies most deject and wretched,
+That suck''d the honey of his music vows,
+Now see that noble and most sovereign reason,
+Like sweet bells jangled, out of tune and harsh;
+That unmatch''d form and feature of blown youth
+Blasted with ecstasy. O, woe is me
+T'' have seen what I have seen, see what I see!', 'Ophelia', '2010-01-31 09:26:38', 2, 1, 'Verse')[0m
+  [4;36;1mGender Create (0.4ms)[0m   [0;1mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Both', '2010-01-31 09:26:46', '2010-01-31 09:26:46')[0m
+  [4;35;1mGender Create (0.3ms)[0m   [0mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Women', '2010-01-31 09:26:46', '2010-01-31 09:26:46')[0m
+  [4;36;1mGender Create (0.3ms)[0m   [0;1mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Men', '2010-01-31 09:26:46', '2010-01-31 09:26:46')[0m
+  [4;35;1mAuthor Create (0.3ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('Shakespeare', '2010-01-31 09:26:46', '2010-01-31 09:26:46')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Create (0.3ms)[0m   [0mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:26:46', 'Hamlet', '2010-01-31 09:26:46', 1)[0m
+  [4;36;1mPlay Create (0.2ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:26:46', 'Twelfth Night', '2010-01-31 09:26:46', 1)[0m
+  [4;35;1mPlay Create (0.3ms)[0m   [0mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:26:46', 'Romeo and Juliet', '2010-01-31 09:26:46', 1)[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'Rebellious subjects, enemies to peace', '2010-01-31 09:26:46', 'Rebellious subjects, enemies to peace,
+Profaners of this neighbour-stained steel,--
+Will they not hear? What, ho! you men, you beasts,
+That quench the fire of your pernicious rage
+With purple fountains issuing from your veins,
+On pain of torture, from those bloody hands
+Throw your mistemper''d weapons to the ground,
+And hear the sentence of your moved prince.
+Three civil brawls, bred of an airy word,
+By thee, old Capulet, and Montague,
+Have thrice disturb''d the quiet of our streets,
+And made Verona''s ancient citizens
+Cast by their grave beseeming ornaments,
+To wield old partisans, in hands as old,
+Canker''d with peace, to part your canker''d hate:
+If ever you disturb our streets again,
+Your lives shall pay the forfeit of the peace.
+For this time, all the rest depart away:
+You Capulet; shall go along with me:
+And, Montague, come you this afternoon,
+To know our further pleasure in this case,
+To old Free-town, our common judgment-place.
+Once more, on pain of death, all men depart.', 'Prince', '2010-01-31 09:26:46', 3, 6, 'Verse')[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'If music be the food of love, play on', '2010-01-31 09:26:46', 'If music be the food of love, play on;
+Give me excess of it, that, surfeiting,
+The appetite may sicken, and so die.
+That strain again! it had a dying fall:
+O, it came o''er my ear like the sweet sound,
+That breathes upon a bank of violets,
+Stealing and giving odour! Enough; no more:
+''Tis not so sweet now as it was before.
+O spirit of love! how quick and fresh art thou,
+That, notwithstanding thy capacity
+Receiveth as the sea, nought enters there,
+Of what validity and pitch soe''er,
+But falls into abatement and low price,
+Even in a minute: so full of shapes is fancy
+That it alone is high fantastical.', 'Orsino', '2010-01-31 09:26:46', 3, 5, 'Verse')[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'O what a noble mind is here o''erthrown', '2010-01-31 09:26:46', 'O, what a noble mind is here o''erthrown!
+The courtier''s, scholar''s, soldier''s, eye, tongue, sword,
+Th'' expectancy and rose of the fair state,
+The glass of fashion and the mould of form,
+Th'' observ''d of all observers- quite, quite down!
+And I, of ladies most deject and wretched,
+That suck''d the honey of his music vows,
+Now see that noble and most sovereign reason,
+Like sweet bells jangled, out of tune and harsh;
+That unmatch''d form and feature of blown youth
+Blasted with ecstasy. O, woe is me
+T'' have seen what I have seen, see what I see!', 'Ophelia', '2010-01-31 09:26:46', 2, 4, 'Verse')[0m
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-31 01:26:57) [GET]
+  [4;35;1mMonologue Load (0.9ms)[0m   [0mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 3) [0m
+  [4;35;1mGender Load (0.2ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;35;1mGender Load (0.2ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 2) [0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 2) [0m
+Completed in 42ms (View: 34, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "genders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "monologues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "play_id" integer, "section" varchar(255), "name" varchar(255), "body" text, "gender_id" integer, "created_at" datetime, "updated_at" datetime, "character" varchar(255), "style" varchar(255)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "plays" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130065904')[0m
+  [4;35;1mSQL (21.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100130062358')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130062614')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100130062711')[0m
+  [4;36;1mSQL (12.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130063006')[0m
+  [4;35;1mGender Create (0.3ms)[0m   [0mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Both', '2010-01-31 09:27:09', '2010-01-31 09:27:09')[0m
+  [4;36;1mGender Create (0.3ms)[0m   [0;1mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Women', '2010-01-31 09:27:09', '2010-01-31 09:27:09')[0m
+  [4;35;1mGender Create (0.3ms)[0m   [0mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Men', '2010-01-31 09:27:09', '2010-01-31 09:27:09')[0m
+  [4;36;1mAuthor Create (0.3ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('Shakespeare', '2010-01-31 09:27:09', '2010-01-31 09:27:09')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Create (0.4ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:27:09', 'Hamlet', '2010-01-31 09:27:09', 1)[0m
+  [4;35;1mPlay Create (0.3ms)[0m   [0mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:27:09', 'Twelfth Night', '2010-01-31 09:27:09', 1)[0m
+  [4;36;1mPlay Create (0.2ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:27:09', 'Romeo and Juliet', '2010-01-31 09:27:09', 1)[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'Rebellious subjects, enemies to peace', '2010-01-31 09:27:09', 'Rebellious subjects, enemies to peace,
+Profaners of this neighbour-stained steel,--
+Will they not hear? What, ho! you men, you beasts,
+That quench the fire of your pernicious rage
+With purple fountains issuing from your veins,
+On pain of torture, from those bloody hands
+Throw your mistemper''d weapons to the ground,
+And hear the sentence of your moved prince.
+Three civil brawls, bred of an airy word,
+By thee, old Capulet, and Montague,
+Have thrice disturb''d the quiet of our streets,
+And made Verona''s ancient citizens
+Cast by their grave beseeming ornaments,
+To wield old partisans, in hands as old,
+Canker''d with peace, to part your canker''d hate:
+If ever you disturb our streets again,
+Your lives shall pay the forfeit of the peace.
+For this time, all the rest depart away:
+You Capulet; shall go along with me:
+And, Montague, come you this afternoon,
+To know our further pleasure in this case,
+To old Free-town, our common judgment-place.
+Once more, on pain of death, all men depart.', 'Prince', '2010-01-31 09:27:09', 3, 3, 'Verse')[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'If music be the food of love, play on', '2010-01-31 09:27:09', 'If music be the food of love, play on;
+Give me excess of it, that, surfeiting,
+The appetite may sicken, and so die.
+That strain again! it had a dying fall:
+O, it came o''er my ear like the sweet sound,
+That breathes upon a bank of violets,
+Stealing and giving odour! Enough; no more:
+''Tis not so sweet now as it was before.
+O spirit of love! how quick and fresh art thou,
+That, notwithstanding thy capacity
+Receiveth as the sea, nought enters there,
+Of what validity and pitch soe''er,
+But falls into abatement and low price,
+Even in a minute: so full of shapes is fancy
+That it alone is high fantastical.', 'Orsino', '2010-01-31 09:27:09', 3, 2, 'Verse')[0m
+  [4;35;1mMonologue Create (0.3ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'O what a noble mind is here o''erthrown', '2010-01-31 09:27:09', 'O, what a noble mind is here o''erthrown!
+The courtier''s, scholar''s, soldier''s, eye, tongue, sword,
+Th'' expectancy and rose of the fair state,
+The glass of fashion and the mould of form,
+Th'' observ''d of all observers- quite, quite down!
+And I, of ladies most deject and wretched,
+That suck''d the honey of his music vows,
+Now see that noble and most sovereign reason,
+Like sweet bells jangled, out of tune and harsh;
+That unmatch''d form and feature of blown youth
+Blasted with ecstasy. O, woe is me
+T'' have seen what I have seen, see what I see!', 'Ophelia', '2010-01-31 09:27:09', 2, 1, 'Verse')[0m
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-31 01:27:12) [GET]
+  [4;36;1mMonologue Load (0.7ms)[0m   [0;1mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 3) [0m
+  [4;36;1mGender Load (0.3ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;36;1mGender Load (0.2ms)[0m   [0;1mSELECT * FROM "genders" WHERE ("genders"."id" = 2) [0m
+Completed in 91ms (View: 84, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing MonologuesController#show (for 127.0.0.1 at 2010-01-31 01:27:15) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mMonologue Load (0.3ms)[0m   [0mSELECT * FROM "monologues" WHERE ("monologues"."id" = 3) [0m
+Rendering template within layouts/monologues
+Rendering monologues/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/monologues/3]
+
+
+Processing MonologuesController#show (for 127.0.0.1 at 2010-01-31 01:27:23) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mMonologue Load (0.2ms)[0m   [0;1mSELECT * FROM "monologues" WHERE ("monologues"."id" = 3) [0m
+Rendering template within layouts/monologues
+Rendering monologues/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/monologues/3]
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-31 01:27:25) [GET]
+  [4;35;1mMonologue Load (0.8ms)[0m   [0mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 3) [0m
+  [4;35;1mGender Load (0.2ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 3) [0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."id" = 1) [0m
+  [4;35;1mGender Load (0.2ms)[0m   [0mSELECT * FROM "genders" WHERE ("genders"."id" = 2) [0m
+Completed in 31ms (View: 24, DB: 2) | 200 OK [http://localhost/monologues]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "genders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "monologues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "play_id" integer, "section" varchar(255), "name" varchar(255), "body" text, "gender_id" integer, "created_at" datetime, "updated_at" datetime, "character" varchar(255), "style" varchar(255)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "plays" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130065904')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100130062614')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130062711')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100130063006')[0m
+  [4;36;1mGender Create (0.3ms)[0m   [0;1mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Both', '2010-01-31 09:37:23', '2010-01-31 09:37:23')[0m
+  [4;35;1mGender Create (0.3ms)[0m   [0mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Women', '2010-01-31 09:37:23', '2010-01-31 09:37:23')[0m
+  [4;36;1mGender Create (0.2ms)[0m   [0;1mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Men', '2010-01-31 09:37:23', '2010-01-31 09:37:23')[0m
+  [4;35;1mAuthor Create (0.3ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('Shakespeare', '2010-01-31 09:37:23', '2010-01-31 09:37:23')[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Create (0.3ms)[0m   [0mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:37:23', 'Hamlet', '2010-01-31 09:37:23', 1)[0m
+  [4;36;1mPlay Create (0.3ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:37:23', 'Twelfth Night', '2010-01-31 09:37:23', 1)[0m
+  [4;35;1mPlay Create (0.4ms)[0m   [0mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:37:23', 'Romeo and Juliet', '2010-01-31 09:37:23', 1)[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'Rebellious subjects, enemies to peace', '2010-01-31 09:37:23', 'Rebellious subjects, enemies to peace,
+Profaners of this neighbour-stained steel,--
+Will they not hear? What, ho! you men, you beasts,
+That quench the fire of your pernicious rage
+With purple fountains issuing from your veins,
+On pain of torture, from those bloody hands
+Throw your mistemper''d weapons to the ground,
+And hear the sentence of your moved prince.
+Three civil brawls, bred of an airy word,
+By thee, old Capulet, and Montague,
+Have thrice disturb''d the quiet of our streets,
+And made Verona''s ancient citizens
+Cast by their grave beseeming ornaments,
+To wield old partisans, in hands as old,
+Canker''d with peace, to part your canker''d hate:
+If ever you disturb our streets again,
+Your lives shall pay the forfeit of the peace.
+For this time, all the rest depart away:
+You Capulet; shall go along with me:
+And, Montague, come you this afternoon,
+To know our further pleasure in this case,
+To old Free-town, our common judgment-place.
+Once more, on pain of death, all men depart.', 'Prince', '2010-01-31 09:37:23', 3, 3, 'Verse')[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'If music be the food of love, play on', '2010-01-31 09:37:23', 'If music be the food of love, play on;
+Give me excess of it, that, surfeiting,
+The appetite may sicken, and so die.
+That strain again! it had a dying fall:
+O, it came o''er my ear like the sweet sound,
+That breathes upon a bank of violets,
+Stealing and giving odour! Enough; no more:
+''Tis not so sweet now as it was before.
+O spirit of love! how quick and fresh art thou,
+That, notwithstanding thy capacity
+Receiveth as the sea, nought enters there,
+Of what validity and pitch soe''er,
+But falls into abatement and low price,
+Even in a minute: so full of shapes is fancy
+That it alone is high fantastical.', 'Orsino', '2010-01-31 09:37:23', 3, 2, 'Verse')[0m
+  [4;36;1mMonologue Create (0.3ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "play_id", "style") VALUES(NULL, 'O what a noble mind is here o''erthrown', '2010-01-31 09:37:23', 'O, what a noble mind is here o''erthrown!
+The courtier''s, scholar''s, soldier''s, eye, tongue, sword,
+Th'' expectancy and rose of the fair state,
+The glass of fashion and the mould of form,
+Th'' observ''d of all observers- quite, quite down!
+And I, of ladies most deject and wretched,
+That suck''d the honey of his music vows,
+Now see that noble and most sovereign reason,
+Like sweet bells jangled, out of tune and harsh;
+That unmatch''d form and feature of blown youth
+Blasted with ecstasy. O, woe is me
+T'' have seen what I have seen, see what I see!', 'Ophelia', '2010-01-31 09:37:23', 2, 1, 'Verse')[0m
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-31 01:40:01) [GET]
+  [4;36;1mMonologue Load (0.8ms)[0m   [0;1mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+
+ActionView::TemplateError (undefined method `link' for #<Monologue:0x1033f3a50>) on line #23 of app/views/monologues/index.html.erb:
+20:       <td><%=h monologue.gender_id %></td>
+21:       <td><%=h monologue.character %></td>
+22:       <td><%=h monologue.style %></td>
+23:       <td><%=h monologue.link %></td>
+24:       <td><%= link_to "Show", monologue %></td>
+25:       <td><%= link_to "Edit", edit_monologue_path(monologue) %></td>
+26:       <td><%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/monologues/index.html.erb:23
+    app/views/monologues/index.html.erb:14:in `each'
+    app/views/monologues/index.html.erb:14
+
+Rendered rescues/_trace (105.1ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-31 01:42:14) [GET]
+  [4;35;1mMonologue Load (0.7ms)[0m   [0mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+
+ActionView::TemplateError (undefined method `link' for #<Monologue:0x103500dd0>) on line #23 of app/views/monologues/index.html.erb:
+20:       <td><%=h monologue.gender_id %></td>
+21:       <td><%=h monologue.character %></td>
+22:       <td><%=h monologue.style %></td>
+23:       <td><%=h monologue.link %></td>
+24:       <td><%= link_to "Show", monologue %></td>
+25:       <td><%= link_to "Edit", edit_monologue_path(monologue) %></td>
+26:       <td><%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/monologues/index.html.erb:23
+    app/views/monologues/index.html.erb:14:in `each'
+    app/views/monologues/index.html.erb:14
+
+Rendered rescues/_trace (41.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthors (20100130062614)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100130062614')[0m
+Migrating to CreatePlays (20100130062711)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "plays" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100130062711')[0m
+Migrating to CreateGenders (20100130063006)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "genders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100130063006')[0m
+Migrating to AddCharacterToMonologue (20100130065904)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: monologues: ALTER TABLE "monologues" ADD "character" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthors (20100130062614)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100130062614')[0m
+Migrating to CreatePlays (20100130062711)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "plays" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100130062711')[0m
+Migrating to CreateGenders (20100130063006)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "genders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100130063006')[0m
+Migrating to CreateMonologues (20100131093706)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "monologues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "play_id" integer, "section" varchar(255), "name" varchar(255), "body" text, "gender_id" integer, "character" varchar(255), "style" varchar(255), "link" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100131093706')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("authors")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("genders")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("monologues")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("plays")[0m
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-31 01:44:29) [GET]
+  [4;36;1mMonologue Load (0.4ms)[0m   [0;1mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+Completed in 85ms (View: 80, DB: 0) | 200 OK [http://localhost/monologues]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "genders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "monologues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "play_id" integer, "section" varchar(255), "name" varchar(255), "body" text, "gender_id" integer, "character" varchar(255), "style" varchar(255), "link" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "plays" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100131093706')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100130062614')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100130062711')[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100130063006')[0m
+  [4;36;1mGender Create (0.3ms)[0m   [0;1mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Both', '2010-01-31 09:44:41', '2010-01-31 09:44:41')[0m
+  [4;35;1mGender Create (0.2ms)[0m   [0mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Women', '2010-01-31 09:44:41', '2010-01-31 09:44:41')[0m
+  [4;36;1mGender Create (0.3ms)[0m   [0;1mINSERT INTO "genders" ("name", "created_at", "updated_at") VALUES('Men', '2010-01-31 09:44:41', '2010-01-31 09:44:41')[0m
+  [4;35;1mAuthor Create (0.3ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('Shakespeare', '2010-01-31 09:44:41', '2010-01-31 09:44:41')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Create (0.3ms)[0m   [0mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:44:41', 'Hamlet', '2010-01-31 09:44:41', 1)[0m
+  [4;36;1mPlay Create (0.2ms)[0m   [0;1mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:44:41', 'Twelfth Night', '2010-01-31 09:44:41', 1)[0m
+  [4;35;1mPlay Create (0.4ms)[0m   [0mINSERT INTO "plays" ("created_at", "title", "updated_at", "author_id") VALUES('2010-01-31 09:44:41', 'Romeo and Juliet', '2010-01-31 09:44:41', 1)[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES(NULL, 'Rebellious subjects, enemies to peace', '2010-01-31 09:44:41', 'Rebellious subjects, enemies to peace,
+Profaners of this neighbour-stained steel,--
+Will they not hear? What, ho! you men, you beasts,
+That quench the fire of your pernicious rage
+With purple fountains issuing from your veins,
+On pain of torture, from those bloody hands
+Throw your mistemper''d weapons to the ground,
+And hear the sentence of your moved prince.
+Three civil brawls, bred of an airy word,
+By thee, old Capulet, and Montague,
+Have thrice disturb''d the quiet of our streets,
+And made Verona''s ancient citizens
+Cast by their grave beseeming ornaments,
+To wield old partisans, in hands as old,
+Canker''d with peace, to part your canker''d hate:
+If ever you disturb our streets again,
+Your lives shall pay the forfeit of the peace.
+For this time, all the rest depart away:
+You Capulet; shall go along with me:
+And, Montague, come you this afternoon,
+To know our further pleasure in this case,
+To old Free-town, our common judgment-place.
+Once more, on pain of death, all men depart.', 'Prince', '2010-01-31 09:44:41', 3, NULL, 3, 'Verse')[0m
+  [4;35;1mMonologue Create (0.3ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES(NULL, 'If music be the food of love, play on', '2010-01-31 09:44:41', 'If music be the food of love, play on;
+Give me excess of it, that, surfeiting,
+The appetite may sicken, and so die.
+That strain again! it had a dying fall:
+O, it came o''er my ear like the sweet sound,
+That breathes upon a bank of violets,
+Stealing and giving odour! Enough; no more:
+''Tis not so sweet now as it was before.
+O spirit of love! how quick and fresh art thou,
+That, notwithstanding thy capacity
+Receiveth as the sea, nought enters there,
+Of what validity and pitch soe''er,
+But falls into abatement and low price,
+Even in a minute: so full of shapes is fancy
+That it alone is high fantastical.', 'Orsino', '2010-01-31 09:44:41', 3, NULL, 2, 'Verse')[0m
+  [4;36;1mMonologue Create (0.3ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES(NULL, 'O what a noble mind is here o''erthrown', '2010-01-31 09:44:41', 'O, what a noble mind is here o''erthrown!
+The courtier''s, scholar''s, soldier''s, eye, tongue, sword,
+Th'' expectancy and rose of the fair state,
+The glass of fashion and the mould of form,
+Th'' observ''d of all observers- quite, quite down!
+And I, of ladies most deject and wretched,
+That suck''d the honey of his music vows,
+Now see that noble and most sovereign reason,
+Like sweet bells jangled, out of tune and harsh;
+That unmatch''d form and feature of blown youth
+Blasted with ecstasy. O, woe is me
+T'' have seen what I have seen, see what I see!', 'Ophelia', '2010-01-31 09:44:41', 2, NULL, 1, 'Verse')[0m
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-01-31 01:44:47) [GET]
+  [4;35;1mMonologue Load (0.9ms)[0m   [0mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/monologues]
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (1.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.4ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.5ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.5ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.4ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.6ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I i 97', 'At least, the whisper goes so. Our last king', '2010-02-01 18:03:05', '<b>Horatio.</b> <div align="right">That can I.</div>
+ At least, the whisper goes so. Our last king,<br>
+ Whose image even but now appear''d to us,<br>
+ Was, as you know, by Fortinbras of Norway,<br>
+ Thereto prick''d on by a most emulate pride, 
+ Dar''d to the combat; in which our valiant Hamlet<br>
+ (For so this side of our known world esteem''d him)<br>
+ Did slay this Fortinbras; who, by a seal''d compact,<br>
+ Well ratified by law and heraldry,<br>
+ Did forfeit, with his life, all those his lands <br>
+ Which he stood seiz''d of, to the conqueror;<br>
+ Against the which a moiety competent<br>
+ Was gaged by our king; which had return''d<br>
+ To the inheritance of Fortinbras,<br>
+ Had he been vanquisher, as, by the same cov''nant <br>
+ And carriage of the article design''d,<br>
+ His fell to Hamlet. Now, sir, young Fortinbras,<br>
+ Of unimproved mettle hot and full,<br>
+ Hath in the skirts of Norway, here and there,<br>
+ Shark''d up a list of lawless resolutes,<br>
+ For food and diet, to some enterprise<br>
+ That hath a stomach in''t; which is no other,<br>
+ As it doth well appear unto our state,<br>
+ But to recover of us, by strong hand<br>
+ And terms compulsatory, those foresaid lands<br>
+ So by his father lost; and this, I take it,<br>
+ Is the main motive of our preparations,<br>
+ The source of this our watch, and the chief head<br>
+ Of this post-haste and romage in the land. <br><br>
+
+<del><b>Bernardo.</b> I think it be no other but e''en so.<br>
+ Well may it sort that this portentous figure<br>
+ Comes armed through our watch, so like the King<br>
+ That was and is the question of these wars. </del><br><br>
+
+<B>Horatio.</b> A mote it is to trouble the mind''s eye.<br>
+ In the most high and palmy state of Rome, <br>
+ A little ere the mightiest Julius fell,<br>
+ The graves stood tenantless, and the sheeted dead<br>
+ Did squeak and gibber in the Roman streets;<br>
+ As stars with trains of fire, and dews of blood,<br>
+ Disasters in the sun; and the moist star <br>
+ Upon whose influence Neptune''s empire stands<br>
+ Was sick almost to doomsday with eclipse.<br>
+ And even the like precurse of fierce events,<br>
+ As harbingers preceding still the fates<br>
+ And prologue to the omen coming on, <br>
+ Have heaven and earth together demonstrated<br>
+ Unto our climature and countrymen.<br>
+ [<i>Enter Ghost again.</i>]<br>
+ But soft! behold! Lo, where it comes again!<br>
+ I''ll cross it, though it blast me.- Stay illusion! <br>
+ [<i>Spreads his arms.</i>]<br>
+ If thou hast any sound, or use of voice,<br>
+ Speak to me.<br>
+ If there be any good thing to be done,<br>
+ That may to thee do ease, and, grace to me,<br>
+ Speak to me.<br>
+ If thou art privy to thy country''s fate,<br>
+ Which happily foreknowing may avoid,<br>
+ O, speak!<br>
+ Or if thou hast uphoarded in thy life <br>
+ Extorted treasure in the womb of earth<br>
+ (For which, they say, you spirits oft walk in death),<br>
+ [<i>The cock crows.</i>]<br>
+ Speak of it! Stay, and speak!- Stop it, Marcellus!<br>
+', 'Horatio', '2010-02-01 18:03:05', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=1&Scope=scene&LineHighlight=96#86', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I ii 1', 'Though yet of Hamlet our dear brother''s death', '2010-02-01 18:03:05', 'Though yet of Hamlet our dear brother''s death<br>
+The memory be green, and that it us befitted<br>
+To bear our hearts in grief, and our whole kingdom<br>
+To be contracted in one brow of woe,<br>
+Yet so far hath discretion fought with nature<br>
+That we with wisest sorrow think on him<br>
+Together with remembrance of ourselves.<br>
+Therefore our sometime sister, now our queen,<br>
+Th'' imperial jointress to this warlike state,<br>
+Have we, as ''twere with a defeated joy, <br>
+With an auspicious, and a dropping eye,<br>
+With mirth in funeral, and with dirge in marriage,<br>
+In equal scale weighing delight and dole,<br>
+Taken to wife; nor have we herein barr''d<br>
+Your better wisdoms, which have freely gone <br>
+With this affair along. For all, our thanks.<br>
+Now follows, that you know, young Fortinbras,<br>
+Holding a weak supposal of our worth,<br>
+Or thinking by our late dear brother''s death<br>
+Our state to be disjoint and out of frame, <br>
+Colleagued with this dream of his advantage,<br>
+He hath not fail''d to pester us with message<br>
+Importing the surrender of those lands<br>
+Lost by his father, with all bands of law,<br>
+To our most valiant brother. So much for him. <br>
+Now for ourself and for this time of meeting.<br>
+Thus much the business is: we have here writ<br>
+To Norway, uncle of young Fortinbras,<br>
+Who, impotent and bedrid, scarcely hears<br>
+Of this his nephew''s purpose, to suppress <br>
+His further gait herein, in that the levies,<br>
+The lists, and full proportions are all made<br>
+Out of his subject; and we here dispatch<br>
+You, good Cornelius, and you, Voltemand,<br>
+For bearers of this greeting to old Norway, <br>
+Giving to you no further personal power<br>
+To business with the King, more than the scope<br>
+Of These dilated articles allow. [<i>Gives a paper.</i>]
+Farewell, and let your haste commend your duty. <br>
+', 'Claudius', '2010-02-01 18:03:05', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=2&Scope=scene&LineHighlight=201', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.5ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I ii 91', '''Tis sweet and commendable in your nature Hamlet,', '2010-02-01 18:03:06', '''Tis sweet and commendable in your nature, Hamlet, <br>
+To give these mourning duties to your father;<br>
+But you must know, your father lost a father;<br>
+That father lost, lost his, and the survivor bound<br>
+In filial obligation for some term<br>
+To do obsequious sorrow. But to persever<br>
+In obstinate condolement is a course<br>
+Of impious stubbornness. ''Tis unmanly grief;<br>
+It shows a will most incorrect to heaven,<br>
+A heart unfortified, a mind impatient,<br>
+An understanding simple and unschool''d; <br>
+For what we know must be, and is as common<br>
+As any the most vulgar thing to sense,<br>
+Why should we in our peevish opposition<br>
+Take it to heart? Fie! ''tis a fault to heaven,<br>
+A fault against the dead, a fault to nature, <br>
+To reason most absurd, whose common theme<br>
+Is death of fathers, and who still hath cried,<br>
+From the first corse till he that died to-day,<br>
+''This must be so.'' We pray you throw to earth<br>
+This unprevailing woe, and think of us <br>
+As of a father; for let the world take note<br>
+You are the most immediate to our throne,<br>
+And with no less nobility of love<br>
+Than that which dearest father bears his son<br>
+Do I impart toward you. For your intent <br>
+In going back to school in Wittenberg,<br>
+It is most retrograde to our desire;<br>
+And we beseech you, bend you to remain<br>
+Here in the cheer and comfort of our eye,<br>
+Our chiefest courtier, cousin, and our son. <br>
+', 'Claudius', '2010-02-01 18:03:06', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=2&Scope=scene&LineHighlight=290#279', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I ii 133', 'O, that this too too solid flesh would melt.', '2010-02-01 18:03:06', 'O that this too too solid flesh would melt,<br>
+Thaw, and resolve itself into a dew!<br>
+Or that the Everlasting had not fix''d <br>
+His canon ''gainst self-slaughter! O God! God!<br>
+How weary, stale, flat, and unprofitable<br>
+Seem to me all the uses of this world!<br>
+Fie on''t! ah, fie! ''Tis an unweeded garden<br>
+That grows to seed; things rank and gross in nature <br>
+Possess it merely. That it should come to this!<br>
+But two months dead! Nay, not so much, not two.<br>
+So excellent a king, that was to this<br>
+Hyperion to a satyr; so loving to my mother<br>
+That he might not beteem the winds of heaven<br>
+Visit her face too roughly. Heaven and earth!<br>
+Must I remember? Why, she would hang on him<br>
+As if increase of appetite had grown<br>
+By what it fed on; and yet, within a month-<br>
+Let me not think on''t! Frailty, thy name is woman!- <br>
+A little month, or ere those shoes were old<br>
+With which she followed my poor father''s body<br>
+Like Niobe, all tears- why she, even she<br>
+(O God! a beast that wants discourse of reason<br>
+Would have mourn''d longer) married with my uncle;<br>
+My father''s brother, but no more like my father<br>
+Than I to Hercules. Within a month,<br>
+Ere yet the salt of most unrighteous tears<br>
+Had left the flushing in her galled eyes,<br>
+She married. O, most wicked speed, to post<br>
+With such dexterity to incestuous sheets!<br>
+It is not, nor it cannot come to good.<br>
+But break my heart, for I must hold my tongue! <br>
+', 'Hamlet', '2010-02-01 18:03:06', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=2&Scope=scene&LineHighlight=333#323', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.5ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I ii 205', 'Two nights together had these gentlemen', '2010-02-01 18:03:06', 'Two nights together had these gentlemen <br>
+(Marcellus and Bernardo) on their watch<br>
+In the dead vast and middle of the night<br>
+Been thus encount''red. A figure like your father,<br>
+Armed at point exactly, cap-a-pe,<br>
+Appears before them and with solemn march<br>
+Goes slow and stately by them. Thrice he walk''d<br>
+By their oppress''d and fear-surprised eyes,<br>
+Within his truncheon''s length; whilst they distill''d<br>
+Almost to jelly with the act of fear,<br>
+Stand dumb and speak not to him. This to me<br>
+In dreadful secrecy impart they did,<br>
+And I with them the third night kept the watch;<br>
+Where, as they had deliver''d, both in time,<br>
+Form of the thing, each word made true and good,<br>
+The apparition comes. I knew your father.<br>
+These hands are not more like. <br>
+', 'Horatio', '2010-02-01 18:03:06', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=2&Scope=scene&LineHighlight=405#396', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.7ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I iii 15', 'Think it no more
+For nature, crescent, does not grow alone', '2010-02-01 18:03:06', '<div align=right>Think it no more.</div>
+For nature crescent does not grow alone<br>
+In thews and bulk; but as this temple waxes,<br>
+The inward service of the mind and soul<br>
+Grows wide withal. Perhaps he loves you now,<br>
+And now no soil nor cautel doth besmirch<br>
+The virtue of his will; but you must fear,<br>
+His greatness weigh''d, his will is not his own;<br>
+For he himself is subject to his birth.<br>
+He may not, as unvalued persons do,<br>
+Carve for himself, for on his choice depends<br>
+The safety and health of this whole state, <br>
+And therefore must his choice be circumscrib''d<br>
+Unto the voice and yielding of that body<br>
+Whereof he is the head. Then if he says he loves you,<br>
+It fits your wisdom so far to believe it<br>
+As he in his particular act and place <br>
+May give his saying deed; which is no further<br>
+Than the main voice of Denmark goes withal.<br>
+Then weigh what loss your honour may sustain<br>
+If with too credent ear you list his songs,<br>
+Or lose your heart, or your chaste treasure open <br>
+To his unmast''red importunity.<br>
+Fear it, Ophelia, fear it, my dear sister,<br>
+And keep you in the rear of your affection,<br>
+Out of the shot and danger of desire.<br>
+The chariest maid is prodigal enough <br>
+If she unmask her beauty to the moon.<br>
+Virtue itself scopes not calumnious strokes.<br>
+The canker galls the infants of the spring<br>
+Too oft before their buttons be disclos''d,<br>
+And in the morn and liquid dew of youth <br>
+Contagious blastments are most imminent.<br>
+Be wary then; best safety lies in fear.<br>
+Youth to itself rebels, though none else near.<br> 
+', 'Laertes', '2010-02-01 18:03:06', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=3&Scope=scene&LineHighlight=494#486', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I iii 62', 'Yet here, Laertes! aboard, aboard, for shame!
+The wind sits in the shoulder of your sail,', '2010-02-01 18:03:07', 'Yet here, Laertes? Aboard, aboard, for shame!<br>
+The wind sits in the shoulder of your sail,<br>
+And you are stay''d for. There- my blessing with thee!<br>
+And these few precepts in thy memory<br>
+Look thou character. Give thy thoughts no tongue,<br>
+Nor any unproportion''d thought his act.<br>
+Be thou familiar, but by no means vulgar:<br>
+Those friends thou hast, and their adoption tried,<br>
+Grapple them unto thy soul with hoops of steel;<br>
+But do not dull thy palm with entertainment <br>
+Of each new-hatch''d, unfledg''d comrade. Beware<br>
+Of entrance to a quarrel; but being in,<br>
+Bear''t that th'' opposed may beware of thee.<br>
+Give every man thine ear, but few thy voice;<br>
+Take each man''s censure, but reserve thy judgment.<br>
+Costly thy habit as thy purse can buy,<br>
+But not express''d in fancy; rich, not gaudy;<br>
+For the apparel oft proclaims the man,<br>
+And they in France of the best rank and station<br>
+Are most select and generous, chief in that. <br>
+Neither a borrower nor a lender be;<br>
+For loan oft loses both itself and friend,<br>
+And borrowing dulls the edge of husbandry.<br>
+This above all- to thine own self be true,<br>
+And it must follow, as the night the day, <br>
+Thou canst not then be false to any man.<br>
+Farewell. My blessing season this in thee!<br>
+', 'Polonius', '2010-02-01 18:03:07', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=3&Scope=scene&LineHighlight=494#486', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I iii 123', 'Ay, springes to catch woodcocks. I do know', '2010-02-01 18:03:07', 'Ay, springes to catch woodcocks! I do know,<br>
+When the blood burns, how prodigal the soul<br>
+Lends the tongue vows. These blazes, daughter,<br>
+Giving more light than heat, extinct in both <br>
+Even in their promise, as it is a-making,<br>
+You must not take for fire. From this time<br>
+Be something scanter of your maiden presence.<br>
+Set your entreatments at a higher rate<br>
+Than a command to parley. For Lord Hamlet,<br>
+Believe so much in him, that he is young,<br>
+And with a larger tether may he walk<br>
+Than may be given you. In few, Ophelia,<br>
+Do not believe his vows; for they are brokers,<br>
+Not of that dye which their investments show, <br>
+But mere implorators of unholy suits,<br>
+Breathing like sanctified and pious bawds,<br>
+The better to beguile. This is for all:<br>
+I would not, in plain terms, from this time forth<br>
+Have you so slander any moment leisure <br>
+As to give words or talk with the Lord Hamlet.<br>
+Look to''t, I charge you. Come your ways. <br>
+', 'Polonius', '2010-02-01 18:03:07', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=3&Scope=scene&LineHighlight=602#597', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I iv 18', 'But to my mind, though I am native here', '2010-02-01 18:03:07', '<div align=right>Ay, marry, is''t;</div>
+But to my mind, though I am native here<br>
+And to the manner born, it is a custom<br>
+More honour''d in the breach than the observance.<br>
+This heavy-headed revel east and west <br>
+Makes us traduc''d and tax''d of other nations;<br>
+They clip us drunkards and with swinish phrase<br>
+Soil our addition; and indeed it takes<br>
+From our achievements, though perform''d at height,<br>
+The pith and marrow of our attribute. <br>
+So oft it chances in particular men<br>
+That, for some vicious mole of nature in them,<br>
+As in their birth,- wherein they are not guilty,<br>
+Since nature cannot choose his origin,-<br>
+By the o''ergrowth of some complexion, <br>
+Oft breaking down the pales and forts of reason,<br>
+Or by some habit that too much o''erleavens<br>
+The form of plausive manners, that these men<br>
+Carrying, I say, the stamp of one defect,<br>
+Being nature''s livery, or fortune''s star, <br>
+Their virtues else- be they as pure as grace,<br>
+As infinite as man may undergo-<br>
+Shall in the general censure take corruption<br>
+From that particular fault. The dram of e''il<br>
+Doth all the noble substance often dout To his own scandal. <br>
+', 'Hamlet (intercut)', '2010-02-01 18:03:07', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=4&Scope=scene&LineHighlight=641#629', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.5ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I v 15', 'I am thy father''s spirit.', '2010-02-01 18:03:07', '<b>Fathers'' Ghost.</b> * I am thy father''s spirit, <br>
+ Doom''d for a certain term to walk the night,<br>
+ And for the day confin''d to fast in fires,<br>
+ Till the foul crimes done in my days of nature<br>
+ Are burnt and purg''d away. But that I am forbid<br>
+ To tell the secrets of my prison house, <br>
+ I could a tale unfold whose lightest word<br>
+ Would harrow up thy soul, freeze thy young blood,<br>
+ Make thy two eyes, like stars, start from their spheres,<br>
+ Thy knotted and combined locks to part,<br>
+ And each particular hair to stand on end <br>
+ Like quills upon the fretful porcupine.<br>
+ But this eternal blazon must not be<br>
+ To ears of flesh and blood. List, list, O, list!<br>
+ If thou didst ever thy dear father love- <br><br>
+
+ <del><b>Hamlet.</b> O God!</del><br><br>
+
+ <B>Father''s Ghost.</b> Revenge his foul and most unnatural murther. <br><br>
+
+ <del><b>Hamlet.</b> Murther?</del><br><br> 
+
+ <b>Father''s Ghost.</b> Murther most foul, as in the best it is;<br>
+ But this most foul, strange, and unnatural. <br><br>
+
+ <del><b>Hamlet.</b> Haste me to know''t, that I, with wings as swift<br>
+ As meditation or the thoughts of love,<br>
+ May sweep to my revenge. </del><br><br>
+
+ <b>Father''s Ghost.</b> I find thee apt;<br>
+ And duller shouldst thou be than the fat weed<br>
+ That rots itself in ease on Lethe wharf, <br>
+ Wouldst thou not stir in this. Now, Hamlet, hear.<br>
+ ''Tis given out that, sleeping in my orchard,<br>
+ A serpent stung me. So the whole ear of Denmark<br>
+ Is by a forged process of my death<br>
+ Rankly abus''d. But know, thou noble youth,<br>
+ The serpent that did sting thy father''s life<br>
+ Now wears his crown. <br><br>
+
+ <del><b>Hamlet.</b> O my prophetic soul!<br>
+ My uncle? </del><br><br>
+
+ <b>Father''s Ghost.</b> Ay, that incestuous, that adulterate beast,<br>
+ With witchcraft of his wit, with traitorous gifts-<br>
+ O wicked wit and gifts, that have the power<br>
+ So to seduce!- won to his shameful lust<br>
+ The will of my most seeming-virtuous queen.<br>
+ O Hamlet, what a falling-off was there,<br>
+ From me, whose love was of that dignity<br>
+ That it went hand in hand even with the vow<br>
+ I made to her in marriage, and to decline<br>
+ Upon a wretch whose natural gifts were poor<br>
+ To those of mine! <br>
+ But virtue, as it never will be mov''d,<br>
+ Though lewdness court it in a shape of heaven,<br>
+ So lust, though to a radiant angel link''d,<br>
+ Will sate itself in a celestial bed<br>
+ And prey on garbage. <br>
+ But soft! methinks I scent the morning air.<br>
+ Brief let me be. Sleeping within my orchard,<br>
+ My custom always of the afternoon,<br>
+ Upon my secure hour thy uncle stole,<br>
+ With juice of cursed hebona in a vial, <br>
+ And in the porches of my ears did pour<br>
+ The leperous distilment; whose effect<br>
+ Holds such an enmity with blood of man<br>
+ That swift as quicksilver it courses through<br>
+ The natural gates and alleys of the body,<br>
+ And with a sudden vigour it doth posset<br>
+ And curd, like eager droppings into milk,<br>
+ The thin and wholesome blood. So did it mine;<br>
+ And a most instant tetter bark''d about,<br>
+ Most lazar-like, with vile and loathsome crust<br>
+ All my smooth body.<br>
+ Thus was I, sleeping, by a brother''s hand<br>
+ Of life, of crown, of queen, at once dispatch''d;<br>
+ Cut off even in the blossoms of my sin,<br>
+ Unhous''led, disappointed, unanel''d, <br>
+ No reckoning made, but sent to my account<br>
+ With all my imperfections on my head. <br><br>
+
+ <del><B>Hamlet.</b> O, horrible! O, horrible! most horrible! </b></del><br><br>
+
+ <b>Father''s Ghost.</b> If thou hast nature in thee, bear it not.<br>
+ Let not the royal bed of Denmark be <br>
+ A couch for luxury and damned incest.<br>
+ But, howsoever thou pursuest this act,<br>
+ Taint not thy mind, nor let thy soul contrive<br>
+ Against thy mother aught. Leave her to heaven,<br>
+ And to those thorns that in her bosom lodge <br>
+ To prick and sting her. Fare thee well at once.<br>
+ The glowworm shows the matin to be near<br>
+ And gins to pale his uneffectual fire.<br>
+ Adieu, adieu, adieu! Remember me. <br><br>
+
+<i>[Exit]</i> 
+', 'Ghost (intercut)', '2010-02-01 18:03:07', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=5&Scope=scene&LineHighlight=745#739', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.3ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('I v 100', 'O all you host of heaven! O earth! What else?', '2010-02-01 18:03:08', 'O all you host of heaven! O earth! What else? <br>
+And shall I couple hell? Hold, hold, my heart!<br>
+And you, my sinews, grow not instant old,<br>
+But bear me stiffly up. Remember thee?<br>
+Ay, thou poor ghost, while memory holds a seat<br>
+In this distracted globe. Remember thee? <br>
+Yea, from the table of my memory<br>
+I''ll wipe away all trivial fond records,<br>
+All saws of books, all forms, all pressures past<br>
+That youth and observation copied there,<br>
+And thy commandment all alone shall live <br>
+Within the book and volume of my brain,<br>
+Unmix''d with baser matter. Yes, by heaven!<br>
+O most pernicious woman!<br>
+O villain, villain, smiling, damned villain!<br>
+My tables! Meet it is I set it down <br>
+That one may smile, and smile, and be a villain<br>
+At least I am sure it may be so in Denmark. [<i>Writes.</i>]<br>
+So, uncle, there you are. Now to my word:<br>
+It is ''Adieu, adieu! Remember me.''<br>
+I have sworn''t. <br>
+', 'Hamlet', '2010-02-01 18:03:08', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=1&Scene=5&Scope=scene&LineHighlight=830#818', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('II ii 250', 'I will tell you why; so shall my anticipation prevent your discovery', '2010-02-01 18:03:08', 'I will tell you why. So shall my anticipation prevent your
+discovery, and your secrecy to the King and Queen moult no
+feather. I have of late- but wherefore I know not- lost all my
+mirth, forgone all custom of exercises; and indeed, it goes so
+heavily with my disposition that this goodly frame, the earth,
+seems to me a sterile promontory; this most excellent canopy, the
+air, look you, this brave o''erhanging firmament, this majestical 
+roof fretted with golden fire- why, it appeareth no other thing
+to me than a foul and pestilent congregation of vapours. What a
+piece of work is a man! how noble in reason! how infinite in
+faculties! in form and moving how express and admirable! in
+action how like an angel! in apprehension how like a god! the 
+beauty of the world, the paragon of animals! And yet to me what
+is this quintessence of dust? Man delights not me- no, nor woman
+neither, though by your smiling you seem to say so. 
+', 'Hamlet', '2010-02-01 18:03:08', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=2&Scene=2&Scope=scene&LineHighlight=1389#1375', 1, 'Prose')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('II ii 382', 'O, what a rogue and peasant slave am I', '2010-02-01 18:03:09', 'O what a rogue and peasant slave am I!<br>
+Is it not monstrous that this player here,<br>
+But in a fiction, in a dream of passion, <br>
+Could force his soul so to his own conceit<br>
+That, from her working, all his visage wann''d,<br>
+Tears in his eyes, distraction in''s aspect,<br>
+A broken voice, and his whole function suiting<br>
+With forms to his conceit? And all for nothing!<br>
+For Hecuba!<br>
+What''s Hecuba to him, or he to Hecuba,<br>
+That he should weep for her? What would he do,<br>
+Had he the motive and the cue for passion<br>
+That I have? He would drown the stage with tears<br>
+And cleave the general ear with horrid speech;<br>
+Make mad the guilty and appal the free,<br>
+Confound the ignorant, and amaze indeed<br>
+The very faculties of eyes and ears.<br>
+Yet I, <br>
+A dull and muddy-mettled rascal, peak<br>
+Like John-a-dreams, unpregnant of my cause,<br>
+And can say nothing! No, not for a king,<br>
+Upon whose property and most dear life<br>
+A damn''d defeat was made. Am I a coward? <br>
+Who calls me villain? breaks my pate across?<br>
+Plucks off my beard and blows it in my face?<br>
+Tweaks me by th'' nose? gives me the lie i'' th'' throat<br>
+As deep as to the lungs? Who does me this, ha?<br>
+''Swounds, I should take it! for it cannot be <br>
+But I am pigeon-liver''d and lack gall<br>
+To make oppression bitter, or ere this<br>
+I should have fatted all the region kites<br>
+With this slave''s offal. Bloody bawdy villain!<br>
+Remorseless, treacherous, lecherous, kindless villain! <br>
+O, vengeance!<br>
+Why, what an ass am I! This is most brave,<br>
+That I, the son of a dear father murther''d,<br>
+Prompted to my revenge by heaven and hell,<br>
+Must (like a whore) unpack my heart with words <br>
+And fall a-cursing like a very drab,<br>
+A scullion!<br>
+Fie upon''t! foh! About, my brain! Hum, I have heard<br>
+That guilty creatures, sitting at a play,<br>
+Have by the very cunning of the scene <br>
+Been struck so to the soul that presently<br>
+They have proclaim''d their malefactions;<br>
+For murther, though it have no tongue, will speak<br>
+With most miraculous organ, I''ll have these Players<br>
+Play something like the murther of my father <br>
+Before mine uncle. I''ll observe his looks;<br>
+I''ll tent him to the quick. If he but blench,<br>
+I know my course. The spirit that I have seen<br>
+May be a devil; and the devil hath power<br>
+T'' assume a pleasing shape; yea, and perhaps<br>
+Out of my weakness and my melancholy,<br>
+As he is very potent with such spirits,<br>
+Abuses me to damn me. I''ll have grounds<br>
+More relative than this. The play''s the thing<br>
+Wherein I''ll catch the conscience of the King. <br>
+[<i>Exit</i>]<br>
+', 'Hamlet', '2010-02-01 18:03:09', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=2&Scene=2&Scope=scene&LineHighlight=1620#1615', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('III i 64', 'To be, or not to be, that is the question', '2010-02-01 18:03:09', 'To be, or not to be- that is the question:<br>
+Whether ''tis nobler in the mind to suffer<br>
+The slings and arrows of outrageous fortune<br>
+Or to take arms against a sea of troubles,<br>
+And by opposing end them. To die- to sleep-<br>
+No more; and by a sleep to say we end<br>
+The heartache, and the thousand natural shocks<br>
+That flesh is heir to. ''Tis a consummation<br>
+Devoutly to be wish''d. To die- to sleep.<br>
+To sleep- perchance to dream: ay, there''s the rub!<br>
+For in that sleep of death what dreams may come<br>
+When we have shuffled off this mortal coil,<br>
+Must give us pause. There''s the respect<br>
+That makes calamity of so long life.<br>
+For who would bear the whips and scorns of time,<br>
+Th'' oppressor''s wrong, the proud man''s contumely,<br>
+The pangs of despis''d love, the law''s delay, <br>
+The insolence of office, and the spurns<br>
+That patient merit of th'' unworthy takes,<br>
+When he himself might his quietus make<br>
+With a bare bodkin? Who would these fardels bear,<br>
+To grunt and sweat under a weary life, <br>
+But that the dread of something after death-<br>
+The undiscover''d country, from whose bourn<br>
+No traveller returns- puzzles the will,<br>
+And makes us rather bear those ills we have<br>
+Than fly to others that we know not of? <br>
+Thus conscience does make cowards of us all,<br>
+And thus the native hue of resolution<br>
+Is sicklied o''er with the pale cast of thought,<br>
+And enterprises of great pith and moment<br>
+With this regard their currents turn awry <br>
+And lose the name of action.- Soft you now!<br>
+The fair Ophelia!- Nymph, in thy orisons<br>
+Be all my sins rememb''red. <br>
+', 'Hamlet', '2010-02-01 18:03:09', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=1&Scope=scene&LineHighlight=1749#1740', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.5ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('III i 125', 'Get thee to a nunnery', '2010-02-01 18:03:09', '<b>Hamlet.</b> Get thee to a nunnery! Why wouldst thou be a breeder of
+ sinners? I am myself indifferent honest, but yet I could accuse 
+ me of such things that it were better my mother had not borne me.
+ I am very proud, revengeful, ambitious; with more offences at my
+ beck than I have thoughts to put them in, imagination to give
+ them shape, or time to act them in. What should such fellows as I
+ do, crawling between earth and heaven? We are arrant knaves all;
+ believe none of us. Go thy ways to a nunnery. Where''s your
+ father? <br><br>
+
+<del><b>Ophelia.</b> At home, my lord.</del><br><br> 
+
+<b>Hamlet.</b> Let the doors be shut upon him, that he may play the fool
+ nowhere but in''s own house. Farewell.<br><br>
+
+<del><b>Ophelia.</b> O, help him, you sweet heavens!</del> <br><br>
+
+<b>Hamlet.</b> If thou dost marry, I''ll give thee this plague for thy dowry:
+ be thou as chaste as ice, as pure as snow, thou shalt not escape
+ calumny. Get thee to a nunnery. Go, farewell. Or if thou wilt
+ needs marry, marry a fool; for wise men know well enough what 
+ monsters you make of them. To a nunnery, go; and quickly too.
+ Farewell. <br><br>
+
+<del><b> Ophelia.</b> O heavenly powers, restore him! </del><br><br>
+
+<b>Hamlet.</b> I have heard of your paintings too, well enough. God hath
+ given you one face, and you make yourselves another. You jig, you 
+ amble, and you lisp; you nickname God''s creatures and make your
+ wantonness your ignorance. Go to, I''ll no more on''t! it hath made
+ me mad. I say, we will have no moe marriages. Those that are
+ married already- all but one- shall live; the rest shall keep as
+ they are. To a nunnery, go.<br><br>
+[<i>Exit</i>]
+', 'Hamlet (intercut)', '2010-02-01 18:03:09', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=1&Scope=scene&LineHighlight=1814#1810', 1, 'Prose')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('III ii 1', 'Speak the speech, I pray you', '2010-02-01 18:03:09', '<b>Hamlet.</b> Speak the speech, I pray you, as I pronounc''d it to you,
+ trippingly on the tongue. But if you mouth it, as many of our
+ players do, I had as live the town crier spoke my lines. Nor do 
+ not saw the air too much with your hand, thus, but use all
+ gently; for in the very torrent, tempest, and (as I may say)
+ whirlwind of your passion, you must acquire and beget a
+ temperance that may give it smoothness. O, it offends me to the
+ soul to hear a robustious periwig-pated fellow tear a passion to
+ tatters, to very rags, to split the cars of the groundlings, who
+ (for the most part) are capable of nothing but inexplicable dumb
+ shows and noise. I would have such a fellow whipp''d for o''erdoing
+ Termagant. It out-herods Herod. Pray you avoid it. <br><br>
+
+ <del><b> First Player.</b> I warrant your honour. </del><br><br>
+
+<b> Hamlet.</b> Be not too tame neither; but let your own discretion be your
+ tutor. Suit the action to the word, the word to the action; with
+ this special observance, that you o''erstep not the modesty of
+ nature: for anything so overdone is from the purpose of playing,
+ whose end, both at the first and now, was and is, to hold, as
+ ''twere, the mirror up to nature; to show Virtue her own feature,
+ scorn her own image, and the very age and body of the time his
+ form and pressure. Now this overdone, or come tardy off, though
+ it make the unskilful laugh, cannot but make the judicious
+ grieve; the censure of the which one must in your allowance 
+ o''erweigh a whole theatre of others. O, there be players that I
+ have seen play, and heard others praise, and that highly (not to
+ speak it profanely), that, neither having the accent of
+ Christians, nor the gait of Christian, pagan, nor man, have so
+ strutted and bellowed that I have thought some of Nature''s 
+ journeymen had made men, and not made them well, they imitated
+ humanity so abominably. <br><br>
+
+<del><b> First Player.</b> I hope we have reform''d that indifferently with us, sir. </del><br><br>
+
+<b>Hamlet.</b> O, reform it altogether! And let those that play your clowns
+ speak no more than is set down for them. For there be of them 
+ that will themselves laugh, to set on some quantity of barren
+ spectators to laugh too, though in the mean time some necessary
+ question of the play be then to be considered. That''s villanous
+ and shows a most pitiful ambition in the fool that uses it. Go
+ make you ready. <br><br>
+ [<i>Exeunt Players</i>.] 
+', 'Hamlet', '2010-02-01 18:03:09', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=2&Scope=scene&LineHighlight=1883', 1, 'Prose')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('III ii 27', 'Since my dear soul was mistress of her choice', '2010-02-01 18:03:10', 'Since my dear soul was mistress of her choice<br>
+And could of men distinguish, her election<br>
+Hath seal''d thee for herself. For thou hast been<br>
+As one, in suff''ring all, that suffers nothing;<br>
+A man that Fortune''s buffets and rewards<br>
+Hast ta''en with equal thanks; and blest are those<br>
+Whose blood and judgment are so well commingled<br>
+That they are not a pipe for Fortune''s finger<br>
+To sound what stop she please. Give me that man <br>
+That is not passion''s slave, and I will wear him<br>
+In my heart''s core, ay, in my heart of heart,<br>
+As I do thee. Something too much of this I<br>
+There is a play to-night before the King.<br>
+One scene of it comes near the circumstance, <br>
+Which I have told thee, of my father''s death.<br>
+I prithee, when thou seest that act afoot,<br>
+Even with the very comment of thy soul<br>
+Observe my uncle. If his occulted guilt<br>
+Do not itself unkennel in one speech, <br>
+It is a damned ghost that we have seen,<br>
+And my imaginations are as foul<br>
+As Vulcan''s stithy. Give him heedful note;<br>
+For I mine eyes will rivet to his face,<br>
+And after we will both our judgments join<br>
+In censure of his seeming. <br>
+', 'Hamlet', '2010-02-01 18:03:10', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=2&Scope=scene&LineHighlight=1935#1929', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.5ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('III ii 134', 'I do believe you think what now you speak', '2010-02-01 18:03:10', 'I do believe you think what now you speak;<br>
+But what we do determine oft we break.<br>
+Purpose is but the slave to memory, <br>
+Of violent birth, but poor validity;<br>
+Which now, like fruit unripe, sticks on the tree,<br>
+But fall unshaken when they mellow be.<br>
+Most necessary ''tis that we forget<br>
+To pay ourselves what to ourselves is debt.<br>
+What to ourselves in passion we propose,<br>
+The passion ending, doth the purpose lose.<br>
+The violence of either grief or joy<br>
+Their own enactures with themselves destroy.<br>
+Where joy most revels, grief doth most lament; <br>
+Grief joys, joy grieves, on slender accident.<br>
+This world is not for aye, nor ''tis not strange<br>
+That even our loves should with our fortunes change;<br>
+For ''tis a question left us yet to prove,<br>
+Whether love lead fortune, or else fortune love.<br>
+The great man down, you mark his favourite flies,<br>
+The poor advanc''d makes friends of enemies;<br>
+And hitherto doth love on fortune tend,<br>
+For who not needs shall never lack a friend,<br>
+And who in want a hollow friend doth try, <br>
+Directly seasons him his enemy.<br>
+But, orderly to end where I begun,<br>
+Our wills and fates do so contrary run<br>
+That our devices still are overthrown;<br>
+Our thoughts are ours, their ends none of our own.<br>
+So think thou wilt no second husband wed;<br>
+But die thy thoughts when thy first lord is dead.<br> 
+', 'Player King', '2010-02-01 18:03:10', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=2&Scope=scene&LineHighlight=2078#2069', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('III iii 142', 'O, my offence is rank, it smells to heaven', '2010-02-01 18:03:10', 'O, my offence is rank, it smells to heaven;<br>
+It hath the primal eldest curse upon''t,<br>
+A brother''s murther! Pray can I not, <br>
+Though inclination be as sharp as will.<br>
+My stronger guilt defeats my strong intent,<br>
+And, like a man to double business bound,<br>
+I stand in pause where I shall first begin,<br>
+And both neglect. What if this cursed hand <br>
+Were thicker than itself with brother''s blood,<br>
+Is there not rain enough in the sweet heavens<br>
+To wash it white as snow? Whereto serves mercy<br>
+But to confront the visage of offence?<br>
+And what''s in prayer but this twofold force,<br>
+To be forestalled ere we come to fall,<br>
+Or pardon''d being down? Then I''ll look up;<br>
+My fault is past. But, O, what form of prayer<br>
+Can serve my turn? ''Forgive me my foul murther''?<br>
+That cannot be; since I am still possess''d <br>
+Of those effects for which I did the murther-<br>
+My crown, mine own ambition, and my queen.<br>
+May one be pardon''d and retain th'' offence?<br>
+In the corrupted currents of this world<br>
+Offence''s gilded hand may shove by justice,<br>
+And oft ''tis seen the wicked prize itself<br>
+Buys out the law; but ''tis not so above.<br>
+There is no shuffling; there the action lies<br>
+In his true nature, and we ourselves compell''d,<br>
+Even to the teeth and forehead of our faults, <br>
+To give in evidence. What then? What rests?<br>
+Try what repentance can. What can it not?<br>
+Yet what can it when one cannot repent?<br>
+O wretched state! O bosom black as death!<br>
+O limed soul, that, struggling to be free, <br>
+Art more engag''d! Help, angels! Make assay.<br>
+Bow, stubborn knees; and heart with strings of steel,<br>
+Be soft as sinews of the new-born babe!<br>
+All may be well. He kneels. <br>
+', 'Claudius', '2010-02-01 18:03:10', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=3&Scope=scene&LineHighlight=2316#2307', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.3ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.4ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('III iii 80', 'Now might I do it pat, now he is praying', '2010-02-01 18:03:10', 'Now might I do it pat, now he is praying;<br>
+And now I''ll do''t. And so he goes to heaven,<br>
+And so am I reveng''d. That would be scann''d.<br>
+A villain kills my father; and for that,<br>
+I, his sole son, do this same villain send <br>
+To heaven.<br>
+Why, this is hire and salary, not revenge!<br>
+He took my father grossly, full of bread,<br>
+With all his crimes broad blown, as flush as May;<br>
+And how his audit stands, who knows save heaven? <br>
+But in our circumstance and course of thought,<br>
+''Tis heavy with him; and am I then reveng''d,<br>
+To take him in the purging of his soul,<br>
+When he is fit and seasoned for his passage?<br>
+No. Up, sword, and know thou a more horrid hent.<br>
+When he is drunk asleep; or in his rage;<br>
+Or in th'' incestuous pleasure of his bed;<br>
+At gaming, swearing, or about some act<br>
+That has no relish of salvation in''t- <br>
+Then trip him, that his heels may kick at heaven,<br>
+And that his soul may be as damn''d and black<br>
+As hell, whereto it goes. My mother stays.<br>
+This physic but prolongs thy sickly days.<br><br> 
+
+[<i>Exit.</i>] 
+', 'Hamlet', '2010-02-01 18:03:10', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=3&Scope=scene&LineHighlight=2356#2356', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('III iv 63', 'Look here, upon this picture, and on this', '2010-02-01 18:03:11', 'Look here upon th''s picture, and on this, <br>
+The counterfeit presentment of two brothers.<br>
+See what a grace was seated on this brow;<br>
+Hyperion''s curls; the front of Jove himself;<br>
+An eye like Mars, to threaten and command;<br>
+A station like the herald Mercury <br>
+New lighted on a heaven-kissing hill:<br>
+A combination and a form indeed<br>
+Where every god did seem to set his seal<br>
+To give the world assurance of a man.<br>
+This was your husband. Look you now what follows.<br>
+Here is your husband, like a mildew''d ear<br>
+Blasting his wholesome brother. Have you eyes?<br>
+Could you on this fair mountain leave to feed,<br>
+And batten on this moor? Ha! have you eyes<br>
+You cannot call it love; for at your age<br>
+The heyday in the blood is tame, it''s humble,<br>
+And waits upon the judgment; and what judgment<br>
+Would step from this to this? Sense sure you have,<br>
+Else could you not have motion; but sure that sense<br>
+Is apoplex''d; for madness would not err, <br>
+Nor sense to ecstacy was ne''er so thrall''d<br>
+But it reserv''d some quantity of choice<br>
+To serve in such a difference. What devil was''t<br>
+That thus hath cozen''d you at hoodman-blind?<br>
+Eyes without feeling, feeling without sight, <br>
+Ears without hands or eyes, smelling sans all,<br>
+Or but a sickly part of one true sense<br>
+Could not so mope.<br>
+O shame! where is thy blush? Rebellious hell,<br>
+If thou canst mutine in a matron''s bones, <br>
+To flaming youth let virtue be as wax<br>
+And melt in her own fire. Proclaim no shame<br>
+When the compulsive ardour gives the charge,<br>
+Since frost itself as actively doth burn,<br>
+And reason panders will. <br>
+', 'Hamlet', '2010-02-01 18:03:11', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=4&Scope=scene&LineHighlight=2445#2443', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;35;1mMonologue Create (0.8ms)[0m   [0mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('IV iv 35', 'How all occasions do inform against me', '2010-02-01 18:03:11', 'How all occasions do inform against me<br>
+And spur my dull revenge! What is a man,<br>
+If his chief good and market of his time<br>
+Be but to sleep and feed? A beast, no more.<br>
+Sure he that made us with such large discourse,<br>
+Looking before and after, gave us not<br>
+That capability and godlike reason<br>
+To fust in us unus''d. Now, whether it be<br>
+Bestial oblivion, or some craven scruple<br>
+Of thinking too precisely on th'' event,- <br>
+A thought which, quarter''d, hath but one part wisdom<br>
+And ever three parts coward,- I do not know<br>
+Why yet I live to say ''This thing''s to do,''<br>
+Sith I have cause, and will, and strength, and means<br>
+To do''t. Examples gross as earth exhort me. <br>
+Witness this army of such mass and charge,<br>
+Led by a delicate and tender prince,<br>
+Whose spirit, with divine ambition puff''d,<br>
+Makes mouths at the invisible event,<br>
+Exposing what is mortal and unsure <br>
+To all that fortune, death, and danger dare,<br>
+Even for an eggshell. Rightly to be great<br>
+Is not to stir without great argument,<br>
+But greatly to find quarrel in a straw<br>
+When honour''s at the stake. How stand I then,<br>
+That have a father kill''d, a mother stain''d,<br>
+Excitements of my reason and my blood,<br>
+And let all sleep, while to my shame I see<br>
+The imminent death of twenty thousand men<br>
+That for a fantasy and trick of fame <br>
+Go to their graves like beds, fight for a plot<br>
+Whereon the numbers cannot try the cause,<br>
+Which is not tomb enough and continent<br>
+To hide the slain? O, from this time forth,<br>
+My thoughts be bloody, or be nothing worth! <br><br>
+[<i>Exit.</i>] 
+', 'Hamlet', '2010-02-01 18:03:11', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=4&Scene=4&Scope=scene&LineHighlight=2819#2819', 1, 'Verse')[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;35;1mPlay Load (0.2ms)[0m   [0mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+  [4;36;1mMonologue Create (0.4ms)[0m   [0;1mINSERT INTO "monologues" ("section", "name", "created_at", "body", "character", "updated_at", "gender_id", "link", "play_id", "style") VALUES('IV v 45', 'O! this is the poison of deep grief;', '2010-02-01 18:03:11', 'O, this is the poison of deep grief; it springs<br>
+All from her father''s death. O Gertrude, Gertrude,<br>
+When sorrows come, they come not single spies.<br>
+But in battalions! First, her father slain; <br>
+Next, your son gone, and he most violent author<br>
+Of his own just remove; the people muddied,<br>
+Thick and and unwholesome in their thoughts and whispers<br>
+For good Polonius'' death, and we have done but greenly<br>
+In hugger-mugger to inter him; poor Ophelia <br>
+Divided from herself and her fair judgment,<br>
+Without the which we are pictures or mere beasts;<br>
+Last, and as much containing as all these,<br>
+Her brother is in secret come from France;<br>
+Feeds on his wonder, keeps, himself in clouds,<br>
+And wants not buzzers to infect his ear<br>
+With pestilent speeches of his father''s death,<br>
+Wherein necessity, of matter beggar''d,<br>
+Will nothing stick our person to arraign<br>
+In ear and ear. O my dear Gertrude, this,<br>
+Like to a murd''ring piece, in many places<br>
+Give me superfluous death.<br>
+', 'Claudius', '2010-02-01 18:03:11', 3, 'http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=4&Scene=5&Scope=scene&LineHighlight=2935#2929', 1, 'Verse')[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Shakespeare') LIMIT 1[0m
+  [4;36;1mPlay Load (0.2ms)[0m   [0;1mSELECT * FROM "plays" WHERE ("plays"."title" = 'Hamlet') LIMIT 1[0m
+
+
+Processing MonologuesController#index (for 127.0.0.1 at 2010-02-01 10:03:33) [GET]
+  [4;36;1mMonologue Load (2.9ms)[0m   [0;1mSELECT * FROM "monologues" [0m
+Rendering template within layouts/monologues
+Rendering monologues/index
+Completed in 105ms (View: 96, DB: 3) | 200 OK [http://localhost/]

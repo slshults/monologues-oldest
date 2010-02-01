@@ -1,4 +1,6 @@
-ActionController::Routing::Routes.draw do |map|  
+ActionController::Routing::Routes.draw do |map|
+  map.resources :monologues
+  
   map.resources :monologues
 
   map.resources :genders
