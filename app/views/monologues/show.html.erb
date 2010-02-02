@@ -1,40 +1,25 @@
 <% title "Monologue" %>
 
 <p>
-  <strong>Play:</strong>
-  <%=h @monologue.play_id %>
+  <%=h @monologue.play.title %> <a href='<%= @monologue.link %>'><%=h @monologue.section %></a>
 </p>
+<h1><%=h @monologue.name %></h1>
 <p>
-  <strong>Section:</strong>
-  <%=h @monologue.section %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%=h @monologue.name %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%=h @monologue.body %>
-</p>
-<p>
-  <strong>Gender:</strong>
-  <%=h @monologue.gender_id %>
-</p>
-<p>
-  <strong>Character:</strong>
-  <%=h @monologue.character %>
-</p>
-<p>
-  <strong>Style:</strong>
-  <%=h @monologue.style %>
-</p>
-<p>
-  <strong>Link:</strong>
-  <%=h @monologue.link %>
+  <h3><%=h @monologue.character %></h3>
+  (<%= case @monologue.gender_id
+      when 2 then 'Women'
+      when 3 then 'Men'
+      end %>
+  - <%=h @monologue.style %> )
 </p>
 
 <p>
   <%= link_to "Edit", edit_monologue_path(@monologue) %> |
   <%= link_to "Destroy", @monologue, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", monologues_path %>
+</p>
+<p>
+  <div style="margin-left: 30px; background-color: #dcdcdc; padding: 5px; width: 600px;">
+    <%= @monologue.body %>
+  </div>
 </p>

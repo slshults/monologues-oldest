@@ -3,23 +3,21 @@
 <table>
   <tr>
     <th>Play</th>
-    <th>Section</th>
     <th>Name</th>
+    <th>Reference</th>
     <th>Character</th>
     <th>Style</th>
-    <th>Link</th>
+    <th>Actions</th>
   </tr>
   <% for monologue in @monologues %>
     <tr>
       <td><%=h monologue.play.title %></td>
-      <td><%=h monologue.section %></td>
-      <td nowrap><a title='<%=h monologue.body %>'><%=h monologue.name %></a></td>
       <td><%=h monologue.character %></td>
+      <td><a href='<%=h monologue.link %>'><%=h monologue.section %></a></td>
+      <td nowrap><%=  link_to h(monologue.name), monologue %></td>
       <td><%=h monologue.style %></td>
-      <td><a href='<%=h monologue.link %>'>link</a></td>
-      <td><%= link_to "Show", monologue %></td>
-      <td><%= link_to "Edit", edit_monologue_path(monologue) %></td>
-      <td><%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
+          <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

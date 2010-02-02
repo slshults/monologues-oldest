@@ -10,7 +10,7 @@ def scene_body(reftext)
   return '' unless reftext
   m = reftext.match(/\b([IVX]+) ([ivx1]+) (\d+)\b/)
   if m and m[1] and m[2] and m[3]
-    ref = [ m[1], m[2], m[3] ].join
+    ref = [ m[1], m[2].gsub(/1/, 'i'), m[3] ].join
   end
   return ref
 end
@@ -29,7 +29,7 @@ def parse_monologues(server, mono_page)
     if nodes[0].inner_text.length < 200
       character = nodes[0].inner_text.sub(/intercut/, ' (intercut)').strip
       type = nodes[1].inner_text.strip rescue ''
-      name = nodes[2].xpath('i')[0].inner_text.strip rescue ''
+      name = nodes[2].xpath('i')[0].inner_text.strip rescue nodes[2].inner_text
       reftext = nodes[3].xpath('a').inner_text.strip rescue ''
       reflink = nodes[3].xpath('a')[0].attributes['href'].text.strip rescue ''
       fc = nodes[4].xpath('script').to_html rescue ''
@@ -41,10 +41,8 @@ def parse_monologues(server, mono_page)
   return [monos, play]
 end
 
-def insert_monologues(server, mono_page, monos)
+def insert_monologues(server, mono_page, monos, play_id)
   monos.each do |mono|
-    shake = Author.find_by_name('Shakespeare')
-    hamlet = Play.find_by_title('Hamlet')
     case mono_page
     when /^\/men/
       gender = 3
@@ -52,9 +50,10 @@ def insert_monologues(server, mono_page, monos)
       gender = 2
     end
     begin
-      body = open(server + mono_page + scene_body(mono[3]) + '.htm').read
+      body_url = server + mono_page + scene_body(mono[3]) + '.htm'
+      body = open(body_url).read
       Monologue.create!(
-        :play_id => hamlet.id,
+        :play_id => play_id,
         :name => mono[2],
         :character => mono[0],
         :gender_id => gender,
@@ -63,16 +62,19 @@ def insert_monologues(server, mono_page, monos)
         :section => mono[3],
         :link => mono[4]
       )
-      puts "Added #{mono[2]}"
+      puts "  Added #{mono[2]}"
     rescue => e
       #logger.warn "Error adding monologe: #{mono[2]}\n e.message"
-      puts "Error adding monologue: #{mono[2]}\n #{e.message}"
+      print "Error adding monologue: #{mono[2]}\n #{e.message}"
+      print body_url if e.message.strip == "404 Not Found"
+      puts
     end
   end
 end
 
 def insert_play(play)
   Play.create(:title => play, :author_id => 1)
+  return Play.find_by_title(play).id
 end
 
 server = 'http://shakespeare-monologues.org'
@@ -89,7 +91,7 @@ mono_pages = ['/women/hamlet/', '/men/hamlet/',
 # gender == 1 both, 2 women, 3 men
 mono_pages.each do |mono_page|
   monos, play = parse_monologues(server, mono_page)
-  puts "#{play} had #{monos.size} monologes (#{mono_page})"
-  insert_play(play)
-  insert_monologues(server, mono_page, monos)
+  puts "PLAY: #{play} had #{monos.size} monologes (#{mono_page})"
+  play_id = insert_play(play)
+  insert_monologues(server, mono_page, monos, play_id)
 end

@@ -3,4 +3,6 @@ class Monologue < ActiveRecord::Base
   belongs_to :author
   belongs_to :play
   attr_accessible :play_id, :section, :name, :body, :gender_id, :character, :style, :link
+
+  validates_uniqueness_of :name, :scope => :play_id
 end
