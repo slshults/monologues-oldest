@@ -66,7 +66,7 @@ def insert_monologues(server, mono_page, monos)
       puts "Added #{mono[2]}"
     rescue => e
       #logger.warn "Error adding monologe: #{mono[2]}\n e.message"
-      puts "Error adding monologe: #{mono[2]}\n e.message"
+      puts "Error adding monologue: #{mono[2]}\n #{e.message}"
     end
   end
 end
