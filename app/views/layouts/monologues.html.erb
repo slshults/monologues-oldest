@@ -6,13 +6,16 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Monologues: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag :defaults %>
   <!-- use_theme('bitbucket') -->
 </head>
 <body>
-
 <p style="color: green"><%= flash[:notice] %></p>
+<%= image_tag '/images/ajax-loader.gif',
+          :id => 'spinner',
+          :style => "display: none; float:right;" %>
 
-<%= yield %>
+<%= yield :layout%>
 
 </body>
 </html>

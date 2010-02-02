@@ -1,25 +1,17 @@
-<% title "Monologues" %>
+<h2>Monologues</h2>
 
-<table>
-  <tr>
-    <th>Play</th>
-    <th>Name</th>
-    <th>Reference</th>
-    <th>Character</th>
-    <th>Style</th>
-    <th>Actions</th>
-  </tr>
-  <% for monologue in @monologues %>
-    <tr>
-      <td><%=h monologue.play.title %></td>
-      <td><%=h monologue.character %></td>
-      <td><a href='<%=h monologue.link %>'><%=h monologue.section %></a></td>
-      <td nowrap><%=  link_to h(monologue.name), monologue %></td>
-      <td><%=h monologue.style %></td>
-      <td><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
-          <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
+<% form_tag('javascript:void(0)') do %>
+Type to filter: <input type="text" id="search" size="20"/>
+  <%=  observe_field :search,
+                  :frequency => 0.5,
+                  :update => 'ajaxResults',
+                  :before => "Element.show('spinner')",
+                  :complete => "Element.hide('spinner')",
+                  :url => {:action => 'search', :only_path => false},
+                  :with => "'search=' + encodeURIComponent(value)" %>
+  <div id='ajaxResults'>
+    <%= render :partial => "search" %>
+  </div>
+<% end %>
 
-<p><%= link_to "New Monologue", new_monologue_path %></p>
+

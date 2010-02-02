@@ -1,3 +1,4 @@
+require 'vendor/plugins/active_record_extensions'
 class MonologuesController < ApplicationController
   def index
     @monologues = Monologue.all
@@ -43,4 +44,20 @@ class MonologuesController < ApplicationController
     flash[:notice] = "Successfully destroyed monologue."
     redirect_to monologues_url
   end
+
+  def search
+    #require 'ruby-debug';debugger
+    unless params[:search].blank?
+      @monologues = Monologue.find(:all, :conditions => "name like '%#{params[:search]}%'")
+    else
+      @monologues = Monologue.all
+    end
+    render :partial => 'search', :layout => false
+  end
 end
+=begin
+paginate(:page => params[:page],
+                            :per_page => 10,
+                            :order => order_from_params,
+                            :conditions => Monologues.conditions_by_like(params[:search]))
+=end
