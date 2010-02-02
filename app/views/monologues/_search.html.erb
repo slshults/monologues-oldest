@@ -1,9 +1,9 @@
-<table>
+<table style="text-align: left;">
   <tr>
     <th>Play</th>
-    <th>Name</th>
-    <th>Reference</th>
     <th>Character</th>
+    <th>Reference</th>
+    <th>Name</th>
     <th>Style</th>
     <th>Actions</th>
   </tr>
@@ -19,6 +19,10 @@
     </tr>
   <% end %>
 </table>
+
+<%= debug @name_monologues %>
+<br/>
+<%= debug @character_monologues %>
 
 <p><%= link_to "New Monologue", new_monologue_path %></p>
 

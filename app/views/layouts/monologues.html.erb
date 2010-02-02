@@ -11,9 +11,6 @@
 </head>
 <body>
 <p style="color: green"><%= flash[:notice] %></p>
-<%= image_tag '/images/ajax-loader.gif',
-          :id => 'spinner',
-          :style => "display: none; float:right;" %>
 
 <%= yield :layout%>
 
