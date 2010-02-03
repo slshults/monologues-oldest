@@ -20,9 +20,13 @@
   <% end %>
 </table>
 
-<%= debug @name_monologues %>
+terms: <%= debug @terms %><br/> name: <%= debug @name_monologues.size rescue '' %><br/>character: <%= debug @character_monologues.size rescue '' %><br/>body: <%= debug @body_monologues.size rescue ''%>
 <br/>
-<%= debug @character_monologues %>
+name:  <%= debug @name_monologues %>
+<br/>
+character:  <%= debug @character_monologues %>
+<br/>
+body:  <%= debug @body_monologues %>
 
 <p><%= link_to "New Monologue", new_monologue_path %></p>
 
