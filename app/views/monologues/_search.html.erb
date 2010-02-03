@@ -1,32 +1,27 @@
-<table style="text-align: left;">
-  <tr>
-    <th>Play</th>
-    <th>Character</th>
-    <th>Reference</th>
-    <th>Name</th>
-    <th>Style</th>
-    <th>Actions</th>
-  </tr>
-  <% for monologue in @monologues %>
+<% if @monologues.empty? %>
+<p><br/><i>Sorry, there are no monologues matching your search.</i></p>
+<% else %>
+  <table style="text-align: left;">
     <tr>
-      <td><%=h monologue.play.title unless monologue.play.title.blank? %></td>
-      <td><%=h monologue.character %></td>
-      <td><a href='<%=h monologue.link %>'><%=h monologue.section %></a></td>
-      <td><%=  link_to h(monologue.name), monologue %></td>
-      <td><%=h monologue.style %></td>
-      <td><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
-          <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>Play</th>
+      <th>Character</th>
+      <th>Reference</th>
+      <th>Name</th>
+      <th>Style</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
-</table>
-
-terms: <%= debug @terms %><br/> name: <%= debug @name_monologues.size rescue '' %><br/>character: <%= debug @character_monologues.size rescue '' %><br/>body: <%= debug @body_monologues.size rescue ''%>
-<br/>
-name:  <%= debug @name_monologues %>
-<br/>
-character:  <%= debug @character_monologues %>
-<br/>
-body:  <%= debug @body_monologues %>
-
+    <% for monologue in @monologues %>
+      <tr>
+        <td><%=h monologue.play.title unless monologue.play.title.blank? %></td>
+        <td><%=h monologue.character %></td>
+        <td><a href='<%=h monologue.link %>'><%=h monologue.section %></a></td>
+        <td><%=  link_to h(monologue.name), monologue %></td>
+        <td><%=h monologue.style %></td>
+        <td><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
+            <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
 <p><%= link_to "New Monologue", new_monologue_path %></p>
 

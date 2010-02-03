@@ -1,11 +1,10 @@
-<% title "Monologue" %>
 
 <p>
-  <%=h @monologue.play.title %> <a href='<%= @monologue.link %>'><%=h @monologue.section %></a>
+  <span style="font-size: 150%;"><%=h @monologue.play.title %></span> &nbsp;- <a href='<%= @monologue.link %>'><%=h @monologue.section %></a><br/>
+  <span style="font-size: 150%;"><%=h @monologue.character %></span>
 </p>
-<h1><%=h @monologue.name %></h1>
+<h1><span style="line-height: 150%;"><%=h @monologue.name %></span></h1>
 <p>
-  <h3><%=h @monologue.character %></h3>
   (<%= case @monologue.gender_id
       when 2 then 'Women'
       when 3 then 'Men'
