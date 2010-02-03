@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+hamlet:
   author_id: 1
-  title: MyString
+  title: Hamlet
 
-two:
+macbeth:
   author_id: 1
-  title: MyString
+  title: Macbeth

@@ -7,12 +7,17 @@ require 'ruby-debug'
 
 
 def scene_body(reftext)
-  return '' unless reftext
-  m = reftext.match(/\b([IVX]+) ([ivx1]+) (\d+)\b/)
-  if m and m[1] and m[2] and m[3]
-    ref = [ m[1], m[2].gsub(/1/, 'i'), m[3] ].join
+  begin
+    return '' unless reftext
+    m = reftext.match(/\b([IVX]+) ([ivx1]+) (\d+)\b/)
+    if m and m[1] and m[2] and m[3]
+      ref = [ m[1], m[2].gsub(/1/, 'i'), m[3] ].join
+    end
+    return ref
+  rescue => e
+    puts "Error building link to body: #{e.message}"
+    return ''
   end
-  return ref
 end
 
 def parse_monologues(server, mono_page)
@@ -42,6 +47,7 @@ def parse_monologues(server, mono_page)
 end
 
 def insert_monologues(server, mono_page, monos, play_id)
+  added = 0
   monos.each do |mono|
     case mono_page
     when /^\/men/
@@ -49,23 +55,30 @@ def insert_monologues(server, mono_page, monos, play_id)
     when /^\/women/
       gender = 2
     end
+    body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
     begin
-      body_url = server + mono_page + scene_body(mono[3]) + '.htm'
       body = open(body_url).read
+
+      name = mono[2] || ''
+      character = mono[0] || ''
+      style = mono[1] || ''
+      section = mono[3] || ''
+      link = mono[4] || ''
+
       Monologue.create!(
         :play_id => play_id,
-        :name => mono[2],
-        :character => mono[0],
+        :name => name,
+        :character => character,
         :gender_id => gender,
-        :style => mono[1],
+        :style => style,
         :body => body,
-        :section => mono[3],
-        :link => mono[4]
+        :section => section,
+        :link => link
       )
-      puts "  Added #{mono[2]}"
+      added += 1
+      puts "  #{name} (#{character})"
     rescue => e
-      #logger.warn "Error adding monologe: #{mono[2]}\n e.message"
-      print "Error adding monologue: #{mono[2]}\n #{e.message}"
+      print "Error adding monologue: #{name}\n #{e.message} "
       print body_url if e.message.strip == "404 Not Found"
       puts
     end
@@ -73,8 +86,17 @@ def insert_monologues(server, mono_page, monos, play_id)
 end
 
 def insert_play(play)
-  Play.create(:title => play, :author_id => 1)
-  return Play.find_by_title(play).id
+  play = 'Loves Labour\'s Lost' if play == 'Loves Labor\'s Lost'
+  begin
+    Play.create(:title => play, :author_id => 1)
+    return Play.find_by_title(play).id
+  rescue => e
+    if play
+      puts "Error adding play: #{play}\n #{e.message}"
+    else
+      puts "Error adding play: #{e.message}"
+    end
+  end
 end
 
 server = 'http://shakespeare-monologues.org'
@@ -86,12 +108,23 @@ mono_pages = ['/women/hamlet/', '/men/hamlet/',
   '/women/Errors/', '/men/Errors/',
   '/women/Cymbeline/', '/men/Cymbeline/',
   '/women/LLL/', '/men/LLL/',
-  '/women/merchant/', '/men/merchant/',
-  '/women/MuchAdo/', '/men/MuchAdo/'  ]
+  '/women/TMofV/', '/men/merchant/',
+  '/women/MuchAdo/', '/men/MuchAdo/',
+  '/women/shrew/', '/men/shrew/',
+  '/women/12thNight/', '/men/12thNight/',
+  '/women/HenryIVi/', '/men/HenryIVi/',
+  '/women/AandC/', '/men/AandC/',
+  '/women/RandJ/', '/men/RandJ/',
+  '/women/Othello/', '/men/Othello/']
 # gender == 1 both, 2 women, 3 men
 mono_pages.each do |mono_page|
   monos, play = parse_monologues(server, mono_page)
-  puts "PLAY: #{play} had #{monos.size} monologes (#{mono_page})"
+  puts
+  puts "PAGE: #{play} has #{monos.size} monologes (#{mono_page})"
   play_id = insert_play(play)
+  mono_count = Monologue.count
   insert_monologues(server, mono_page, monos, play_id)
+  puts "END PAGE: Inserted #{Monologue.count - mono_count} of #{monos.size} monologues found"
+  puts
+
 end
