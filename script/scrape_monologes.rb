@@ -9,9 +9,9 @@ require 'ruby-debug'
 def scene_body(reftext)
   begin
     return '' unless reftext
-    m = reftext.match(/\b([IVX]+) ([ivx1]+) (\d+)\b/)
+    m = reftext.match(/\b([IVX]+)\s+([ivx1]+)\s+(\d+)\b/i)
     if m and m[1] and m[2] and m[3]
-      ref = [ m[1], m[2].gsub(/1/, 'i'), m[3] ].join
+      ref = [ m[1].upcase, m[2].gsub(/1/, 'i').downcase, m[3] ].join
     end
     return ref
   rescue => e
@@ -87,6 +87,9 @@ end
 
 def insert_play(play)
   play = 'Loves Labour\'s Lost' if play == 'Loves Labor\'s Lost'
+  play = 'Twelfth Night, Or What You Will' if play == 'Twelfth Night, Or what you will.'
+  play = 'Henry IV, part 1' if play.match( /Henry IV/i )
+
   begin
     Play.create(:title => play, :author_id => 1)
     return Play.find_by_title(play).id
@@ -100,7 +103,8 @@ def insert_play(play)
 end
 
 server = 'http://shakespeare-monologues.org'
-mono_pages = ['/women/hamlet/', '/men/hamlet/',
+mono_pages = [
+  '/women/hamlet/', '/men/hamlet/',
   '/women/midsummer/', '/men/midsummer/',
   '/women/macbeth/', '/men/macbeth/',
   '/women/AllsWell/', '/men/AllsWell/',
@@ -115,7 +119,7 @@ mono_pages = ['/women/hamlet/', '/men/hamlet/',
   '/women/HenryIVi/', '/men/HenryIVi/',
   '/women/AandC/', '/men/AandC/',
   '/women/RandJ/', '/men/RandJ/',
-  '/women/Othello/', '/men/Othello/']
+  '/women/othello/', '/men/othello/']
 # gender == 1 both, 2 women, 3 men
 mono_pages.each do |mono_page|
   monos, play = parse_monologues(server, mono_page)

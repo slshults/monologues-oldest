@@ -1,6 +1,7 @@
 <% if @monologues.empty? %>
 <p><br/><i>Sorry, there are no monologues matching your search.</i></p>
 <% else %>
+  <%= @monologues.count.to_s %> monologues match you search
   <table style="text-align: left;">
     <tr>
       <th>Play</th>

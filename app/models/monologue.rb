@@ -5,5 +5,4 @@ class Monologue < ActiveRecord::Base
   attr_accessible :play_id, :section, :name, :body, :gender_id, :character, :style, :link
   validates_presence_of :play_id
   validates_presence_of :name
-  validates_uniqueness_of :name, :scope => :play_id
 end
