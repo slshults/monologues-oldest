@@ -1,7 +1,11 @@
 <% if @monologues.empty? %>
-<p><br/><i>Sorry, there are no monologues matching your search.</i></p>
+  <p><br/><i>Sorry, no monologues matched your search.</i><br/></p>
 <% else %>
-  <%= @monologues.size.to_s %> monologues match you search
+  <% if @monologues.size == 1 %>
+    <%= @monologues.size.to_s %> monologue matched your search<br/>
+  <% else %>
+    <%= @monologues.size.to_s %> monologues match your search<br/>
+  <% end %>
   <table style="text-align: left;">
     <tr>
       <th>Play</th>
@@ -13,7 +17,7 @@
     </tr>
     <% for monologue in @monologues %>
       <tr>
-        <td><%=h monologue.play.title unless monologue.play.title.blank? %></td>
+        <td><%= link_to( h(monologue.play.title), play_path(monologue.play) ) unless monologue.play.title.blank? %></td>
         <td><%=h monologue.character %></td>
         <td><a href='<%=h monologue.link %>'><%=h monologue.section %></a></td>
         <td><%=  link_to h(monologue.name), monologue %></td>

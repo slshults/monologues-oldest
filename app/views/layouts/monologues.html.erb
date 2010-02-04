@@ -10,6 +10,11 @@
   <!-- use_theme('bitbucket') -->
 </head>
 <body>
+  <table><tr>
+      <td><%=  link_to :monologues, 'monologues'%></td>
+      <td><%=  link_to :plays, 'plays'%></td>
+    </tr>
+  </table>
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield :layout%>

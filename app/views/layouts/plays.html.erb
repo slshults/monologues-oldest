@@ -8,6 +8,11 @@
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
+  <table><tr>
+      <td><%=  link_to :monologues, monologues_path%></td>
+      <td><%=  link_to :plays, plays_path%></td>
+    </tr>
+  </table>
 
 <p style="color: green"><%= flash[:notice] %></p>
 

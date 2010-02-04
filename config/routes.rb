@@ -1,15 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :monologues
   
-  map.resources :monologues
-
   map.resources :genders
-
-  map.resources :monologues
 
   map.resources :plays
 
   map.resources :authors
+
+  map.connect '/men', :controller => :monologues, :action => 'men'
+
+  map.connect '/women', :controller => :monologues, :action => 'women'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

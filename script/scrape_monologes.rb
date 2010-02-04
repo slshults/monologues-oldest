@@ -55,15 +55,16 @@ def insert_monologues(server, mono_page, monos, play_id)
     when /^\/women/
       gender = 2
     end
-    body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
     begin
-      body = open(body_url).read
-
       name = mono[2] || ''
       character = mono[0] || ''
       style = mono[1] || ''
       section = mono[3] || ''
-      link = mono[4] || ''
+      link = mono[5] || ''
+      body_link = mono[6] || ''
+
+      body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
+      body = open(body_url).read
 
       Monologue.create!(
         :play_id => play_id,

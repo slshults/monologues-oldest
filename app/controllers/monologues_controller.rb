@@ -61,4 +61,15 @@ class MonologuesController < ApplicationController
     end
     render :partial => 'search', :layout => false
   end
+
+  def men
+    @monologues = Monologue.find_all_by_gender_id(3)
+    render :index
+  end
+
+  def women
+    @monologues = Monologue.find_all_by_gender_id(2)
+    render :index
+  end
+
 end
