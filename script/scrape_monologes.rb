@@ -37,8 +37,9 @@ def parse_monologues(server, mono_page)
       name = nodes[2].xpath('i')[0].inner_text.strip rescue nodes[2].inner_text
       reftext = nodes[3].xpath('a').inner_text.strip rescue ''
       reflink = nodes[3].xpath('a')[0].attributes['href'].text.strip rescue ''
-      fc = nodes[4].xpath('script').to_html rescue ''
-      mono = [character, type, name, reftext, reflink, fc]
+      # fc = nodes[4].xpath('script').to_html rescue ''
+      # mono = [character, type, name, reftext, reflink, fc]
+      mono = [character, type, name, reftext, reflink]
       monos << mono
   #    puts server + mono_page + ref + '.htm' if ref
     end
@@ -60,12 +61,12 @@ def insert_monologues(server, mono_page, monos, play_id)
       character = mono[0] || ''
       style = mono[1] || ''
       section = mono[3] || ''
-      link = mono[5] || ''
-      body_link = mono[6] || ''
+      link = ''
 
       body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
       body = open(body_url).read
 
+      #debugger
       Monologue.create!(
         :play_id => play_id,
         :name => name,

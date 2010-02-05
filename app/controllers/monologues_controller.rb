@@ -50,7 +50,15 @@ class MonologuesController < ApplicationController
       @terms = params[:search].split(" ")
       @monologues = []
       @terms.each do |term|
-        results = Monologue.find(:all, :conditions => "character like '%#{term}%' or body like '%#{term}%' or name like '%#{term}%'")
+        case ActiveRecord::Base.connection.adapter_name
+        when 'SQLite'
+          where_clause = "character like '%#{term}%' or body like '%#{term}%' or name like '%#{term}%'"
+        when 'PostgreSQL'
+          where_clause =  "character ilike '%#{term}%' or body ilike '%#{term}%' or name ilike '%#{term}%'"
+        else
+          raise 'Query not implemented for DB adapter: ' + ActiveRecord::Base.connection.adapter_name
+        end
+        results = Monologue.find(:all, :conditions => where_clause)
         @monologues = results if results and @monologues.empty?
         @monologues &= results if results
       end

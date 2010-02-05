@@ -2,11 +2,12 @@
   <%=h @play.author.name %>
 
   <h2><%=h @play.title %></h2>
-  <ul>
+  <dl>
     <% @play.monologues.each do |monologue| %>
-      <li><%= link_to monologue.name, monologue_path(monologue) %>
+      <dt><%= monologue.character %> </dt>
+      <dd><%= link_to monologue.name, monologue_path(monologue) %></dd>
     <% end %>
-  </ul>
+  </dl>
 
 </p>
 

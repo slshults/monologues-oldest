@@ -2,14 +2,12 @@
 
 <table>
   <tr>
-    <th>Author</th>
     <th>Title</th>
   </tr>
 
 <% @plays.each do |play| %>
   <tr>
-    <td><%=h play.author_id %></td>
-    <td><%=h play.title %></td>
+    <td><strong><%= link_to h(play.title), play_path(play) %></strong></td>
     <td><%= link_to 'Show', play %></td>
     <td><%= link_to 'Edit', edit_play_path(play) %></td>
     <td><%= link_to 'Destroy', play, :confirm => 'Are you sure?', :method => :delete %></td>
