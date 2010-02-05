@@ -4,6 +4,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'ruby-debug'
+require 'timeout'
 
 
 def scene_body(reftext)
@@ -21,7 +22,12 @@ def scene_body(reftext)
 end
 
 def parse_monologues(server, mono_page)
-  doc = Nokogiri::HTML.parse(open(server + mono_page))
+  begin
+    doc = Nokogiri::HTML.parse(open(server + mono_page))
+  rescue => e
+    puts "Failed to open monologue page url: #{server + mono_page}"
+    raise e
+  end
   # puts doc.class.to_s + ' from ' + server + mono_page
   play = doc.xpath('//h1').inner_text.strip
   monologue_table = doc.xpath('//tr')
@@ -47,6 +53,69 @@ def parse_monologues(server, mono_page)
   return [monos, play]
 end
 
+def parse_and_insert_oldmonologues(server, oldmono_page)
+  oldmono_count = 0
+  doc = Nokogiri::HTML.parse(open(server + oldmono_page))
+  case oldmono_page
+  when /^\/women/ then gender = 2
+  when /^\/men/ then gender = 3
+  end
+  play_tags = doc.xpath('//h2')
+  play_tags.each do |play_tag|
+    added = 0
+    play_table = play_tag.next.next
+    play_name = play_tag.inner_text.strip
+    play_id = insert_play(play_name)
+    monologues = play_table.xpath('tr')
+    puts "BEGIN OLDPLAY #{monologues.size} Monologues for #{play_name}"
+    monologues.each do |mono|
+      begin
+        cells = mono.xpath('td')
+        character = cells[0].inner_text.strip
+        style = cells[1].inner_text.strip rescue nil
+        if cells[2].xpath('a/i').inner_text.length > 1
+          name = cells[2].xpath('a/i').inner_text.strip
+        elsif cells[2].xpath('i').inner_text.length > 1
+          name = cells[2].xpath('i').inner_text.strip
+        else
+          raise "Cannot find Monologue name"
+        end
+        pdf_link = cells[2].xpath('a')[0]['href'].strip rescue nil
+        ref_text = cells[3].xpath('a').inner_text.strip rescue nil
+        ref_link = cells[3].xpath('a')[0]['href'].strip rescue nil
+      rescue => e
+        print "Error parsing monologue: #{mono}\n #{e.message} "
+        puts
+      end
+
+      next if Monologue.find_by_name_and_play_id(name, play_id)
+
+      begin
+        Monologue.create!(
+          :play_id => play_id,
+          :name => name,
+          :character => character,
+          :gender_id => gender,
+          :style => style,
+          :body => nil,
+          :section => ref_text,
+          :link => ref_link
+        )
+        added += 1
+        puts "  #{name} (#{character})"
+      rescue => e
+        print "Error adding monologue: #{name}\n #{e.message} "
+        puts
+      end
+    end
+    puts "END OLDPLAY Added #{added} of #{monologues.size} monologues"
+    puts
+    oldmono_count += added
+  end
+  puts
+  puts "Inserted #{oldmono_count} Old Monologues"
+end
+
 def insert_monologues(server, mono_page, monos, play_id)
   added = 0
   monos.each do |mono|
@@ -63,10 +132,18 @@ def insert_monologues(server, mono_page, monos, play_id)
       section = mono[3] || ''
       link = ''
 
-      body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
-      body = open(body_url).read
+      next if Monologue.find_by_name_and_play_id(name, play_id)
 
-      #debugger
+      body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
+      body = nil
+      begin
+        Timeout::timeout(3){
+          body = open(body_url).read
+        }
+      rescue Timeout::Error => e
+        puts " Timeout error trying to retrieve body for #{name}"
+      end
+
       Monologue.create!(
         :play_id => play_id,
         :name => name,
@@ -126,11 +203,18 @@ mono_pages = [
 mono_pages.each do |mono_page|
   monos, play = parse_monologues(server, mono_page)
   puts
-  puts "PAGE: #{play} has #{monos.size} monologes (#{mono_page})"
+  puts "BEGIN PAGE: #{play} has #{monos.size} monologes (#{mono_page})"
   play_id = insert_play(play)
   mono_count = Monologue.count
   insert_monologues(server, mono_page, monos, play_id)
   puts "END PAGE: Inserted #{Monologue.count - mono_count} of #{monos.size} monologues found"
   puts
+end
 
+oldmono_pages = [
+  '/mensmonos.old.shtml', '/womensmonos.old.htm']
+
+# gender == 1 both, 2 women, 3 men
+oldmono_pages.each do |oldmono_page|
+  parse_and_insert_oldmonologues(server, oldmono_page)
 end
