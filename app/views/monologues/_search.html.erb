@@ -1,32 +1,29 @@
 <% if @monologues.empty? %>
-  <p><br/><i>Alas, no monologues matched your search</i><br/></p>
+  <p><br/>Alas, no monologues match your search</p>
 <% else %>
   <% if @monologues.size == 1 %>
-    Behold! Your monologue.<br/>
+    <p>Behold! Your monologue.</p>
   <% else %>
     <% if params[:search].nil? or params[:search] == '' %>
-      There are <%= @monologues.size.to_s %> monologues<br/>
+      <p>There are <%= @monologues.size.to_s %> monologues</p>
     <% else %>
-      <%= @monologues.size.to_s %> monologues match your search<br/>
+      <p><%= @monologues.size.to_s %> monologues match your search</p>
     <% end %>
   <% end %>
   <table style="text-align: left;">
     <tr>
-      <th>Play</th>
-      <th>Character</th>
-      <th>Reference</th>
+      <th>Play / Character</th>
       <th>Name</th>
       <th>Style</th>
       <th>Actions</th>
     </tr>
     <% for monologue in @monologues %>
-      <tr>
-        <td><%= link_to( h(monologue.play.title), play_path(monologue.play) ) unless monologue.play.title.blank? %></td>
-        <td><%=h monologue.character %></td>
-        <td><a href='<%=h monologue.link %>'><%=h monologue.section %></a></td>
-        <td><%=  link_to h(monologue.name), monologue %></td>
+      <tr id="<%= cycle 'odd-row', 'even-row' %>">
+        <td nowrap><%= link_to( h(monologue.play.title), play_path(monologue.play) ) unless monologue.play.title.blank? %> (<a href='<%=h monologue.link %>'><%=h monologue.section %></a>)
+        <br/><%=h monologue.character %></td>
+          <td style="font-size: 135%;"><%=  link_to h(monologue.name), monologue %></td>
         <td><%=h monologue.style %></td>
-        <td><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
+        <td nowrap><%= link_to "Edit", edit_monologue_path(monologue) %> -
             <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
