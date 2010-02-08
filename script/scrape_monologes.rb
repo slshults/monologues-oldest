@@ -41,6 +41,7 @@ def parse_monologues(server, mono_page)
       character = nodes[0].inner_text.sub(/intercut/, ' (intercut)').strip
       type = nodes[1].inner_text.strip rescue ''
       name = nodes[2].xpath('i')[0].inner_text.strip rescue nodes[2].inner_text
+      name = nil if name.match(/skin\['CONTENT/)
       reftext = nodes[3].xpath('a').inner_text.strip rescue ''
       reflink = nodes[3].xpath('a')[0].attributes['href'].text.strip rescue ''
       # fc = nodes[4].xpath('script').to_html rescue ''
@@ -57,8 +58,12 @@ def parse_and_insert_oldmonologues(server, oldmono_page)
   oldmono_count = 0
   doc = Nokogiri::HTML.parse(open(server + oldmono_page))
   case oldmono_page
-  when /^\/women/ then gender = 2
-  when /^\/men/ then gender = 3
+  when /^\/women/ 
+    gender_id = 2
+    gender = 'women'
+  when /^\/men/
+    gender_id = 3
+    gender = 'men'
   end
   play_tags = doc.xpath('//h2')
   play_tags.each do |play_tag|
@@ -67,7 +72,7 @@ def parse_and_insert_oldmonologues(server, oldmono_page)
     play_name = play_tag.inner_text.strip
     play_id = insert_play(play_name)
     monologues = play_table.xpath('tr')
-    puts "BEGIN OLDPLAY #{monologues.size} Monologues for #{play_name}"
+    print "BEGIN OLDPLAY #{monologues.size} #{gender} Monologues for #{play_name} "
     monologues.each do |mono|
       begin
         cells = mono.xpath('td')
@@ -78,38 +83,41 @@ def parse_and_insert_oldmonologues(server, oldmono_page)
         elsif cells[2].xpath('i').inner_text.length > 1
           name = cells[2].xpath('i').inner_text.strip
         else
-          raise "Cannot find Monologue name"
+          raise "\nCannot find Monologue name in html for #{character}"
         end
         pdf_link = cells[2].xpath('a')[0]['href'].strip rescue nil
         ref_text = cells[3].xpath('a').inner_text.strip rescue nil
         ref_link = cells[3].xpath('a')[0]['href'].strip rescue nil
       rescue => e
-        print "Error parsing monologue: #{mono}\n #{e.message} "
+        print "\nError parsing monologue for #{character}\n #{e.message} "
         puts
       end
 
-      next if Monologue.find_by_name_and_play_id(name, play_id)
+      if Monologue.find_by_name_and_play_id(name, play_id)
+        print '.'
+        next
+      end
 
       begin
         Monologue.create!(
           :play_id => play_id,
           :name => name,
           :character => character,
-          :gender_id => gender,
+          :gender_id => gender_id,
           :style => style,
           :body => nil,
           :section => ref_text,
           :link => ref_link
         )
         added += 1
-        puts "  #{name} (#{character})"
+        print '#'
+        #puts "  #{name} (#{character})"
       rescue => e
-        print "Error adding monologue: #{name}\n #{e.message} "
+        print "\nError adding monologue for #{character}\n #{e.message} "
         puts
       end
     end
-    puts "END OLDPLAY Added #{added} of #{monologues.size} monologues"
-    puts
+    puts "\nEND OLDPLAY Added #{added} of #{monologues.size} monologues"
     oldmono_count += added
   end
   puts
@@ -134,19 +142,21 @@ def insert_monologues(server, mono_page, monos, play_id)
       section = mono[3] || ''
       link = ''
 
-      next if Monologue.find_by_name_and_play_id(name, play_id)
+      if Monologue.find_by_name_and_play_id(name, play_id)
+        print '.'
+        next
+      end
 
-     #body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
       scene_ref_page = style_js_text_array[0].match(/src=["'](.+?)["']/)[1]
       link = style_js_text_array[0].match(/href=["'](.+?)["']/)[1]
       body_url = server + mono_page + scene_ref_page rescue ''
       body = nil
       begin
-        Timeout::timeout(3){
+        Timeout::timeout(5){
           body = open(body_url).read
         }
       rescue Timeout::Error => e
-        puts " Timeout error trying to retrieve body for #{name}"
+        puts "\nTimeout error trying to retrieve body for #{name}"
         next
       end
 
@@ -161,9 +171,10 @@ def insert_monologues(server, mono_page, monos, play_id)
         :link => link
       )
       added += 1
-      puts "  #{name} (#{character})"
+      print '#'
+      #puts "  #{name} (#{character})"
     rescue => e
-      print "Error adding monologue: #{name}\n #{e.message} "
+      print "\nError adding monologue: #{mono}\n #{e.message} "
       print body_url if e.message.strip == "404 Not Found"
       puts
     end
@@ -204,18 +215,15 @@ mono_pages = [
   '/women/HenryIVi/', '/men/HenryIVi/',
   '/women/AandC/', '/men/AandC/',
   '/women/RandJ/', '/men/RandJ/',
-  #'/women/othello/',
-  '/men/othello/']
+  '/women/othello/', '/men/othello/']
 # gender == 1 both, 2 women, 3 men
 mono_pages.each do |mono_page|
   monos, play = parse_monologues(server, mono_page)
-  puts
-  puts "BEGIN PAGE: #{play} has #{monos.size} monologes (#{mono_page})"
+  print "BEGIN PAGE: #{play} has #{monos.size} monologes (#{mono_page}) "
   play_id = insert_play(play)
   mono_count = Monologue.count
   insert_monologues(server, mono_page, monos, play_id)
-  puts "END PAGE: Inserted #{Monologue.count - mono_count} of #{monos.size} monologues found"
-  puts
+  puts "\nEND PAGE: Inserted #{Monologue.count - mono_count} of #{monos.size} monologues found"
 end
 
 oldmono_pages = [

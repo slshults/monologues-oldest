@@ -23,7 +23,7 @@
         <br/><%=h monologue.character %> - <%=h monologue.style %></td>
           <td style="font-size: 100%;"><%=  link_to h(monologue.name), monologue %></td>
         <td style="font-size: 70%;"><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
-            <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
+          <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </table>
