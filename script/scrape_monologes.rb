@@ -118,7 +118,9 @@ end
 
 def insert_monologues(server, mono_page, monos, play_id)
   added = 0
-  monos.each do |mono|
+  style_js_text_array = open(server + mono_page + 'style.js').read.scan(/^Text\[\d+\].+?\n\n/m)
+  monos.each_index do |i|
+    mono = monos[i]
     case mono_page
     when /^\/men/
       gender = 3
@@ -134,7 +136,10 @@ def insert_monologues(server, mono_page, monos, play_id)
 
       next if Monologue.find_by_name_and_play_id(name, play_id)
 
-      body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
+     #body_url = server + mono_page + scene_body(mono[3]) + '.htm' rescue ''
+      scene_ref_page = style_js_text_array[0].match(/src=["'](.+?)["']/)[1]
+      link = style_js_text_array[0].match(/href=["'](.+?)["']/)[1]
+      body_url = server + mono_page + scene_ref_page rescue ''
       body = nil
       begin
         Timeout::timeout(3){
@@ -142,6 +147,7 @@ def insert_monologues(server, mono_page, monos, play_id)
         }
       rescue Timeout::Error => e
         puts " Timeout error trying to retrieve body for #{name}"
+        next
       end
 
       Monologue.create!(
@@ -198,7 +204,8 @@ mono_pages = [
   '/women/HenryIVi/', '/men/HenryIVi/',
   '/women/AandC/', '/men/AandC/',
   '/women/RandJ/', '/men/RandJ/',
-  '/women/othello/', '/men/othello/']
+  #'/women/othello/',
+  '/men/othello/']
 # gender == 1 both, 2 women, 3 men
 mono_pages.each do |mono_page|
   monos, play = parse_monologues(server, mono_page)

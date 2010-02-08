@@ -1,7 +1,8 @@
 <HTML>
 <HEAD>
-<TITLE>Shakespeare Monologues</TITLE>
+<TITLE>Men's Monologues in Shakespeare - Index</TITLE>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- BASE href="http://www.shakespeare-monologues.org/" target="_top" -->  
 <META NAME="KEYWORDS"
 CONTENT="shakespeare, monologue, shakespeare's, monologues,
 shakespearean, discussion, monologue, shakespeare's, monologues,
@@ -42,9 +43,11 @@ return true;
 <BODY BGCOLOR="#F9F9DF" background="">
 
 <table width="100%" align=center valign="top" cellpadding=0 cellspacing=0 nowrap>
+<CENTER>
 <tr>
+
 <td width=520 align=left valign=top cellspacing=0 cellpadding=0>
-<h1>Shakespeare's Monologues</h1>
+<h1>Men's Monologues in Shakespeare</h1><p>
 </td>
 </tr>
 </table>
@@ -54,9 +57,8 @@ return true;
 <td valign="top" align="middle">
 
 <font size="-2">
-<%= link_to '[The Men]', '/men' %>
-&nbsp;
-<%= link_to '[The Women]', '/women' %><br/>
+<A HREF="menindex.shtml">[The Men]</A>
+&nbsp;<A HREF="womenindex.shtml">[The Women]</A><br>
 <A HREF="store/">[Books]</a>&nbsp;<A HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</A>&nbsp;<a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>&nbsp;<A HREF="/">[Home]</A>
 <br><br>
 &nbsp;
@@ -78,26 +80,29 @@ amazon_ad_title="Shakespeare's Monologues' Bookshelves"; //--></script>
 
 </td>
 <td valign=top width=515>
+<TABLE valign=top align=center width=515 BORDER=1 bordercolor="#696969" frame=box rules=all CELLPADDING=5>
+<tr>
+<td><H2>Comedies</H2></td><td><H2>Histories</H2></td><td><H2>Tragedies</H2></td></tr>
+<TR>
+<td valign=baseline nowrap>
+-<A HREF="men/AllsWell/">All's Well That Ends Well</A><BR>
+</td>
+
+<td valign=baseline>
+-<A HREF="men/HenryIVi/">Henry IV, part 1</A><BR>
+</td>
+
+<td valign=baseline>
+</td>
 
 
-<!-- do the rails thing! -->
+</TR>
+</TABLE>
 
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield :layout%>
-
-<!-- back to html -->
-
-
-
-<p><center><b><a href="mensmonos.old.shtml#other">[Other Works]</a><br/>
-<a HREF="/">[Home]</a>
-<a HREF="womenindex.shtml">[Women's Monologues]</a>
-<a HREF="store/">[Books]</a>
-<a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>
-<a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>
-<a HREF="http://shakespeare-monologues.org/contact.php">[Contact]</a></b>
-</p>
+<CENTER><p><b><a href="mensmonos.old.shtml#other">[Other Works]</a><br>
+<A HREF="/"><b>[Home]</A><A HREF="
+womenindex.shtml">[Women's Monologues]</A><A HREF="store/">[Books]</a><A HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</A><a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a><A HREF="http://shakespeare-monologues.org/contact.php">[Contact]</a></B>
+</b>
 <p>
 <!-- SiteSearch Google -->
 <form method="get" action="http://www.google.com/custom" target="google_window">
@@ -108,6 +113,7 @@ amazon_ad_title="Shakespeare's Monologues' Bookshelves"; //--></script>
 border="0" alt="Google"></img></a>
 </td>
 <td nowrap="nowrap">
+
 <input type="hidden" name="domains" value="shakespeare-monologues.org"></input>
 <input type="text" name="q" size="31" maxlength="255" value=""></input>
 <input type="submit" name="sa" value="Search"></input>
@@ -115,9 +121,8 @@ border="0" alt="Google"></img></a>
 <tr>
 <td>&nbsp;</td>
 <td nowrap="nowrap"></td>
-</tr>
 </table>
-<br/>
+<br>
 <table>
 <tr>
 <td>
@@ -147,29 +152,29 @@ border="0" alt="Google"></img></a>
 </td>
 <td width=343 align=center  valign=top>
 <form name="PaypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="includeemail()">
-<font face=verdana size="-2">Tip Jar</font><br/>
-<input type="hidden" name="cmd" value="_xclick"/>
-<input type="hidden" name="business" value=""/>
-<input type="hidden" name="item_name" value="Shakespeare's Monologues Donations"/>
-<input type="hidden" name="item_number" value="031806"/>
-<input type="hidden" name="no_shipping" value="1"/>
-<input type="hidden" name="return" value="http://shakespeare-monologues.org/thanks.htm"/>
-<input type="hidden" name="cn" value="Include a note if you like:"/>
-<input type="hidden" name="currency_code" value="USD"/>
-<input type="hidden" name="tax" value="0"/>
-<input type="hidden" name="lc" value="US"/>
-<input type="hidden" name="bn" value="PP-DonationsBF"/>
+<font face=verdana size="-2">Tip Jar</font><br>
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="">
+<input type="hidden" name="item_name" value="Shakespeare's Monologues Donations">
+<input type="hidden" name="item_number" value="031806">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://shakespeare-monologues.org/thanks.htm">
+<input type="hidden" name="cn" value="Include a note if you like:">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax" value="0">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="bn" value="PP-DonationsBF">
 <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="Make payments
-with PayPal - it's fast, free and secure!"/>
-<img alt="Tip Jar" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/><br/>
-<font face="verdana" size="-2">
-Other ways to help:<br/>
-Click a few ads<br/>
+with PayPal - it's fast, free and secure!">
+<img alt="Tip Jar" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"><br>
+<font face=verdana size="-2">
+Other ways to help:<br>
+Click a few ads<br>
 Buy books <a href="http://shakespeare-monologues.org/store/">here</a>
-<br/>
+<br>
 Tips this month:&nbsp&nbsp;&nbsp; $1.00<br>
 From ads in Jan.:$17.15
-<br/></font>
+<br></font>
 
 
 </span></form>
@@ -181,11 +186,9 @@ addthis_pub = 'ShakespearesMonologues';
 addthis_logo = 'http://shakespeare-monologues.org/foliocover.gif';
 addthis_logo_background = 'F9F9DF';
 addthis_brand = 'Shakespeare\'s Monologues';
-addthis_options = 'digg, delicious, stumbleupon, facebook, myspace, twitter, google, live, email, more';</script>
-<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()"><img src="http://s9.addthis.com/button1-share.gif" width="125" height="16" border="0" alt="Share or Bookmark" title="Share or Bookmark" /></a>
-<script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
+addthis_options = 'digg, delicious, stumbleupon, facebook, myspace, twitter, google, live, email, more';</script><a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()"><img src="http://s9.addthis.com/button1-share.gif" width="125" height="16" border="0" alt="Share or Bookmark" title="Share or Bookmark" /></a><script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
 <!-- ADDTHIS BUTTON END -->
-</p>
+
 <p>
 
 <!-- Include the Google Friend Connect javascript library. -->
@@ -214,7 +217,7 @@ google.friendconnect.container.renderMembersGadget(
    site: '14691945512668228772'},
   skin);
 </script>
-</p>
+
 
 <p>
 
@@ -235,7 +238,7 @@ google_color_url = "696969";
 <script type="text/javascript"
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
-</p>
+
 
 </td>
 </tr>
@@ -249,6 +252,5 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 try {
 var pageTracker = _gat._getTracker("UA-600620-1");
 pageTracker._trackPageview();
-} catch(err) {}</script>
-</BODY>
+} catch(err) {}</script></BODY>
 </HTML>
