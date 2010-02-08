@@ -52,9 +52,9 @@ class MonologuesController < ApplicationController
       @terms.each do |term|
         case ActiveRecord::Base.connection.adapter_name
         when 'SQLite'
-          where_clause = "character like '%#{term}%' or body like '%#{term}%' or name like '%#{term}%'"
+          where_clause = "character like '%#{term}%' or body like '%#{term}%' or first_line like '%#{term}%'"
         when 'PostgreSQL'
-          where_clause =  "character ilike '%#{term}%' or body ilike '%#{term}%' or name ilike '%#{term}%'"
+          where_clause =  "character ilike '%#{term}%' or body ilike '%#{term}%' or first_line ilike '%#{term}%'"
         else
           raise 'Query not implemented for DB adapter: ' + ActiveRecord::Base.connection.adapter_name
         end

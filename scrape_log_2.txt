@@ -1,0 +1,184 @@
+BEGIN PAGE: Hamlet has 6 monologes (/women/hamlet/) ######
+END PAGE: Inserted 6 of 6 monologues found
+BEGIN PAGE: Hamlet has 25 monologes (/men/hamlet/) #########################
+END PAGE: Inserted 25 of 25 monologues found
+BEGIN PAGE: A Midsummer Night's Dream has 19 monologes (/women/midsummer/) ###################
+END PAGE: Inserted 19 of 19 monologues found
+BEGIN PAGE: A Midsummer Night's Dream has 22 monologes (/men/midsummer/) ##...##.###.#####..###
+END PAGE: Inserted 15 of 22 monologues found
+BEGIN PAGE: Macbeth has 3 monologes (/women/macbeth/) ###
+END PAGE: Inserted 3 of 3 monologues found
+BEGIN PAGE: Macbeth has 7 monologes (/men/macbeth/) #######
+END PAGE: Inserted 7 of 7 monologues found
+BEGIN PAGE: All's Well That Ends Well has 7 monologes (/women/AllsWell/) #######
+END PAGE: Inserted 7 of 7 monologues found
+BEGIN PAGE: All's Well That Ends Well has 3 monologes (/men/AllsWell/) ###
+END PAGE: Inserted 3 of 3 monologues found
+BEGIN OLDPLAY 3 men Monologues for All's Well That Ends Well ...
+END OLDPLAY Added 0 of 3 monologues
+BEGIN OLDPLAY 7 men Monologues for As You Like It #######
+END OLDPLAY Added 7 of 7 monologues
+BEGIN OLDPLAY 6 men Monologues for The Comedy of Errors ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 16 men Monologues for Cymbeline ################
+END OLDPLAY Added 16 of 16 monologues
+BEGIN OLDPLAY 20 men Monologues for Loves Labour's Lost ####################
+END OLDPLAY Added 20 of 20 monologues
+BEGIN OLDPLAY 15 men Monologues for Measure for Measure ###############
+END OLDPLAY Added 15 of 15 monologues
+BEGIN OLDPLAY 6 men Monologues for Merry Wives of Windsor ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 17 men Monologues for Merchant of Venice #################
+END OLDPLAY Added 17 of 17 monologues
+BEGIN OLDPLAY 16 men Monologues for A Midsummer Night's Dream ..#...#..#..#...
+END OLDPLAY Added 4 of 16 monologues
+BEGIN OLDPLAY 10 men Monologues for Much Ado About Nothing ##########
+END OLDPLAY Added 10 of 10 monologues
+BEGIN OLDPLAY 9 men Monologues for Pericles #########
+END OLDPLAY Added 9 of 9 monologues
+BEGIN OLDPLAY 14 men Monologues for The Taming of the Shrew ##############
+END OLDPLAY Added 14 of 14 monologues
+BEGIN OLDPLAY 13 men Monologues for The Tempest #############
+END OLDPLAY Added 13 of 13 monologues
+BEGIN OLDPLAY 27 men Monologues for Troilus and Cressida ###########################
+END OLDPLAY Added 27 of 27 monologues
+BEGIN OLDPLAY 7 men Monologues for Twelfth Night #######
+END OLDPLAY Added 7 of 7 monologues
+BEGIN OLDPLAY 14 men Monologues for Two Gentlemen of Verona ##############
+END OLDPLAY Added 14 of 14 monologues
+BEGIN OLDPLAY 6 men Monologues for The Winter's Tale ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 20 men Monologues for Henry IV i ####################
+END OLDPLAY Added 20 of 20 monologues
+BEGIN OLDPLAY 23 men Monologues for Henry IV ii #######################
+END OLDPLAY Added 23 of 23 monologues
+BEGIN OLDPLAY 28 men Monologues for Henry V ############################
+END OLDPLAY Added 28 of 28 monologues
+BEGIN OLDPLAY 15 men Monologues for Henry VI i ###############
+END OLDPLAY Added 15 of 15 monologues
+BEGIN OLDPLAY 15 men Monologues for Henry VI ii ###############
+END OLDPLAY Added 15 of 15 monologues
+BEGIN OLDPLAY 20 men Monologues for Henry VI iii ####################
+END OLDPLAY Added 20 of 20 monologues
+BEGIN OLDPLAY 18 men Monologues for Henry VIII ##################
+END OLDPLAY Added 18 of 18 monologues
+BEGIN OLDPLAY 22 men Monologues for King John ######################
+END OLDPLAY Added 22 of 22 monologues
+BEGIN OLDPLAY 20 men Monologues for Richard II ####################
+END OLDPLAY Added 20 of 20 monologues
+BEGIN OLDPLAY 13 men Monologues for Richard III #############
+END OLDPLAY Added 13 of 13 monologues
+BEGIN OLDPLAY 7 men Monologues for Antony & Cleopatra #######
+END OLDPLAY Added 7 of 7 monologues
+BEGIN OLDPLAY 17 men Monologues for Coriolanus #################
+END OLDPLAY Added 17 of 17 monologues
+BEGIN OLDPLAY 25 men Monologues for Hamlet ...#..#..#..##.....#...#.
+END OLDPLAY Added 7 of 25 monologues
+BEGIN OLDPLAY 20 men Monologues for Julius Cæsar ####################
+END OLDPLAY Added 20 of 20 monologues
+BEGIN OLDPLAY 8 men Monologues for King Lear ########
+END OLDPLAY Added 8 of 8 monologues
+BEGIN OLDPLAY 7 men Monologues for Macbeth ##..#.#
+END OLDPLAY Added 4 of 7 monologues
+BEGIN OLDPLAY 18 men Monologues for Othello ##################
+END OLDPLAY Added 18 of 18 monologues
+BEGIN OLDPLAY 14 men Monologues for Romeo and Juliet ##############
+END OLDPLAY Added 14 of 14 monologues
+BEGIN OLDPLAY 20 men Monologues for Timon of Athens ####################
+END OLDPLAY Added 20 of 20 monologues
+BEGIN OLDPLAY 19 men Monologues for Titus Andronicus ###################
+END OLDPLAY Added 19 of 19 monologues
+BEGIN OLDPLAY 0 men Monologues for Other Works 
+END OLDPLAY Added 0 of 0 monologues
+
+Inserted 519 Old Monologues
+BEGIN OLDPLAY 7 women Monologues for All's Well That Ends Well ...#...
+END OLDPLAY Added 1 of 7 monologues
+BEGIN OLDPLAY 6 women Monologues for As You Like It ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 6 women Monologues for The Comedy of Errors ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 11 women Monologues for Cymbeline ##########
+Error parsing monologue for Cymbeline
+ 
+Cannot find Monologue first_line in html for Cymbeline 
+
+Error adding monologue for Cymbeline
+ Validation failed: First line can't be blank, First line is too long (maximum is 255 characters) 
+
+END OLDPLAY Added 10 of 11 monologues
+BEGIN OLDPLAY 6 women Monologues for Loves Labours Lost ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 5 women Monologues for Measure for Measure #####
+END OLDPLAY Added 5 of 5 monologues
+BEGIN OLDPLAY 4 women Monologues for Merry Wives of Windsor ####
+END OLDPLAY Added 4 of 4 monologues
+BEGIN OLDPLAY 6 women Monologues for Merchant of Venice ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 19 women Monologues for A Midsummer Night's Dream #....###......##...
+END OLDPLAY Added 6 of 19 monologues
+BEGIN OLDPLAY 1 women Monologues for Much Ado About Nothing #
+END OLDPLAY Added 1 of 1 monologues
+BEGIN OLDPLAY 2 women Monologues for Pericles, Prince of Tyre ##
+END OLDPLAY Added 2 of 2 monologues
+BEGIN OLDPLAY 3 women Monologues for The Taming of the Shrew ###
+END OLDPLAY Added 3 of 3 monologues
+BEGIN OLDPLAY 5 women Monologues for The Tempest ####
+Error parsing monologue for 
+ 
+Cannot find Monologue first_line in html for  
+
+Error adding monologue for 
+ Validation failed: First line can't be blank, First line is too long (maximum is 255 characters) 
+
+END OLDPLAY Added 4 of 5 monologues
+BEGIN OLDPLAY 3 women Monologues for Troilus and Cressida ###
+END OLDPLAY Added 3 of 3 monologues
+BEGIN OLDPLAY 3 women Monologues for Twelfth Night ###
+END OLDPLAY Added 3 of 3 monologues
+BEGIN OLDPLAY 5 women Monologues for Two Gentlemen of Verona #####
+END OLDPLAY Added 5 of 5 monologues
+BEGIN OLDPLAY 6 women Monologues for The Winter's Tale ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 1 women Monologues for Henry IV i #
+END OLDPLAY Added 1 of 1 monologues
+BEGIN OLDPLAY 5 women Monologues for Henry IV ii .###.
+END OLDPLAY Added 3 of 5 monologues
+BEGIN OLDPLAY 5 women Monologues for Henry V ..##.
+END OLDPLAY Added 2 of 5 monologues
+BEGIN OLDPLAY 5 women Monologues for Henry VI i #####
+END OLDPLAY Added 5 of 5 monologues
+BEGIN OLDPLAY 6 women Monologues for Henry VI ii ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 6 women Monologues for Henry VI iii ######
+END OLDPLAY Added 6 of 6 monologues
+BEGIN OLDPLAY 5 women Monologues for Henry VIII ..###
+END OLDPLAY Added 3 of 5 monologues
+BEGIN OLDPLAY 8 women Monologues for King John #.######
+END OLDPLAY Added 7 of 8 monologues
+BEGIN OLDPLAY 2 women Monologues for Richard II ##
+END OLDPLAY Added 2 of 2 monologues
+BEGIN OLDPLAY 9 women Monologues for Richard III #########
+END OLDPLAY Added 9 of 9 monologues
+BEGIN OLDPLAY 5 women Monologues for Antony & Cleopatra #####
+END OLDPLAY Added 5 of 5 monologues
+BEGIN OLDPLAY 4 women Monologues for Coriolanus ####
+END OLDPLAY Added 4 of 4 monologues
+BEGIN OLDPLAY 6 women Monologues for Hamlet ....#.
+END OLDPLAY Added 1 of 6 monologues
+BEGIN OLDPLAY 3 women Monologues for Julius Caesar ###
+END OLDPLAY Added 3 of 3 monologues
+BEGIN OLDPLAY 4 women Monologues for King Lear ####
+END OLDPLAY Added 4 of 4 monologues
+BEGIN OLDPLAY 3 women Monologues for Macbeth ###
+END OLDPLAY Added 3 of 3 monologues
+BEGIN OLDPLAY 8 women Monologues for Othello ########
+END OLDPLAY Added 8 of 8 monologues
+BEGIN OLDPLAY 12 women Monologues for Romeo and Juliet ############
+END OLDPLAY Added 12 of 12 monologues
+BEGIN OLDPLAY 5 women Monologues for Titus Andronicus #####
+END OLDPLAY Added 5 of 5 monologues
+BEGIN OLDPLAY 0 women Monologues for Other Works 
+END OLDPLAY Added 0 of 0 monologues
+
+Inserted 166 Old Monologues

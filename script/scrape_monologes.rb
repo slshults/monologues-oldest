@@ -40,13 +40,13 @@ def parse_monologues(server, mono_page)
     if nodes[0].inner_text.length < 200
       character = nodes[0].inner_text.sub(/intercut/, ' (intercut)').strip
       type = nodes[1].inner_text.strip rescue ''
-      name = nodes[2].xpath('i')[0].inner_text.strip rescue nodes[2].inner_text
-      name = nil if name.match(/skin\['CONTENT/)
+      first_line = nodes[2].xpath('i')[0].inner_text.strip rescue nodes[2].inner_text
+      first_line = nil if first_line.match(/skin\['CONTENT/)
       reftext = nodes[3].xpath('a').inner_text.strip rescue ''
       reflink = nodes[3].xpath('a')[0].attributes['href'].text.strip rescue ''
       # fc = nodes[4].xpath('script').to_html rescue ''
-      # mono = [character, type, name, reftext, reflink, fc]
-      mono = [character, type, name, reftext, reflink]
+      # mono = [character, type, first_line, reftext, reflink, fc]
+      mono = [character, type, first_line, reftext, reflink]
       monos << mono
   #    puts server + mono_page + ref + '.htm' if ref
     end
@@ -79,21 +79,21 @@ def parse_and_insert_oldmonologues(server, oldmono_page)
         character = cells[0].inner_text.strip
         style = cells[1].inner_text.strip rescue nil
         if cells[2].xpath('a/i').inner_text.length > 1
-          name = cells[2].xpath('a/i').inner_text.strip
+          first_line = cells[2].xpath('a/i').inner_text.strip
         elsif cells[2].xpath('i').inner_text.length > 1
-          name = cells[2].xpath('i').inner_text.strip
+          first_line = cells[2].xpath('i').inner_text.strip
         else
-          raise "\nCannot find Monologue name in html for #{character}"
+          raise "\nCannot find Monologue first_line in html for #{character}"
         end
-        pdf_link = cells[2].xpath('a')[0]['href'].strip rescue nil
-        ref_text = cells[3].xpath('a').inner_text.strip rescue nil
-        ref_link = cells[3].xpath('a')[0]['href'].strip rescue nil
+        pdflink = cells[2].xpath('a')[0]['href'].strip rescue nil
+        location = cells[3].xpath('a').inner_text.strip rescue nil
+        bodylink = cells[3].xpath('a')[0]['href'].strip rescue nil
       rescue => e
         print "\nError parsing monologue for #{character}\n #{e.message} "
         puts
       end
 
-      if Monologue.find_by_name_and_play_id(name, play_id)
+      if Monologue.find_by_first_line_and_play_id(first_line, play_id)
         print '.'
         next
       end
@@ -101,17 +101,18 @@ def parse_and_insert_oldmonologues(server, oldmono_page)
       begin
         Monologue.create!(
           :play_id => play_id,
-          :name => name,
+          :first_line => first_line,
           :character => character,
           :gender_id => gender_id,
           :style => style,
           :body => nil,
-          :section => ref_text,
-          :link => ref_link
+          :location => location,
+          :pdflink => pdflink,
+          :bodylink => bodylink
         )
         added += 1
         print '#'
-        #puts "  #{name} (#{character})"
+        #puts "  #{first_line} (#{character})"
       rescue => e
         print "\nError adding monologue for #{character}\n #{e.message} "
         puts
@@ -136,43 +137,44 @@ def insert_monologues(server, mono_page, monos, play_id)
       gender = 2
     end
     begin
-      name = mono[2] || ''
+      first_line = mono[2] || ''
       character = mono[0] || ''
       style = mono[1] || ''
-      section = mono[3] || ''
-      link = ''
+      location = mono[3] || ''
+      bodylink = mono[4] || ''
 
-      if Monologue.find_by_name_and_play_id(name, play_id)
+      if Monologue.find_by_first_line_and_play_id(first_line, play_id)
         print '.'
         next
       end
 
       scene_ref_page = style_js_text_array[0].match(/src=["'](.+?)["']/)[1]
-      link = style_js_text_array[0].match(/href=["'](.+?)["']/)[1]
-      body_url = server + mono_page + scene_ref_page rescue ''
+      pdflink = style_js_text_array[0].match(/href=["'](.+?)["']/)[1]
+      body_local_link = server + mono_page + scene_ref_page rescue ''
       body = nil
       begin
         Timeout::timeout(5){
-          body = open(body_url).read
+          body = open(body_local_link).read
         }
       rescue Timeout::Error => e
-        puts "\nTimeout error trying to retrieve body for #{name}"
+        puts "\nTimeout error trying to retrieve body for #{first_line}"
         next
       end
 
       Monologue.create!(
         :play_id => play_id,
-        :name => name,
+        :first_line => first_line,
         :character => character,
         :gender_id => gender,
         :style => style,
         :body => body,
-        :section => section,
-        :link => link
+        :location => location,
+        :pdflink => pdflink,
+        :bodylink => bodylink
       )
       added += 1
       print '#'
-      #puts "  #{name} (#{character})"
+      #puts "  #{first_line} (#{character})"
     rescue => e
       print "\nError adding monologue: #{mono}\n #{e.message} "
       print body_url if e.message.strip == "404 Not Found"
@@ -199,20 +201,24 @@ def insert_play(play)
 end
 
 server = 'http://shakespeare-monologues.org'
-mono_pages = [
-  '/women/hamlet/', '/men/hamlet/',
-  '/women/midsummer/', '/men/midsummer/',
-  '/women/macbeth/', '/men/macbeth/',
-  '/women/AllsWell/', '/men/AllsWell/',
-  '/women/AsYouLikeIt/', '/men/AsYouLikeIt/',
-  '/women/Errors/', '/men/Errors/',
-  '/women/Cymbeline/', '/men/Cymbeline/',
-  '/women/LLL/', '/men/LLL/',
-  '/women/TMofV/', '/men/merchant/',
-  '/women/MuchAdo/', '/men/MuchAdo/',
-  '/women/shrew/', '/men/shrew/',
-  '/women/12thNight/', '/men/12thNight/',
-  '/women/HenryIVi/', '/men/HenryIVi/',
+mono_pages = 
+#  ['/women/hamlet/', '/men/hamlet/',
+#  '/women/midsummer/', '/men/midsummer/',
+#  '/women/macbeth/', '/men/macbeth/',
+#  '/women/AllsWell/', '/men/AllsWell/'
+#]
+[
+
+#  '/women/AsYouLikeIt/', '/men/AsYouLikeIt/',
+#  '/women/Errors/', '/men/Errors/',
+#  '/women/Cymbeline/', '/men/Cymbeline/',
+#  '/women/LLL/', '/men/LLL/',
+#  '/women/TMofV/', '/men/merchant/',
+#  '/women/MuchAdo/', '/men/MuchAdo/',
+#  '/women/shrew/', '/men/shrew/',
+#  '/women/12thNight/', '/men/12thNight/',
+#  '/women/HenryIVi/', '/men/HenryIVi/']
+
   '/women/AandC/', '/men/AandC/',
   '/women/RandJ/', '/men/RandJ/',
   '/women/othello/', '/men/othello/']
@@ -226,8 +232,8 @@ mono_pages.each do |mono_page|
   puts "\nEND PAGE: Inserted #{Monologue.count - mono_count} of #{monos.size} monologues found"
 end
 
-oldmono_pages = [
-  '/mensmonos.old.shtml', '/womensmonos.old.htm']
+oldmono_pages = []
+#  '/mensmonos.old.shtml', '/womensmonos.old.htm']
 
 # gender == 1 both, 2 women, 3 men
 oldmono_pages.each do |oldmono_page|

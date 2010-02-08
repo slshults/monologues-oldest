@@ -5,12 +5,12 @@
     <%= f.text_field :play_id %>
   </p>
   <p>
-    <%= f.label :section %><br />
-    <%= f.text_field :section %>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
   </p>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :first_line %><br />
+    <%= f.text_field :first_line %>
   </p>
   <p>
     <%= f.label :body %><br />
@@ -29,8 +29,12 @@
     <%= f.text_field :style %>
   </p>
   <p>
-    <%= f.label :link %><br />
-    <%= f.text_field :link %>
+    <%= f.label :bodylink %><br />
+    <%= f.text_field :bodylink %>
+  </p>
+  <p>
+    <%= f.label :pdflink %><br />
+    <%= f.text_field :pdflink %>
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

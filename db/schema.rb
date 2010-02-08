@@ -25,15 +25,16 @@ ActiveRecord::Schema.define(:version => 20100205151733) do
 
   create_table "monologues", :force => true do |t|
     t.integer  "play_id"
-    t.string   "section"
-    t.string   "name"
+    t.string   "location"
+    t.string   "first_line"
     t.text     "body"
     t.integer  "gender_id"
     t.string   "character"
     t.string   "style"
-    t.string   "link"
+    t.string   "pdflink"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "bodylink"
   end
 
   create_table "plays", :force => true do |t|

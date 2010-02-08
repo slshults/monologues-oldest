@@ -13,15 +13,15 @@
   <table style="text-align: left;">
     <tr>
       <th>Play / Character</th>
-      <th>Name</th>
+      <th>First Line</th>
       <th>Actions</th>
     </tr>
     <% for monologue in @monologues %>
       <tr id="<%= cycle 'odd-row', 'even-row' %>">
         <td><span style="font-size: 115%;"><%= link_to( h(monologue.play.title), play_path(monologue.play) ) unless monologue.play.title.blank? %></span>
-            (<a href='<%=h monologue.link %>'><%=h monologue.section %></a>)
+            - <a href='<%=h monologue.bodylink %>'><%=h monologue.location %></a> (<%= link_to 'pdf', monologue.pdflink %>)
         <br/><%=h monologue.character %> - <%=h monologue.style %></td>
-          <td style="font-size: 100%;"><%=  link_to h(monologue.name), monologue %></td>
+          <td style="font-size: 100%;"><%=  link_to h(monologue.first_line), monologue %></td>
         <td style="font-size: 70%;"><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
           <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>

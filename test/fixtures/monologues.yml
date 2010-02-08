@@ -1,17 +1,18 @@
 is_this_a_daggar:
   play: macbeth
-  section: V v 123
-  name: Is this a dagger which I see before me
+  location: V v 123
+  first_line: Is this a dagger which I see before me
   body: MyText
   gender_id: 2
   character: Macbeth
   style: Verse
-  link: MyString
+  pdflink: MyString
+  bodylink: MyString
 
 to_be_or_not_to_be:
   play: hamlet
-  section: II i 23
-  name: To be, or not to be, that is the question
+  location: II i 23
+  first_line: To be, or not to be, that is the question
   body: |
     To be, or not to be- that is the question:<br>
     Whether 'tis nobler in the mind to suffer<br>
@@ -51,4 +52,5 @@ to_be_or_not_to_be:
   gender_id: 3
   character: Hamlet
   style: Verse
-  link: http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=1&Scope=scene&LineHighlight=1749#1740
+  pdflink: http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=1&Scope=scene&LineHighlight=1749#1740
+  bodylink: http://monologues.heroku.com
