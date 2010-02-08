@@ -14,30 +14,30 @@ class PlaysControllerTest < ActionController::TestCase
 
   test "should create play" do
     assert_difference('Play.count') do
-      post :create, :play => { }
+      post :create, :play => {:title => 'One night in Burbank', :author_id => 1 }
     end
 
     assert_redirected_to play_path(assigns(:play))
   end
 
   test "should show play" do
-    get :show, :id => plays(:one).to_param
+    get :show, :id => plays(:hamlet).to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => plays(:one).to_param
+    get :edit, :id => plays(:hamlet).to_param
     assert_response :success
   end
 
   test "should update play" do
-    put :update, :id => plays(:one).to_param, :play => { }
+    put :update, :id => plays(:hamlet).to_param, :play => { }
     assert_redirected_to play_path(assigns(:play))
   end
 
   test "should destroy play" do
     assert_difference('Play.count', -1) do
-      delete :destroy, :id => plays(:one).to_param
+      delete :destroy, :id => plays(:hamlet).to_param
     end
 
     assert_redirected_to plays_path
