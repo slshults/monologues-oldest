@@ -1,6 +1,10 @@
 <HTML>
 <HEAD>
-<TITLE>Shakespeare Monologues</TITLE>
+<TITLE>Shakespeare's Monologues</TITLE>
+
+<%= javascript_include_tag :defaults %>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <META NAME="KEYWORDS"
 CONTENT="shakespeare, monologue, shakespeare's, monologues,
@@ -44,7 +48,6 @@ return true;
 <table width="100%" align=center valign="top" cellpadding=0 cellspacing=0 nowrap>
 <tr>
 <td width=520 align=left valign=top cellspacing=0 cellpadding=0>
-<h1>Shakespeare's Monologues</h1>
 </td>
 </tr>
 </table>
@@ -57,10 +60,8 @@ return true;
 <%= link_to '[The Men]', '/men' %>
 &nbsp;
 <%= link_to '[The Women]', '/women' %><br/>
-<A HREF="store/">[Books]</a>&nbsp;<A HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</A>&nbsp;<a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>&nbsp;<A HREF="/">[Home]</A>
-<br><br>
-&nbsp;
-<br>
+<a HREF="http://shakespeare-monologues.org/store/">[Books]</a>&nbsp;<a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>&nbsp;<a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>&nbsp;<a HREF="/">[Home]</a>
+<br/><br/>&nbsp;<br/>
 <!-- left column amazon ads -->
 
 <script type="text/javascript"><!--
@@ -90,10 +91,12 @@ amazon_ad_title="Shakespeare's Monologues' Bookshelves"; //--></script>
 
 
 
-<p><center><b><a href="mensmonos.old.shtml#other">[Other Works]</a><br/>
+<p><center><b><a href="http://shakespeare-monologues.org/mensmonos.old.shtml#other">[Other Works]</a><br/>
 <a HREF="/">[Home]</a>
-<a HREF="womenindex.shtml">[Women's Monologues]</a>
-<a HREF="store/">[Books]</a>
+<%= link_to '[The Men]', '/men' %>
+&nbsp;
+<%= link_to '[The Women]', '/women' %><br/>
+<a HREF="http://shakespeare-monologues.org/store/">[Books]</a>
 <a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>
 <a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>
 <a HREF="http://shakespeare-monologues.org/contact.php">[Contact]</a></b>

@@ -4,10 +4,11 @@
   <h2>Shakespeare's Monologues</h2>
   <span>
     <% form_tag('javascript:void(0)') do %>
-    <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 200%;"/>
-    <%= image_tag '/images/ajax-loader.gif',
-          :id => 'spinner',
-          :style => "display: none;" %>
+      <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 140%;"/>
+      <%= image_tag '/images/ajax-loader.gif',
+            :id => 'spinner',
+            :style => "display: none;" %>
+    <% end %>
   </span>
 </div>
 
@@ -21,6 +22,5 @@
   <div id='ajaxResults'>
     <%= render :partial => "search" %>
   </div>
-<% end %>
 
 
