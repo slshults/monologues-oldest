@@ -6,8 +6,8 @@ is_this_a_daggar:
   gender_id: 2
   character: Macbeth
   style: Verse
-  pdflink: MyString
-  bodylink: MyString
+  pdf_link: MyString
+  body_link: MyString
 
 to_be_or_not_to_be:
   play: hamlet
@@ -52,5 +52,6 @@ to_be_or_not_to_be:
   gender_id: 3
   character: Hamlet
   style: Verse
-  pdflink: http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=1&Scope=scene&LineHighlight=1749#1740
-  bodylink: http://monologues.heroku.com
+  pdf_link: http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=hamlet&Act=3&Scene=1&Scope=scene&LineHighlight=1749#1740
+  body_link: http://monologues.heroku.com
+  intercut: 1

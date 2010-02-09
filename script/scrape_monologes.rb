@@ -76,7 +76,14 @@ def parse_and_insert_oldmonologues(server, oldmono_page)
     monologues.each do |mono|
       begin
         cells = mono.xpath('td')
-        character = cells[0].inner_text.strip
+        intercut_yes = cells[0].inner_text.match(/^.+?\s*(\(intercut\))\s*$/)[1]
+        if intercut_yes
+          character = cells[0].inner_text.match(/^(.+?)\s*\(intercut\)\s*$/)[1].strip
+          intercut = 1
+        else
+          character = cells[0].inner_text.strip || ''
+          intercut = 0
+        end
         style = cells[1].inner_text.strip rescue nil
         if cells[2].xpath('a/i').inner_text.length > 1
           first_line = cells[2].xpath('a/i').inner_text.strip
@@ -108,7 +115,8 @@ def parse_and_insert_oldmonologues(server, oldmono_page)
           :body => nil,
           :location => location,
           :pdflink => pdflink,
-          :bodylink => bodylink
+          :bodylink => bodylink,
+          :intercut => intercut
         )
         added += 1
         print '#'
@@ -138,7 +146,14 @@ def insert_monologues(server, mono_page, monos, play_id)
     end
     begin
       first_line = mono[2] || ''
-      character = mono[0] || ''
+      intercut_yes = mono[0].match(/^.+?\s*(\(intercut\))\s*$/)
+      if intercut_yes
+        character = mono[0].match(/^(.+?)\s*\(intercut\)\s*$/)[1].strip
+        intercut = 1
+      else
+        character = mono[0] || ''
+        intercut = 0
+      end
       style = mono[1] || ''
       location = mono[3] || ''
       bodylink = mono[4] || ''
@@ -170,7 +185,8 @@ def insert_monologues(server, mono_page, monos, play_id)
         :body => body,
         :location => location,
         :pdflink => pdflink,
-        :bodylink => bodylink
+        :bodylink => bodylink,
+        :intercut => intercut
       )
       added += 1
       print '#'
@@ -202,13 +218,12 @@ end
 
 server = 'http://shakespeare-monologues.org'
 mono_pages = 
-#  ['/women/hamlet/', '/men/hamlet/',
-#  '/women/midsummer/', '/men/midsummer/',
-#  '/women/macbeth/', '/men/macbeth/',
-#  '/women/AllsWell/', '/men/AllsWell/'
-#]
-[
-
+ [ '/women/hamlet/', '/men/hamlet/',
+  '/women/midsummer/', '/men/midsummer/',
+  '/women/macbeth/', '/men/macbeth/',
+  '/women/AllsWell/', '/men/AllsWell/'
+ ]
+#[
 #  '/women/AsYouLikeIt/', '/men/AsYouLikeIt/',
 #  '/women/Errors/', '/men/Errors/',
 #  '/women/Cymbeline/', '/men/Cymbeline/',
@@ -218,10 +233,14 @@ mono_pages =
 #  '/women/shrew/', '/men/shrew/',
 #  '/women/12thNight/', '/men/12thNight/',
 #  '/women/HenryIVi/', '/men/HenryIVi/']
+#]
 
-  '/women/AandC/', '/men/AandC/',
-  '/women/RandJ/', '/men/RandJ/',
-  '/women/othello/', '/men/othello/']
+#[
+#  '/women/AandC/', '/men/AandC/',
+#  '/women/RandJ/', '/men/RandJ/',
+#  '/women/othello/', '/men/othello/'
+#]
+
 # gender == 1 both, 2 women, 3 men
 mono_pages.each do |mono_page|
   monos, play = parse_monologues(server, mono_page)

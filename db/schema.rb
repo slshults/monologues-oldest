@@ -31,10 +31,11 @@ ActiveRecord::Schema.define(:version => 20100205151733) do
     t.integer  "gender_id"
     t.string   "character"
     t.string   "style"
-    t.string   "pdflink"
+    t.string   "pdf_link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "bodylink"
+    t.string   "body_link"
+    t.integer  "intercut"
   end
 
   create_table "plays", :force => true do |t|

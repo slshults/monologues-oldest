@@ -29,12 +29,16 @@
     <%= f.text_field :style %>
   </p>
   <p>
-    <%= f.label :bodylink %><br />
-    <%= f.text_field :bodylink %>
+    <%= f.label :body_link %><br />
+    <%= f.text_field :body_link %>
   </p>
   <p>
-    <%= f.label :pdflink %><br />
-    <%= f.text_field :pdflink %>
+    <%= f.label :pdf_link %><br />
+    <%= f.text_field :pdf_link %>
+  </p>
+  <p>
+    <%= f.label :intercut %><br />
+    <%= f.text_field :intercut %> 1 == true, 0 == false
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

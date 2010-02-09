@@ -19,8 +19,8 @@
     <% for monologue in @monologues %>
       <tr id="<%= cycle 'odd-row', 'even-row' %>">
         <td><span style="font-size: 115%;"><%= link_to( h(monologue.play.title), play_path(monologue.play) ) unless monologue.play.title.blank? %></span>
-            - <a href='<%=h monologue.bodylink %>'><%=h monologue.location %></a> (<%= link_to 'pdf', monologue.pdflink %>)
-        <br/><%=h monologue.character %> - <%=h monologue.style %></td>
+            - <a href='<%=h monologue.body_link %>'><%=h monologue.location %></a> (<%= link_to 'pdf', monologue.pdf_link %>)
+        <br/><%=h monologue.character %> <%= monologue.intercut_label %> - <%=h monologue.style %></td>
           <td style="font-size: 100%;"><%=  link_to h(monologue.first_line), monologue %></td>
         <td style="font-size: 70%;"><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
           <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
