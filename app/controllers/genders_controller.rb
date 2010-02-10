@@ -10,6 +10,26 @@ class GendersController < ApplicationController
     end
   end
 
+  def men
+    @gender = Gender.find_by_name('Men')
+    @monologues = Monologue.find_by_gender_id(3)
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
+
+    render :show
+  end
+
+  def women
+    @gender = Gender.find_by_name('Women')
+    @monologues = Monologue.find_by_gender_id(2)
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
+
+    render :show
+  end
+
   # GET /genders/1
   # GET /genders/1.xml
   def show

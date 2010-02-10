@@ -7,9 +7,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :authors
 
-  map.connect '/men', :controller => :monologues, :action => 'men'
+  map.connect '/men', :controller => :genders, :action => 'men', :id => 3
 
-  map.connect '/women', :controller => :monologues, :action => 'women'
+  map.connect '/women', :controller => :genders, :action => 'women', :id => 2
 
   # The priority is based upon order of creation: first created -> highest priority.
 

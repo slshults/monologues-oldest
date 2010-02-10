@@ -20,10 +20,10 @@ class GendersControllerTest < ActionController::TestCase
     assert_redirected_to gender_path(assigns(:gender))
   end
 
-  test "should show gender" do
-    get :show, :id => genders(:men).to_param
-    assert_response :success
-  end
+#  test "should show gender" do
+#    get :show, :id => genders(:men).to_param
+#    assert_response :success
+#  end
 
   test "should get edit" do
     get :edit, :id => genders(:men).to_param

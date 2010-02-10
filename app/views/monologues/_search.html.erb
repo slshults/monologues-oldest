@@ -10,7 +10,7 @@
       <p><%= @monologues.size.to_s %> monologues match your search</p>
     <% end %>
   <% end %>
-  <table style="text-align: left;">
+      <table style="text-align: left;" cellpadding="5px">
     <tr>
       <th>Play / Character</th>
       <th>First Line</th>
@@ -18,12 +18,14 @@
     </tr>
     <% for monologue in @monologues %>
       <tr id="<%= cycle 'odd-row', 'even-row' %>">
-        <td><span style="font-size: 115%;"><%= link_to( h(monologue.play.title), play_path(monologue.play) ) unless monologue.play.title.blank? %></span>
-            - <a href='<%=h monologue.body_link %>'><%=h monologue.location %></a> (<%= link_to 'pdf', monologue.pdf_link %>)
-        <br/><%=h monologue.character %> <%= monologue.intercut_label %> - <%=h monologue.style %></td>
-          <td style="font-size: 100%;"><%=  link_to h(monologue.first_line), monologue %></td>
+        <td nowrap><%=h monologue.character %><span style="font-size: 80%;"> - <%=h monologue.style %> - <%= monologue.intercut_label %></span><br/>
+            <%= link_to( h(monologue.play.title), play_path(monologue.play) )%>
+            - <a href='<%=h monologue.body_link %>'><%=h monologue.location %></a> - <a href="<%=monologue.pdf_link%>"><img alt="print" src="images/print.gif"/></a>
+        </td>
+        <td style="font-size: 100%;"><%=  link_to h(monologue.first_line), monologue %></td>
         <td style="font-size: 70%;"><%= link_to "Edit", edit_monologue_path(monologue) %><br/>
-          <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %></td>
+          <%= link_to "Destroy", monologue, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
       </tr>
     <% end %>
   </table>

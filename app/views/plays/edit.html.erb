@@ -9,6 +9,10 @@
     <%= f.text_field :title %>
   </p>
   <p>
+    <%= f.label :classification %>
+    <%= collection_select( :play, :classification, ['Comedy', 'History', 'Tragedy'], :to_s, :to_s ) %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

@@ -3,6 +3,9 @@ class PlaysController < ApplicationController
   # GET /plays.xml
   def index
     @plays = Play.all
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
 
     respond_to do |format|
       format.html # index.html.erb

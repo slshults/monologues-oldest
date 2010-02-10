@@ -3,7 +3,9 @@
 hamlet:
   author: shakespeare
   title: Hamlet
+  classification: Tragedy
 
 macbeth:
   author: shakespeare
   title: Macbeth
+  classification: Tragedy

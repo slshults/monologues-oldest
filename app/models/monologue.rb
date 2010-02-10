@@ -18,10 +18,6 @@ class Monologue < ActiveRecord::Base
   attr_accessible :play_id, :location, :first_line, :body, :gender_id, :character, :style, :body_link, :pdf_link, :intercut
 
   def intercut_label
-    if self.intercut == 1
-      return 'intercut'
-    else
-      return ''
-    end
+    self.intercut == 1 ? 'intercut' : ''
   end
 end

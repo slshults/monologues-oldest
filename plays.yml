@@ -1,0 +1,421 @@
+--- 
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:04:34
+    title: As You Like It
+    updated_at: 2010-02-10 04:13:11
+    id: "1"
+    author_id: "1"
+    classification: Comedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:04:38
+    title: The Comedy of Errors
+    updated_at: 2010-02-10 04:37:52
+    id: "2"
+    author_id: "1"
+    classification: Comedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:04:41
+    title: Cymbeline
+    updated_at: 2010-02-10 04:38:10
+    id: "3"
+    author_id: "1"
+    classification: Comedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:04:46
+    title: Loves Labour's Lost
+    updated_at: 2010-02-10 04:38:18
+    id: "4"
+    author_id: "1"
+    classification: Comedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:04:51
+    title: The Merchant of Venice
+    updated_at: 2010-02-10 04:38:24
+    id: "5"
+    author_id: "1"
+    classification: Comedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:04:56
+    title: Much Ado About Nothing
+    updated_at: 2010-02-10 04:04:56
+    id: "6"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:04:59
+    title: The Taming of the Shrew
+    updated_at: 2010-02-10 04:38:34
+    id: "7"
+    author_id: "1"
+    classification: Comedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:05:02
+    title: Twelfth Night, Or What You Will
+    updated_at: 2010-02-10 04:38:43
+    id: "8"
+    author_id: "1"
+    classification: Comedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:05:05
+    title: Henry IV, part 1
+    updated_at: 2010-02-10 04:39:01
+    id: "9"
+    author_id: "1"
+    classification: History
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:38
+    title: All's Well That Ends Well
+    updated_at: 2010-02-10 04:12:38
+    id: "10"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:38
+    title: Measure for Measure
+    updated_at: 2010-02-10 04:12:38
+    id: "11"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: Merry Wives of Windsor
+    updated_at: 2010-02-10 04:12:39
+    id: "12"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: Merchant of Venice
+    updated_at: 2010-02-10 04:12:39
+    id: "13"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: A Midsummer Night's Dream
+    updated_at: 2010-02-10 04:12:39
+    id: "14"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: Pericles
+    updated_at: 2010-02-10 04:12:39
+    id: "15"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: The Tempest
+    updated_at: 2010-02-10 04:12:39
+    id: "16"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: Troilus and Cressida
+    updated_at: 2010-02-10 04:12:39
+    id: "17"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: Twelfth Night
+    updated_at: 2010-02-10 04:12:39
+    id: "18"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: Two Gentlemen of Verona
+    updated_at: 2010-02-10 04:12:39
+    id: "19"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:39
+    title: The Winter's Tale
+    updated_at: 2010-02-10 04:12:39
+    id: "20"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:40
+    title: Henry V
+    updated_at: 2010-02-10 04:39:33
+    id: "21"
+    author_id: "1"
+    classification: History
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:40
+    title: Henry VI i
+    updated_at: 2010-02-10 04:12:40
+    id: "22"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:40
+    title: Henry VI ii
+    updated_at: 2010-02-10 04:12:40
+    id: "23"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:40
+    title: Henry VI iii
+    updated_at: 2010-02-10 04:12:40
+    id: "24"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:40
+    title: Henry VIII
+    updated_at: 2010-02-10 04:12:40
+    id: "25"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:40
+    title: King John
+    updated_at: 2010-02-10 04:12:40
+    id: "26"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:40
+    title: Richard II
+    updated_at: 2010-02-10 04:40:15
+    id: "27"
+    author_id: "1"
+    classification: History
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:40
+    title: Richard III
+    updated_at: 2010-02-10 04:12:40
+    id: "28"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: Antony & Cleopatra
+    updated_at: 2010-02-10 04:12:41
+    id: "29"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: Coriolanus
+    updated_at: 2010-02-10 04:12:41
+    id: "30"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: Hamlet
+    updated_at: 2010-02-10 04:12:41
+    id: "31"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: "Julius C\xC3\xA6sar"
+    updated_at: 2010-02-10 04:12:41
+    id: "32"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: King Lear
+    updated_at: 2010-02-10 04:40:02
+    id: "33"
+    author_id: "1"
+    classification: Tragedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: Macbeth
+    updated_at: 2010-02-10 04:12:41
+    id: "34"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: Othello
+    updated_at: 2010-02-10 04:39:42
+    id: "35"
+    author_id: "1"
+    classification: Tragedy
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: Romeo and Juliet
+    updated_at: 2010-02-10 04:12:41
+    id: "36"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: Timon of Athens
+    updated_at: 2010-02-10 04:12:41
+    id: "37"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:41
+    title: Titus Andronicus
+    updated_at: 2010-02-10 04:12:41
+    id: "38"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:42
+    title: Other Works
+    updated_at: 2010-02-10 04:12:42
+    id: "39"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:42
+    title: Loves Labours Lost
+    updated_at: 2010-02-10 04:12:42
+    id: "40"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:43
+    title: Pericles, Prince of Tyre
+    updated_at: 2010-02-10 04:12:43
+    id: "41"
+    author_id: "1"
+    classification: 
+  attributes_cache: {}
+
+- !ruby/object:Play 
+  attributes: 
+    created_at: 2010-02-10 04:12:43
+    title: Julius Caesar
+    updated_at: 2010-02-10 04:39:52
+    id: "42"
+    author_id: "1"
+    classification: Tragedy
+  attributes_cache: {}
+

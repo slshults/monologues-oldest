@@ -14,7 +14,7 @@ class PlaysControllerTest < ActionController::TestCase
 
   test "should create play" do
     assert_difference('Play.count') do
-      post :create, :play => {:title => 'One night in Burbank', :author_id => 1 }
+      post :create, :play => {:title => 'One night in Burbank', :author_id => 1, :classification => 'Comedy' }
     end
 
     assert_redirected_to play_path(assigns(:play))

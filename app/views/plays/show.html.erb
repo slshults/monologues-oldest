@@ -2,6 +2,7 @@
   <%=h @play.author.name %>
 
   <h2><%=h @play.title %></h2>
+  <%= @play.classification %>
   <dl>
     <% @play.monologues.each do |monologue| %>
       <dt><%= monologue.character %> </dt>
