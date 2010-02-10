@@ -11,17 +11,17 @@
   <tr>
     <td style="vertical-align: text-top;">
         <% @comedies.each do |comedy| %>
-          <%= link_to comedy.title, play_path(comedy) %><br/>
+          <%= link_to comedy.title, play_path(comedy, :g => @gender.id) %><br/>
         <% end %>
     </td>
     <td style="vertical-align: text-top;">
         <% @histories.each do |history| %>
-          <%= link_to history.title, play_path(history) %><br/>
+          <%= link_to history.title, play_path(history, :g => @gender.id) %><br/>
         <% end %>
     </td>
     <td style="vertical-align: text-top;">
         <% @tragedies.each do |tragedy| %>
-          <%= link_to tragedy.title, play_path(tragedy) %><br/>
+          <%= link_to tragedy.title, play_path(tragedy, :g => @gender.id) %><br/>
         <% end %>
     </td>
   </tr>

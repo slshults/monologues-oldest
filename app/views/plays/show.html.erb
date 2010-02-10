@@ -1,17 +1,32 @@
-<p>
-  <%=h @play.author.name %>
 
-  <h2><%=h @play.title %></h2>
-  <%= @play.classification %>
-  <dl>
-    <% @play.monologues.each do |monologue| %>
-      <dt><%= monologue.character %> </dt>
-      <dd><%= link_to monologue.first_line, monologue_path(monologue) %></dd>
-    <% end %>
-  </dl>
-
-</p>
-
-
-<%= link_to 'Edit', edit_play_path(@play) %> |
-<%= link_to 'Back', plays_path %>
+<% if @gender %>
+  <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
+  <h3><%=h @play.title %></h3>
+  <span style="font-size: 75%;">
+    <%= link_to "Show #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
+    <%= link_to "Show All", play_path(@play) %>
+  </span>
+<% else %>
+  <h2>Monologues in Shakespeare</h2>
+  <h3><%=h @play.title %></h3>
+  <span style="font-size: 75%;">
+    <%= link_to "Show Women", play_path(@play, :g => 2) %> &nbsp;
+    <%= link_to "Show Men", play_path(@play, :g => 3) %>
+  </span>
+<% end %>
+<table style="text-align: left;" cellpadding="5px">
+  <!--
+    <tr>
+      <th>Character</th>
+      <th>First Line</th>
+    </tr>
+  -->
+  <% for monologue in @monologues %>
+    <tr id="<%= cycle 'odd-row', 'even-row' %>">
+      <td nowrap><%=h monologue.character %><span style="font-size: 80%;"> - <%=h monologue.style %> &nbsp; <%= monologue.intercut_label %><br/>
+          <a href='<%=h monologue.body_link %>'><%=h monologue.location %></a> &nbsp; <a href="<%=monologue.pdf_link%>"><img alt="print" src="/images/print.gif"/></a></span>
+      </td>
+      <td style="font-size: 100%;"><%=  link_to h(monologue.first_line), monologue %></td>
+    </tr>
+  <% end %>
+</table>

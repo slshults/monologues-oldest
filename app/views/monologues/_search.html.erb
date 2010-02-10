@@ -10,7 +10,7 @@
       <p><%= @monologues.size.to_s %> monologues match your search</p>
     <% end %>
   <% end %>
-      <table style="text-align: left;" cellpadding="5px">
+  <table style="text-align: left;" cellpadding="5px">
     <tr>
       <th>Play / Character</th>
       <th>First Line</th>
@@ -19,12 +19,11 @@
       <tr id="<%= cycle 'odd-row', 'even-row' %>">
         <td nowrap><%=h monologue.character %><span style="font-size: 80%;"> - <%=h monologue.style %> &nbsp; <%= monologue.intercut_label %><br/>
             <%= link_to( h(monologue.play.title), play_path(monologue.play) )%><br/>
-            <a href='<%=h monologue.body_link %>'><%=h monologue.location %></a> &nbsp; <a href="<%=monologue.pdf_link%>"><img alt="print" src="images/print.gif"/></a></span>
+            <a href='<%=h monologue.body_link %>'><%=h monologue.location %></a> &nbsp; <a href="<%=monologue.pdf_link%>"><img alt="print" src="/images/print.gif"/></a></span>
         </td>
         <td style="font-size: 100%;"><%=  link_to h(monologue.first_line), monologue %></td>
       </tr>
     <% end %>
   </table>
 <% end %>
-<p><%= link_to "New Monologue", new_monologue_path %></p>
 
