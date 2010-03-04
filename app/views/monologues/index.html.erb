@@ -13,7 +13,7 @@
 </div>
 
 <%=  observe_field :search,
-                  :frequency => 0.5,
+                  :frequency => 1,
                   :update => 'ajaxResults',
                   :before => "Element.show('spinner')",
                   :complete => "Element.hide('spinner')",

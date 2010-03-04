@@ -1,6 +1,9 @@
 <% if @monologues.empty? %>
   <p><br/>Alas, no monologues match your search</p>
 <% else %>
+
+<!--
+
   <% if @monologues.size == 1 %>
     <p>Behold! Your monologue.</p>
   <% else %>
@@ -10,6 +13,10 @@
       <p><%= @monologues.size.to_s %> monologues match your search</p>
     <% end %>
   <% end %>
+-->
+
+  <div class="paginate"><%= will_paginate @monologues, :search => params[:search] %></div>
+
   <table style="text-align: left;" cellpadding="5px">
     <tr>
       <th>Play / Character</th>
