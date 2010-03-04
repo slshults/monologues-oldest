@@ -3,15 +3,15 @@
   <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
   <h3><%=h @play.title %></h3>
   <span style="font-size: 75%;">
-    <%= link_to "Only #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
+    <%= link_to "Show #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
     <%= link_to "Show All", play_path(@play) %>
   </span>
 <% else %>
   <h2>Monologues in Shakespeare</h2>
   <h3><%=h @play.title %></h3>
   <span style="font-size: 75%;">
-    <%= link_to "Only Women", play_path(@play, :g => 2) %> &nbsp;
-    <%= link_to "Only Men", play_path(@play, :g => 3) %>
+    <%= link_to "Show Women", play_path(@play, :g => 2) %> &nbsp;
+    <%= link_to "Show Men", play_path(@play, :g => 3) %>
   </span>
 <% end %>
 <table style="text-align: left;" cellpadding="5px">
