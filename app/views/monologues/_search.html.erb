@@ -14,8 +14,9 @@
     <% end %>
   <% end %>
 -->
+<%= debug @ajax_search %>
 
-  <div class="paginate"><%= will_paginate @monologues, :search => params[:search] %></div>
+  <div class="paginate"><%= will_paginate @monologues, :page => params[:page], :params => [:controller => 'monologues'] %></div>
 
   <table style="text-align: left;" cellpadding="5px">
     <tr>

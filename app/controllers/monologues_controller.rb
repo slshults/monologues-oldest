@@ -46,8 +46,9 @@ class MonologuesController < ApplicationController
   end
 
   def search
-    unless params[:search].blank?
-      @terms = params[:search].split(" ")
+    @ajax_search = params[:search]
+    unless @ajax_search.blank?
+      @terms = @ajax_search.split(" ")
       @monologues = []
       @terms.each do |term|
         case ActiveRecord::Base.connection.adapter_name
@@ -64,7 +65,7 @@ class MonologuesController < ApplicationController
       end
       @monologues.compact!
       @monologues.uniq!
-      @monologues = @monologues.paginate :page => params[:page], :per_page => 10
+      @monologues = @monologues.paginate :search => @ajax_search, :page => params[:page], :per_page => 10
     else
       @monologues = Monologue.paginate :page => params[:page], :per_page => 20
     end

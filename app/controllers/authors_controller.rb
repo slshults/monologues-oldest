@@ -49,7 +49,7 @@ class AuthorsController < ApplicationController
         format.xml  { render :xml => @author, :status => :created, :location => @author }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @author.errors, :status => :unprocessable_entity }
+        format.xml  { raise 'foo'; render :xml => @author.errors, :status => :unprocessable_entity }
       end
     end
   end
