@@ -10,6 +10,8 @@ Rails::Initializer.run do |config|
   # config.gem "paperclip"
   config.gem 'will_paginate', :version => '~> 2.3.12', :source => 'http://gemcutter.org'
   config.time_zone = 'UTC'
+  config.gem 'memcached'
+  require 'memcached'
 
 end
 
