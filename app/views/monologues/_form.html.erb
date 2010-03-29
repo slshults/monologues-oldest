@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :play_id %><br />
-    <%= f.text_field :play_id %>
+    <%= f.select(:play_id, @plays.map {|p| [p.title, p.id]}) %>
   </p>
   <p>
     <%= f.label :location %><br />
@@ -14,11 +14,11 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :cols => 80 %>
   </p>
   <p>
     <%= f.label :gender_id %><br />
-    <%= f.text_field :gender_id %>
+    <%= f.select :gender_id, [['Men',3],['Women',2],['Both',1]] %>
   </p>
   <p>
     <%= f.label :character %><br />
@@ -26,7 +26,7 @@
   </p>
   <p>
     <%= f.label :style %><br />
-    <%= f.text_field :style %>
+    <%= f.select :style, ['Verse', 'Prose', 'Verse & Prose'] %>
   </p>
   <p>
     <%= f.label :body_link %><br />
@@ -38,7 +38,7 @@
   </p>
   <p>
     <%= f.label :intercut %><br />
-    <%= f.text_field :intercut %> 1 == true, 0 == false
+    <%= f.check_box :intercut %> 
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

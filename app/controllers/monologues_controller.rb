@@ -26,6 +26,7 @@ class MonologuesController < ApplicationController
   
   def edit
     @monologue = Monologue.find(params[:id])
+    @plays = Play.all
   end
   
   def update
