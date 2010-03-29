@@ -1,2 +1,2 @@
 will_paginate --version '>= 2.3.12'
-memcached 
+memcached  --version '>= 0.19.2'
