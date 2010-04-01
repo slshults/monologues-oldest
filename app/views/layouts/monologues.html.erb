@@ -56,16 +56,6 @@ return true;
 <tr>
 <td valign="top" align="middle">
 
-  <p>
-    <font size="-1" color="green">
-    <% if logged_in? %>
-      Logged in as <%= current_user.email %> <br/>
-      <%= link_to 'logout', '/logout' %><br/>
-      <%= link_to 'create user', new_user_path %>
-    <% end %>
-    </font>
-  </p>
-  
 <font size="-2">
 <%= link_to '[The Men]', '/men' %>
 &nbsp;

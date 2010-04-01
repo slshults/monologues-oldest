@@ -1,7 +1,5 @@
 require 'vendor/plugins/active_record_extensions'
 class MonologuesController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
-
   def index
     @monologues = Monologue.paginate :page => params[:page], :per_page => 20
   end
@@ -68,9 +66,7 @@ class MonologuesController < ApplicationController
       end
       @monologues.compact!
       @monologues.uniq!
-      # disable paging when ajax is in use
-      # @monologues = @monologues.paginate :search => @ajax_search, :page => params[:page], :per_page => 10
-      @monologues 
+      @monologues = @monologues.paginate :search => @ajax_search, :page => params[:page], :per_page => 10
     else
       @monologues = Monologue.paginate :page => params[:page], :per_page => 20
     end
@@ -87,8 +83,4 @@ class MonologuesController < ApplicationController
     render :index
   end
 
-  private
-  def authorized?
-    logged_in?
-  end
 end

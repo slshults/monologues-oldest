@@ -3,7 +3,6 @@
 <% else %>
 
 <!--
-This section is not displayed
 
   <% if @monologues.size == 1 %>
     <p>Behold! Your monologue.</p>
@@ -15,13 +14,10 @@ This section is not displayed
     <% end %>
   <% end %>
 -->
+<%= debug @ajax_search %>
 
-<!-- used to debug ajax search. --> <%= debug @ajax_search %>
+  <div class="paginate"><%= will_paginate @monologues, :page => params[:page], :params => [:controller => 'monologues'] %></div>
 
-  <% unless @ajax_search %>
-    <div class="paginate"><%= will_paginate @monologues, :page => params[:page], :params => [:controller => 'monologues'] %></div>
-  <% end %>
-    
   <table style="text-align: left;" cellpadding="5px">
     <tr>
       <th>Play / Character</th>
