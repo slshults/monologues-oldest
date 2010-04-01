@@ -206,6 +206,7 @@ def insert_play(play)
   play = 'Loves Labours Lost' if play.match(/^Loves Lab/i)
   play = 'Pericles, Prince of Tyre' if play.match(/^Pericles/i)
   play = 'Henry IV, i' if play.match( /^Henry IV/i )
+  play = 'A Midsummer Nights Dream' if play.match( /^A Midsummer Night/i )
 
   if play.match(/Other Works/)
     puts "Other Works is not a play! Skipping..."
