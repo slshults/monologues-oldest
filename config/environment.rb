@@ -11,10 +11,8 @@ Rails::Initializer.run do |config|
   config.gem 'will_paginate', :version => '~> 2.3.12', :source => 'http://gemcutter.org'
   config.time_zone = 'UTC'
   # config.gem 'memcached', :version => '-> 0.19.2', :source => 'http://gemcutter.org'
-  config.gem 'simplest_auth'
 
 end
 
 # require 'memcached'
 require "will_paginate"
-require 'simplest_auth'

@@ -7,12 +7,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :authors
 
-  map.connect '/logout', :controller => :sessions, :action => 'destroy'
-
-  map.resources :sessions
-
-  map.resources :users
-  
   map.connect '/men', :controller => :genders, :action => 'men', :id => 3
 
   map.connect '/women', :controller => :genders, :action => 'women', :id => 2
