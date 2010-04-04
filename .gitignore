@@ -5,3 +5,10 @@ db/migrate/20100131093706_create_monologues.rb
 db/development.sqlite3 
 db/test.sqlite3
 log/*
+<<<<<<< HEAD
+nbproject/private/private.xml
+=======
+*~
+*.2010*
+#*#
+>>>>>>> e40bf361ba534f46593b3edc5564595b9342bdae
