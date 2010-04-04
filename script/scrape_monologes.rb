@@ -165,7 +165,7 @@ def insert_monologues(server, mono_page, monos, play_id)
       end
 
       scene_ref_page = style_js_text_array[i].match(/src=["'](.+?)["']/)[1]
-      pdf_link = style_js_text_array[0].match(/href=["'](.+?)["']/)[1]
+      pdf_link = style_js_text_array[i].match(/href=["'](.+?)["']/)[1]
       body_local_link = server + mono_page + scene_ref_page rescue ''
       body = nil
 
@@ -195,7 +195,7 @@ def insert_monologues(server, mono_page, monos, play_id)
       #puts "  #{first_line} (#{character})"
     rescue => e
       print "\nError adding monologue: #{mono}\n #{e.message} "
-      print body_url if e.message.strip == "404 Not Found"
+      print body_link if e.message.strip == "404 Not Found"
       puts
     end
   end
