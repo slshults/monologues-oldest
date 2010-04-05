@@ -210,6 +210,7 @@ def insert_play(play)
   play = 'A Midsummer Nights Dream' if play.match( /^A Midsummer Night/i )
   play = 'Alls Well That Ends Well' if play.match( /Well That Ends Well/i)
   play = 'Romeo and Juliet' if play.match( /Romeo .+ Juliet/i)
+  play = 'The Winters Tale' if play.match( /Winter.+ Tale/i)
 
   if play.match(/Other Works/)
     puts "Other Works is not a play! Skipping..."
@@ -243,8 +244,8 @@ mono_pages = [
   '/women/12thNight/', '/men/12thNight/',
   '/women/HenryIVi/', '/men/HenryIVi/',
   '/women/AandC/', '/men/AandC/',
-  '/women/RandJ/', '/men/RandJ/',
-  '/women/othello/', '/men/othello/'
+  '/women/RandJ/', '/men/RandJ/'
+  #'/women/othello/', '/men/othello/'
 ]
 
 # gender == 1 both, 2 women, 3 men

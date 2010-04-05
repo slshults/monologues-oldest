@@ -1,0 +1,755 @@
+
+Parsing Monologue pages
+
+BEGIN: Hamlet has 6 monologes (/women/hamlet/) ######
+END: Inserted 6 of 6
+
+BEGIN: Hamlet has 25 monologes (/men/hamlet/) #########################
+END: Inserted 25 of 25
+
+BEGIN: A Midsummer Night's Dream has 19 monologes (/women/midsummer/) ###################
+END: Inserted 19 of 19
+
+BEGIN: A Midsummer Night's Dream has 22 monologes (/men/midsummer/) ##...##.###.#####..###
+END: Inserted 15 of 22
+
+BEGIN: Macbeth has 3 monologes (/women/macbeth/) ###
+END: Inserted 3 of 3
+
+BEGIN: Macbeth has 7 monologes (/men/macbeth/) #######
+END: Inserted 7 of 7
+
+BEGIN: All's Well That Ends Well has 7 monologes (/women/AllsWell/) #######
+END: Inserted 7 of 7
+
+BEGIN: All's Well That Ends Well has 3 monologes (/men/AllsWell/) ###
+END: Inserted 3 of 3
+
+BEGIN: As You Like It has 6 monologes (/women/AsYouLikeIt/) ######
+END: Inserted 6 of 6
+
+BEGIN: As You Like It has 7 monologes (/men/AsYouLikeIt/) #######
+END: Inserted 7 of 7
+
+BEGIN: The Comedy of Errors has 6 monologes (/women/Errors/) ######
+END: Inserted 6 of 6
+
+BEGIN: The Comedy of Errors has 6 monologes (/men/Errors/) ######
+END: Inserted 6 of 6
+
+BEGIN: Cymbeline has 11 monologes (/women/Cymbeline/) ###########
+END: Inserted 11 of 11
+
+BEGIN: Cymbeline has 16 monologes (/men/Cymbeline/) ###########.....
+END: Inserted 11 of 16
+
+BEGIN: Loves Labour's Lost has 5 monologes (/women/LLL/) #####
+END: Inserted 5 of 5
+
+BEGIN: Loves Labor's Lost has 19 monologes (/men/LLL/) #
+Error adding monologue: BerowneVerse
+ Validation failed: First line can't be blank 
+#################
+END: Inserted 18 of 19
+
+BEGIN: The Merchant of Venice has 6 monologes (/women/TMofV/) ######
+END: Inserted 6 of 6
+
+BEGIN: The Merchant of Venice has 17 monologes (/men/merchant/) #################
+END: Inserted 17 of 17
+
+BEGIN: Much Ado About Nothing has 1 monologes (/women/MuchAdo/) #
+END: Inserted 1 of 1
+
+BEGIN: Much Ado About Nothing has 10 monologes (/men/MuchAdo/) #
+Error adding monologue: BenedickProseII iii 8http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=muchado&Act=2&Scene=3&Scope=scene&LineHighlight=819#814
+ Validation failed: First line can't be blank 
+########
+END: Inserted 9 of 10
+
+BEGIN: The Taming of the Shrew has 3 monologes (/women/shrew/) ###
+END: Inserted 3 of 3
+
+BEGIN: The Taming of the Shrew has 14 monologes (/men/shrew/) #
+Error adding monologue: LordVerse
+ Validation failed: First line can't be blank 
+############
+END: Inserted 13 of 14
+
+BEGIN: Twelfth Night, Or what you will. has 3 monologes (/women/12thNight/) ###
+END: Inserted 3 of 3
+
+BEGIN: Twelfth Night, Or What You Will has 7 monologes (/men/12thNight/) #######
+END: Inserted 7 of 7
+
+BEGIN: Henry IV, Pt I has 1 monologes (/women/HenryIVi/) #
+END: Inserted 1 of 1
+
+BEGIN: Henry IV Pt i has 20 monologes (/men/HenryIVi/) ####################
+END: Inserted 20 of 20
+
+BEGIN: Antony & Cleopatra has 5 monologes (/women/AandC/) #####
+END: Inserted 5 of 5
+
+BEGIN: Antony & Cleopatra has 7 monologes (/men/AandC/) #######
+END: Inserted 7 of 7
+
+BEGIN: Romeo & Juliet has 12 monologes (/women/RandJ/) ############
+END: Inserted 12 of 12
+
+BEGIN: Romeo & Juliet has 14 monologes (/men/RandJ/) #
+Error adding monologue: MercutioVerse
+ Validation failed: First line can't be blank 
+############
+END: Inserted 13 of 14
+
+
+Parsing OLD Mens Monologue page
+
+BEGIN  All's Well That Ends Well has 3 men monologues...
+END Inserted 0 of 3
+
+BEGIN  As You Like It has 7 men monologues.#.....
+END Inserted 1 of 7
+
+BEGIN  The Comedy of Errors has 6 men monologues...#..
+END Inserted 1 of 6
+
+BEGIN  Cymbeline has 16 men monologues####.....#######
+END Inserted 11 of 16
+
+BEGIN  Loves Labour's Lost has 20 men monologues.##.####.....##.#...
+END Inserted 9 of 20
+
+BEGIN  Measure for Measure has 15 men monologues###############
+END Inserted 15 of 15
+
+BEGIN  Merry Wives of Windsor has 6 men monologues######
+END Inserted 6 of 6
+
+BEGIN  Merchant of Venice has 17 men monologues#################
+END Inserted 17 of 17
+
+BEGIN  A Midsummer Night's Dream has 16 men monologues..#...#..#..#...
+END Inserted 4 of 16
+
+BEGIN  Much Ado About Nothing has 10 men monologues.#........
+END Inserted 1 of 10
+
+BEGIN  Pericles has 9 men monologues#########
+END Inserted 9 of 9
+
+BEGIN  The Taming of the Shrew has 14 men monologues##..#.#.#...#.
+END Inserted 6 of 14
+
+BEGIN  The Tempest has 13 men monologues#############
+END Inserted 13 of 13
+
+BEGIN  Troilus and Cressida has 27 men monologues###########################
+END Inserted 27 of 27
+
+BEGIN  Twelfth Night has 7 men monologues....###
+END Inserted 3 of 7
+
+BEGIN  Two Gentlemen of Verona has 14 men monologues##############
+END Inserted 14 of 14
+
+Error adding play: The Winter's Tale
+ Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id
+BEGIN  The Winter's Tale has 6 men monologues
+Error adding monologue for Leontes
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Leontes
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Camillo
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Leontes
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Antigonus
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Autolycus
+ Validation failed: Play can't be blank 
+
+END Inserted 0 of 6
+
+BEGIN  Henry IV i has 20 men monologues..........#.......#.
+END Inserted 2 of 20
+
+BEGIN  Henry IV ii has 23 men monologues#######################
+END Inserted 23 of 23
+
+BEGIN  Henry V has 28 men monologues############################
+END Inserted 28 of 28
+
+BEGIN  Henry VI i has 15 men monologues###############
+END Inserted 15 of 15
+
+BEGIN  Henry VI ii has 15 men monologues###############
+END Inserted 15 of 15
+
+BEGIN  Henry VI iii has 20 men monologues####################
+END Inserted 20 of 20
+
+BEGIN  Henry VIII has 18 men monologues##################
+END Inserted 18 of 18
+
+BEGIN  King John has 22 men monologues######################
+END Inserted 22 of 22
+
+BEGIN  Richard II has 20 men monologues####################
+END Inserted 20 of 20
+
+BEGIN  Richard III has 13 men monologues#############
+END Inserted 13 of 13
+
+BEGIN  Antony & Cleopatra has 7 men monologues#.....#
+END Inserted 2 of 7
+
+BEGIN  Coriolanus has 17 men monologues#################
+END Inserted 17 of 17
+
+BEGIN  Hamlet has 25 men monologues...#..#..#..##.....#...#.
+END Inserted 7 of 25
+
+BEGIN  Julius Cæsar has 20 men monologues####################
+END Inserted 20 of 20
+
+BEGIN  King Lear has 8 men monologues########
+END Inserted 8 of 8
+
+BEGIN  Macbeth has 7 men monologues##..#.#
+END Inserted 4 of 7
+
+BEGIN  Othello has 18 men monologues##################
+END Inserted 18 of 18
+
+BEGIN  Romeo and Juliet has 14 men monologues.#.##...#...#.
+END Inserted 5 of 14
+
+BEGIN  Timon of Athens has 20 men monologues####################
+END Inserted 20 of 20
+
+BEGIN  Titus Andronicus has 19 men monologues###################
+END Inserted 19 of 19
+
+Other Works is not a play! Skipping...
+BEGIN  Other Works has 0 men monologues
+END Inserted 0 of 0
+
+
+Inserted 433 Old Monologues
+
+
+Parsing OLD Womens Monologue page
+
+BEGIN  All's Well That Ends Well has 7 women monologues...#...
+END Inserted 1 of 7
+
+BEGIN  As You Like It has 6 women monologues##.#..
+END Inserted 3 of 6
+
+BEGIN  The Comedy of Errors has 6 women monologues.#.###
+END Inserted 4 of 6
+
+BEGIN  Cymbeline has 11 women monologues#.....##.#
+Error parsing monologue for Cymbeline
+ 
+Cannot find Monologue first_line in html for Cymbeline 
+
+Error adding monologue for Cymbeline
+ Validation failed: First line can't be blank, First line is too long (maximum is 255 characters) 
+
+END Inserted 4 of 11
+
+BEGIN  Loves Labours Lost has 6 women monologues#.#.#.
+END Inserted 3 of 6
+
+BEGIN  Measure for Measure has 5 women monologues#####
+END Inserted 5 of 5
+
+BEGIN  Merry Wives of Windsor has 4 women monologues####
+END Inserted 4 of 4
+
+BEGIN  Merchant of Venice has 6 women monologues######
+END Inserted 6 of 6
+
+BEGIN  A Midsummer Night's Dream has 19 women monologues#....###......##...
+END Inserted 6 of 19
+
+BEGIN  Much Ado About Nothing has 1 women monologues#
+END Inserted 1 of 1
+
+BEGIN  Pericles, Prince of Tyre has 2 women monologues##
+END Inserted 2 of 2
+
+BEGIN  The Taming of the Shrew has 3 women monologues###
+END Inserted 3 of 3
+
+BEGIN  The Tempest has 5 women monologues####
+Error parsing monologue for 
+ 
+Cannot find Monologue first_line in html for  
+
+Error adding monologue for 
+ Validation failed: First line can't be blank, First line is too long (maximum is 255 characters) 
+
+END Inserted 4 of 5
+
+BEGIN  Troilus and Cressida has 3 women monologues###
+END Inserted 3 of 3
+
+BEGIN  Twelfth Night has 3 women monologues#..
+END Inserted 1 of 3
+
+BEGIN  Two Gentlemen of Verona has 5 women monologues#####
+END Inserted 5 of 5
+
+Error adding play: The Winter's Tale
+ Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id
+BEGIN  The Winter's Tale has 6 women monologues
+Error adding monologue for Hermioneintercut
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Paulina
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Hermione
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Hermione
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Paulina
+ Validation failed: Play can't be blank 
+
+Error adding monologue for Time
+(Chorus)
+ Validation failed: Play can't be blank 
+
+END Inserted 0 of 6
+
+BEGIN  Henry IV i has 1 women monologues#
+END Inserted 1 of 1
+
+BEGIN  Henry IV ii has 5 women monologues.###.
+END Inserted 3 of 5
+
+BEGIN  Henry V has 5 women monologues..##.
+END Inserted 2 of 5
+
+BEGIN  Henry VI i has 5 women monologues#####
+END Inserted 5 of 5
+
+BEGIN  Henry VI ii has 6 women monologues######
+END Inserted 6 of 6
+
+BEGIN  Henry VI iii has 6 women monologues######
+END Inserted 6 of 6
+
+BEGIN  Henry VIII has 5 women monologues..###
+END Inserted 3 of 5
+
+BEGIN  King John has 8 women monologues#.######
+END Inserted 7 of 8
+
+BEGIN  Richard II has 2 women monologues##
+END Inserted 2 of 2
+
+BEGIN  Richard III has 9 women monologues#########
+END Inserted 9 of 9
+
+BEGIN  Antony & Cleopatra has 5 women monologues.....
+END Inserted 0 of 5
+
+BEGIN  Coriolanus has 4 women monologues####
+END Inserted 4 of 4
+
+BEGIN  Hamlet has 6 women monologues....#.
+END Inserted 1 of 6
+
+BEGIN  Julius Caesar has 3 women monologues###
+END Inserted 3 of 3
+
+BEGIN  King Lear has 4 women monologues####
+END Inserted 4 of 4
+
+BEGIN  Macbeth has 3 women monologues###
+END Inserted 3 of 3
+
+BEGIN  Othello has 8 women monologues########
+END Inserted 8 of 8
+
+BEGIN  Romeo and Juliet has 12 women monologues.#.......#.#
+END Inserted 3 of 12
+
+BEGIN  Titus Andronicus has 5 women monologues#####
+END Inserted 5 of 5
+
+Other Works is not a play! Skipping...
+BEGIN  Other Works has 0 women monologues
+END Inserted 0 of 0
+
+
+Inserted 130 Old Monologues
+
+Parsing Monologue pages
+
+BEGIN: Hamlet has 6 monologes (/women/hamlet/) ......
+END: Inserted 0 of 6
+
+BEGIN: Hamlet has 25 monologes (/men/hamlet/) .........................
+END: Inserted 0 of 25
+
+BEGIN: A Midsummer Night's Dream has 19 monologes (/women/midsummer/) ...................
+END: Inserted 0 of 19
+
+BEGIN: A Midsummer Night's Dream has 22 monologes (/men/midsummer/) ......................
+END: Inserted 0 of 22
+
+BEGIN: Macbeth has 3 monologes (/women/macbeth/) ...
+END: Inserted 0 of 3
+
+BEGIN: Macbeth has 7 monologes (/men/macbeth/) .......
+END: Inserted 0 of 7
+
+BEGIN: All's Well That Ends Well has 7 monologes (/women/AllsWell/) .......
+END: Inserted 0 of 7
+
+BEGIN: All's Well That Ends Well has 3 monologes (/men/AllsWell/) ...
+END: Inserted 0 of 3
+
+BEGIN: As You Like It has 6 monologes (/women/AsYouLikeIt/) ......
+END: Inserted 0 of 6
+
+BEGIN: As You Like It has 7 monologes (/men/AsYouLikeIt/) .......
+END: Inserted 0 of 7
+
+BEGIN: The Comedy of Errors has 6 monologes (/women/Errors/) ......
+END: Inserted 0 of 6
+
+BEGIN: The Comedy of Errors has 6 monologes (/men/Errors/) ......
+END: Inserted 0 of 6
+
+BEGIN: Cymbeline has 11 monologes (/women/Cymbeline/) ...........
+END: Inserted 0 of 11
+
+BEGIN: Cymbeline has 16 monologes (/men/Cymbeline/) ................
+END: Inserted 0 of 16
+
+BEGIN: Loves Labour's Lost has 5 monologes (/women/LLL/) .....
+END: Inserted 0 of 5
+
+BEGIN: Loves Labor's Lost has 19 monologes (/men/LLL/) .
+Error adding monologue: BerowneVerse
+ Validation failed: First line can't be blank 
+.................
+END: Inserted 0 of 19
+
+BEGIN: The Merchant of Venice has 6 monologes (/women/TMofV/) ......
+END: Inserted 0 of 6
+
+BEGIN: The Merchant of Venice has 17 monologes (/men/merchant/) .................
+END: Inserted 0 of 17
+
+BEGIN: Much Ado About Nothing has 1 monologes (/women/MuchAdo/) .
+END: Inserted 0 of 1
+
+BEGIN: Much Ado About Nothing has 10 monologes (/men/MuchAdo/) .
+Error adding monologue: BenedickProseII iii 8http://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=muchado&Act=2&Scene=3&Scope=scene&LineHighlight=819#814
+ Validation failed: First line can't be blank 
+........
+END: Inserted 0 of 10
+
+BEGIN: The Taming of the Shrew has 3 monologes (/women/shrew/) ...
+END: Inserted 0 of 3
+
+BEGIN: The Taming of the Shrew has 14 monologes (/men/shrew/) .
+Error adding monologue: LordVerse
+ Validation failed: First line can't be blank 
+............
+END: Inserted 0 of 14
+
+BEGIN: Twelfth Night, Or what you will. has 3 monologes (/women/12thNight/) ...
+END: Inserted 0 of 3
+
+BEGIN: Twelfth Night, Or What You Will has 7 monologes (/men/12thNight/) .......
+END: Inserted 0 of 7
+
+BEGIN: Henry IV, Pt I has 1 monologes (/women/HenryIVi/) .
+END: Inserted 0 of 1
+
+BEGIN: Henry IV Pt i has 20 monologes (/men/HenryIVi/) ....................
+END: Inserted 0 of 20
+
+BEGIN: Antony & Cleopatra has 5 monologes (/women/AandC/) .....
+END: Inserted 0 of 5
+
+BEGIN: Antony & Cleopatra has 7 monologes (/men/AandC/) .......
+END: Inserted 0 of 7
+
+BEGIN: Romeo & Juliet has 12 monologes (/women/RandJ/) ............
+END: Inserted 0 of 12
+
+BEGIN: Romeo & Juliet has 14 monologes (/men/RandJ/) .
+Error adding monologue: MercutioVerse
+ Validation failed: First line can't be blank 
+............
+END: Inserted 0 of 14
+
+
+Parsing OLD Mens Monologue page
+
+BEGIN  All's Well That Ends Well has 3 men monologues...
+END Inserted 0 of 3
+
+BEGIN  As You Like It has 7 men monologues.......
+END Inserted 0 of 7
+
+BEGIN  The Comedy of Errors has 6 men monologues......
+END Inserted 0 of 6
+
+BEGIN  Cymbeline has 16 men monologues................
+END Inserted 0 of 16
+
+BEGIN  Loves Labour's Lost has 20 men monologues....................
+END Inserted 0 of 20
+
+BEGIN  Measure for Measure has 15 men monologues...............
+END Inserted 0 of 15
+
+BEGIN  Merry Wives of Windsor has 6 men monologues......
+END Inserted 0 of 6
+
+BEGIN  Merchant of Venice has 17 men monologues.................
+END Inserted 0 of 17
+
+BEGIN  A Midsummer Night's Dream has 16 men monologues................
+END Inserted 0 of 16
+
+BEGIN  Much Ado About Nothing has 10 men monologues..........
+END Inserted 0 of 10
+
+BEGIN  Pericles has 9 men monologues.........
+END Inserted 0 of 9
+
+BEGIN  The Taming of the Shrew has 14 men monologues..............
+END Inserted 0 of 14
+
+BEGIN  The Tempest has 13 men monologues.............
+END Inserted 0 of 13
+
+BEGIN  Troilus and Cressida has 27 men monologues...........................
+END Inserted 0 of 27
+
+BEGIN  Twelfth Night has 7 men monologues.......
+END Inserted 0 of 7
+
+BEGIN  Two Gentlemen of Verona has 14 men monologues..............
+END Inserted 0 of 14
+
+BEGIN  The Winter's Tale has 6 men monologues######
+END Inserted 6 of 6
+
+BEGIN  Henry IV i has 20 men monologues....................
+END Inserted 0 of 20
+
+BEGIN  Henry IV ii has 23 men monologues.......................
+END Inserted 0 of 23
+
+BEGIN  Henry V has 28 men monologues............................
+END Inserted 0 of 28
+
+BEGIN  Henry VI i has 15 men monologues...............
+END Inserted 0 of 15
+
+BEGIN  Henry VI ii has 15 men monologues...............
+END Inserted 0 of 15
+
+BEGIN  Henry VI iii has 20 men monologues....................
+END Inserted 0 of 20
+
+BEGIN  Henry VIII has 18 men monologues..................
+END Inserted 0 of 18
+
+BEGIN  King John has 22 men monologues......................
+END Inserted 0 of 22
+
+BEGIN  Richard II has 20 men monologues....................
+END Inserted 0 of 20
+
+BEGIN  Richard III has 13 men monologues.............
+END Inserted 0 of 13
+
+BEGIN  Antony & Cleopatra has 7 men monologues.......
+END Inserted 0 of 7
+
+BEGIN  Coriolanus has 17 men monologues.................
+END Inserted 0 of 17
+
+BEGIN  Hamlet has 25 men monologues.........................
+END Inserted 0 of 25
+
+BEGIN  Julius Cæsar has 20 men monologues....................
+END Inserted 0 of 20
+
+BEGIN  King Lear has 8 men monologues........
+END Inserted 0 of 8
+
+BEGIN  Macbeth has 7 men monologues.......
+END Inserted 0 of 7
+
+BEGIN  Othello has 18 men monologues..................
+END Inserted 0 of 18
+
+BEGIN  Romeo and Juliet has 14 men monologues..............
+END Inserted 0 of 14
+
+BEGIN  Timon of Athens has 20 men monologues....................
+END Inserted 0 of 20
+
+BEGIN  Titus Andronicus has 19 men monologues...................
+END Inserted 0 of 19
+
+Other Works is not a play! Skipping...
+BEGIN  Other Works has 0 men monologues
+END Inserted 0 of 0
+
+
+Inserted 6 Old Monologues
+
+
+Parsing OLD Womens Monologue page
+
+BEGIN  All's Well That Ends Well has 7 women monologues.......
+END Inserted 0 of 7
+
+BEGIN  As You Like It has 6 women monologues......
+END Inserted 0 of 6
+
+BEGIN  The Comedy of Errors has 6 women monologues......
+END Inserted 0 of 6
+
+BEGIN  Cymbeline has 11 women monologues..........
+Error parsing monologue for Cymbeline
+ 
+Cannot find Monologue first_line in html for Cymbeline 
+
+Error adding monologue for Cymbeline
+ Validation failed: First line can't be blank, First line is too long (maximum is 255 characters) 
+
+END Inserted 0 of 11
+
+BEGIN  Loves Labours Lost has 6 women monologues......
+END Inserted 0 of 6
+
+BEGIN  Measure for Measure has 5 women monologues.....
+END Inserted 0 of 5
+
+BEGIN  Merry Wives of Windsor has 4 women monologues....
+END Inserted 0 of 4
+
+BEGIN  Merchant of Venice has 6 women monologues......
+END Inserted 0 of 6
+
+BEGIN  A Midsummer Night's Dream has 19 women monologues...................
+END Inserted 0 of 19
+
+BEGIN  Much Ado About Nothing has 1 women monologues.
+END Inserted 0 of 1
+
+BEGIN  Pericles, Prince of Tyre has 2 women monologues..
+END Inserted 0 of 2
+
+BEGIN  The Taming of the Shrew has 3 women monologues...
+END Inserted 0 of 3
+
+BEGIN  The Tempest has 5 women monologues....
+Error parsing monologue for 
+ 
+Cannot find Monologue first_line in html for  
+
+Error adding monologue for 
+ Validation failed: First line can't be blank, First line is too long (maximum is 255 characters) 
+
+END Inserted 0 of 5
+
+BEGIN  Troilus and Cressida has 3 women monologues...
+END Inserted 0 of 3
+
+BEGIN  Twelfth Night has 3 women monologues...
+END Inserted 0 of 3
+
+BEGIN  Two Gentlemen of Verona has 5 women monologues.....
+END Inserted 0 of 5
+
+BEGIN  The Winter's Tale has 6 women monologues######
+END Inserted 6 of 6
+
+BEGIN  Henry IV i has 1 women monologues.
+END Inserted 0 of 1
+
+BEGIN  Henry IV ii has 5 women monologues.....
+END Inserted 0 of 5
+
+BEGIN  Henry V has 5 women monologues.....
+END Inserted 0 of 5
+
+BEGIN  Henry VI i has 5 women monologues.....
+END Inserted 0 of 5
+
+BEGIN  Henry VI ii has 6 women monologues......
+END Inserted 0 of 6
+
+BEGIN  Henry VI iii has 6 women monologues......
+END Inserted 0 of 6
+
+BEGIN  Henry VIII has 5 women monologues.....
+END Inserted 0 of 5
+
+BEGIN  King John has 8 women monologues........
+END Inserted 0 of 8
+
+BEGIN  Richard II has 2 women monologues..
+END Inserted 0 of 2
+
+BEGIN  Richard III has 9 women monologues.........
+END Inserted 0 of 9
+
+BEGIN  Antony & Cleopatra has 5 women monologues.....
+END Inserted 0 of 5
+
+BEGIN  Coriolanus has 4 women monologues....
+END Inserted 0 of 4
+
+BEGIN  Hamlet has 6 women monologues......
+END Inserted 0 of 6
+
+BEGIN  Julius Caesar has 3 women monologues...
+END Inserted 0 of 3
+
+BEGIN  King Lear has 4 women monologues....
+END Inserted 0 of 4
+
+BEGIN  Macbeth has 3 women monologues...
+END Inserted 0 of 3
+
+BEGIN  Othello has 8 women monologues........
+END Inserted 0 of 8
+
+BEGIN  Romeo and Juliet has 12 women monologues............
+END Inserted 0 of 12
+
+BEGIN  Titus Andronicus has 5 women monologues.....
+END Inserted 0 of 5
+
+Other Works is not a play! Skipping...
+BEGIN  Other Works has 0 women monologues
+END Inserted 0 of 0
+
+
+Inserted 6 Old Monologues
