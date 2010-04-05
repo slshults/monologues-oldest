@@ -5,7 +5,7 @@ module ApplicationHelper
     if monologue.body
       link_to( monologue.first_line, monologue )
     else
-      monologue.first_line
+      "<span class='no-link'>#{monologue.first_line}</span>"
     end
   end
 
