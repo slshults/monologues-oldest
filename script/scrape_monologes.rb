@@ -206,15 +206,17 @@ def insert_play(play)
   play = 'Julius Caesar' if play.match(/^Julius /i)
   play = 'Loves Labours Lost' if play.match(/^Loves Lab/i)
   play = 'Pericles, Prince of Tyre' if play.match(/^Pericles/i)
-  play = 'Henry IV, i' if play.match( /^Henry IV/i )
+  play = 'Henry IV i' if play.match( /^Henry IV/i )
   play = 'A Midsummer Nights Dream' if play.match( /^A Midsummer Night/i )
+  play = 'Alls Well That Ends Well' if play.match( /Well That Ends Well/i)
+  play = 'Romeo and Juliet' if play.match( /Romeo .+ Juliet/i)
 
   if play.match(/Other Works/)
     puts "Other Works is not a play! Skipping..."
     return nil
   end
   begin
-    Play.create(:title => play, :author_id => 1)
+    # Play.create(:title => play, :author_id => 1)
     return Play.find_by_title(play).id
   rescue => e
     if play
@@ -254,9 +256,10 @@ mono_pages.each do |mono_page|
   play_id = insert_play(play)
   mono_count = Monologue.count
   insert_monologues(server, mono_page, monos, play_id)
-  puts "\nEND: Inserted #{Monologue.count - mono_count} of #{monos.size}"
+  monos_inserted = Monologue.count - mono_count
+  puts "\nEND: Inserted #{monos_inserted} of #{monos.size}"
   puts
-  sleep 3
+  sleep 3 if monos_inserted > 0
 end
 
 puts "\nParsing OLD Mens Monologue page"
