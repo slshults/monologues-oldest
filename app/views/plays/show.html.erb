@@ -24,10 +24,10 @@
     </tr>
     <% for monologue in @monologues %>
       <tr id="<%= cycle 'odd-row', 'even-row' %>">
-        <td width="80"><%=h monologue.character %><br><span style="font-size: 60%;"> <%=h monologue.style %> <%= monologue.intercut_label %><br/><%= link_to( h(monologue.play.title), play_path(monologue.play) )%><br/></span>
+        <td width="80"><%=h monologue.character %><br><span style="font-size: 60%;"> <%=h monologue.style %> <%= monologue.intercut_label %><br/><%= link_to( h(monologue.play.title), play_path(monologue.play) ) %><br/></span>
         </td>
 
-        <td style="font-size: 100%;" valign="top"><%=link_to h(monologue.first_line), monologue %></td>
+        <td style="font-size: 100%;" valign="top"><%= link_to_monologue_or_pdf(monologue) %></td>
           <td  valign="top" align="right" width="50"  style="font-size: 70%;"><a href='<%=h monologue.body_link %>'><%=h monologue.location %></a></td>
 <td  valign="top" width="20"><a href="<%=monologue.pdf_link%>"><img title="pdf" alt="pdf" valign="middle" src="/images/print.gif" border="0"/></a></td>
 
