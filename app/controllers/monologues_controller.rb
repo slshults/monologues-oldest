@@ -7,6 +7,11 @@ class MonologuesController < ApplicationController
   def show
     @monologue = Monologue.find(params[:id])
   end
+
+  def preview
+    @monologue = Monologue.find(params[:id]) if params[:id]
+    render :partial => 'preview', :layout => false
+  end
   
   def new
     @monologue = Monologue.new

@@ -26,14 +26,19 @@
     </tr>
     <% for monologue in @monologues %>
       <tr id="<%= cycle 'odd-row', 'even-row' %>">
-        <td width="80"><%=h monologue.character %><br/>
+        <td width="80" style="vertical-align: top;"><%=h monologue.character %><br/>
           <span style="font-size: 60%;">
             <%=h monologue.style %> <%= monologue.intercut_label %><br/>
             <%= link_to( h(monologue.play.title), play_path(monologue.play) )%><br/>
           </span>
         </td>
-        <td style="font-size: 100%;" valign="top">
-          <%= link_to_monologue(monologue) %>
+        <td style="font-size: 100%;" style="vertical-align: top;">
+          <%= link_to_monologue(monologue) -%> <br/>
+          <span id="preview_mono_<%= monologue.id -%>">
+            <%= link_to_remote "show/hide",
+                                :update => "preview_mono_#{monologue.id}",
+                                :url => { :action => "preview", :id => monologue.id } %>
+          </span>
         </td>
         <td  valign="top" align="right" width="50"  style="font-size: 70%;">
           <%= link_to_monologue_location( monologue ) %>
