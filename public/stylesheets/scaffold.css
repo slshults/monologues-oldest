@@ -30,6 +30,10 @@ no-link {
     color: #696969;
     font-style: italic;
 }
+.small {
+    font-family: verdana;
+    font-size: 8px;
+}
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
