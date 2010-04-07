@@ -33,11 +33,10 @@
           </span>
         </td>
         <td style="font-size: 100%;" style="vertical-align: top;">
-          <%= link_to_monologue(monologue) -%> <br/>
           <span id="preview_mono_<%= monologue.id -%>">
-            <%= link_to_remote "show/hide",
-                                :update => "preview_mono_#{monologue.id}",
-                                :url => { :action => "preview", :id => monologue.id } %>
+            <%= link_to_remote monologue.first_line,
+                            :update => "preview_mono_#{monologue.id}",
+                            :url => { :action => "preview", :id => monologue.id } %>
           </span>
         </td>
         <td  valign="top" align="right" width="50"  style="font-size: 70%;">

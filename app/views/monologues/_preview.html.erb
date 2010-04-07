@@ -1,18 +1,23 @@
 <% if @monologue %>
-  <!-- Rendered when monologue is rendered -->
-  <!-- Contains link call to hide monologue -->
+  <!-- Rendered when monologue body is rendered -->
+  <!-- Contains link to hide monologue body -->
   <span id="preview_mono_<%= @monologue.id -%>">
-    <%= link_to_remote "show/hide",
+    <%= link_to_remote "<br/>hide<br/>",
                         :update => "preview_mono_#{@monologue.id}",
                         :url => { :action => "preview", :id => nil, :monologue_id => @monologue.id} %>
     <br/>
-    <div style="display: inline; border-style: solid; border: black; border-width: 1px;"><%= @monologue.body %></div>
+    <div>
+      <div style="display: inline; border-style: solid; border: black; border-width: 1px;">
+        <%= @monologue.body %>
+      </div>
+    </div>
   </span>
 <% else %>
+  <% mono = Monologue.find(params[:monologue_id]) %>
   <!-- Rendered when monologue has been hidden -->
-  <span id="preview_mono_<%= params[:monologue_id] -%>">
-    <%= link_to_remote "show/hide",
-                        :update => "preview_mono_#{params[:monologue_id]}",
-                        :url => { :action => "preview", :id => params[:monologue_id] } %>
+  <span id="preview_mono_<%= mono.id -%>">
+    <%= link_to_remote mono.first_line,
+                        :update => "preview_mono_#{mono.id}",
+                        :url => { :action => "preview", :id => mono.id } %>
   </span>
 <% end %>
