@@ -17,7 +17,7 @@
 
   <div class="paginate"><%= will_paginate @monologues, :page => params[:page], :params => [:controller => 'monologues'] %></div>
 
-  <table style="text-align: left; style=font-size: 80%;" cellpadding="1px">
+  <table width="550" style="text-align: left; style=font-size: 80%;" cellpadding="1px">
     <tr>
       <th style="font-size: 80%;">Character</th>
       <th style="font-size: 80%;">First Line</th>
@@ -26,7 +26,7 @@
     </tr>
     <% for monologue in @monologues %>
       <tr id="<%= cycle 'odd-row', 'even-row' %>">
-        <td width="80" style="vertical-align: top;"><%=h monologue.character %><br/>
+        <td width="90" style="vertical-align: top;"><%=h monologue.character %><br/>
           <span style="font-size: 60%;">
             <%=h monologue.style %> <%= monologue.intercut_label %><br/>
             <%= link_to( h(monologue.play.title), play_path(monologue.play) )%><br/>
@@ -39,7 +39,7 @@
                             :url => { :action => "preview", :id => monologue.id } %>
           </span>
         </td>
-        <td  valign="top" align="right" width="50"  style="font-size: 70%;">
+        <td width="40" valign="top" align="right" style="font-size: 70%;">
           <%= link_to_monologue_location( monologue ) %>
         </td>
         <td  valign="top" width="20">
