@@ -17,7 +17,7 @@
 
   <div class="paginate"><%= will_paginate @monologues, :page => params[:page], :params => [:controller => 'monologues'] %></div>
 
-  <table width="550" style="text-align: left; style=font-size: 80%;" cellpadding="1px">
+  <table width="580" style="text-align: left; style=font-size: 80%;" cellpadding="1px">
     <tr>
       <th style="font-size: 80%;">Character</th>
       <th style="font-size: 80%;">First Line</th>
@@ -39,7 +39,7 @@
                             :url => { :action => "preview", :id => monologue.id } %>
           </span>
         </td>
-        <td width="40" valign="top" align="right" style="font-size: 70%;">
+        <td width="60" valign="top" align="right" style="font-size: 70%;">
           <%= link_to_monologue_location( monologue ) %>
         </td>
         <td  valign="top" width="20">
