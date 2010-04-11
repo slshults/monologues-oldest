@@ -1,0 +1,19 @@
+legend,
+a:visited,
+#header h1,
+#header h1 a,
+#header h1 a:hover,
+#header h1 a:visited {
+    color:#963;
+}
+a,
+a:link {
+    color:#C60;
+}
+a:visited {
+    color:#741;
+}
+blockquote,
+code {
+    border-left:4px solid #963;
+}
