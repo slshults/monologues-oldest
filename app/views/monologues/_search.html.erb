@@ -30,6 +30,7 @@
           <span style="font-size: 60%;">
             <%=h monologue.style %> <%= monologue.intercut_label %><br/>
             <%= link_to( h(monologue.play.title), play_path(monologue.play) )%><br/>
+            <%= link_to 'edit', edit_monologue_path(monologue) %>
           </span>
         </td>
         <td style="font-size: 100%;" style="vertical-align: top;">
