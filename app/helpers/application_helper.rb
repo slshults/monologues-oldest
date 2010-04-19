@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def link_to_monologue_pdf( monologue )
     if monologue.pdf_link
-      "<a href='#{monologue.pdf_link}'><img title='pdf' alt='pdf' valign='middle' src='/images/print.gif' border='0' /></a>"
+      "<a href='#{monologue.pdf_link}' target='_blank')><img title='pdf' alt='pdf' valign='middle' src='/images/print.gif' border='0' /></a>"
     else
       "<img title='pdf' alt='pdf' valign='middle' src='/images/print_x.gif' border='0' />"
     end
@@ -19,7 +19,7 @@ module ApplicationHelper
 
   def link_to_monologue_location( monologue )
     if monologue.body_link
-      "<a href='#{h monologue.body_link}'>#{h monologue.location}</a>"
+      "<a href='#{h monologue.body_link}' target='_blank'>#{h monologue.location}</a>"
     else
       h monologue.body_link
     end
