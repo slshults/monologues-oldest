@@ -1,15 +1,9 @@
-db/migrate/20100130062614_create_authors.rb 
-db/migrate/20100130062711_create_plays.rb 
-db/migrate/20100130063006_create_genders.rb 
-db/migrate/20100131093706_create_monologues.rb
 db/development.sqlite3 
 db/test.sqlite3
 log/*
-<<<<<<< HEAD
-nbproject/private/private.xml
-=======
+nbproject/**/*
+nbproject/*
 *~
 *.2010*
 "#*#"
 "#.*#"
->>>>>>> e40bf361ba534f46593b3edc5564595b9342bdae
