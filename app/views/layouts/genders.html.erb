@@ -145,39 +145,14 @@ border="0" alt="Google"></img></a>
 </form>
 <!-- SiteSearch Google -->
 <a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=70961&amp;t=62"><img border="0" alt="Get Firefox!" title="Get Firefox!" src="http://sfx-images.mozilla.org/affiliates/Buttons/110x32/take.gif"/></a>
-</CENTER>
-
+</CENTER
+>
 </td>
 <td width=343 align=center  valign=top>
-<form name="PaypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="includeemail()">
-<font face=verdana size="-2">Tip Jar</font><br/>
-<input type="hidden" name="cmd" value="_xclick"/>
-<input type="hidden" name="business" value=""/>
-<input type="hidden" name="item_name" value="Shakespeare's Monologues Donations"/>
-<input type="hidden" name="item_number" value="031806"/>
-<input type="hidden" name="no_shipping" value="1"/>
-<input type="hidden" name="return" value="http://shakespeare-monologues.org/thanks.htm"/>
-<input type="hidden" name="cn" value="Include a note if you like:"/>
-<input type="hidden" name="currency_code" value="USD"/>
-<input type="hidden" name="tax" value="0"/>
-<input type="hidden" name="lc" value="US"/>
-<input type="hidden" name="bn" value="PP-DonationsBF"/>
-<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="Make payments
-with PayPal - it's fast, free and secure!"/>
-<img alt="Tip Jar" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/><br/>
-<font face="verdana" size="-2">
-Other ways to help:<br/>
-Click a few ads<br/>
-Buy books <a href="http://shakespeare-monologues.org/store/">here</a>
-<br/>
-Tips this month:&nbsp&nbsp;&nbsp; $1.00<br>
-From ads in Jan.:$17.15
-<br/></font>
-
-
-</span></form>
 <p>
 
+ <%= render :partial => 'monologues/tip_jar' %>
+<br>
 <!-- ADDTHIS BUTTON BEGIN -->
 <script type="text/javascript">
 addthis_pub = 'ShakespearesMonologues';
