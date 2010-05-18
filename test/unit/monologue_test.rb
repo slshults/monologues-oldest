@@ -17,7 +17,7 @@ class MonologueTest < ActiveSupport::TestCase
     assert t.errors.full_messages.empty?
     assert_equal 'Hamlet', t.play.title
     assert_equal 'Shakespeare', t.play.author.name
-    assert_equal 'intercut', t.intercut_label
+    assert_equal '- intercut', t.intercut_label
     assert_equal 'Hamlet', t.character
   end
 

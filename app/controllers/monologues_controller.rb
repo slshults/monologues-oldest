@@ -25,6 +25,8 @@ class MonologuesController < ApplicationController
       flash[:notice] = "Successfully created monologue."
       redirect_to @monologue
     else
+      @plays = Play.all
+      @genders = Gender.all
       render :action => 'new'
     end
   end
@@ -40,6 +42,8 @@ class MonologuesController < ApplicationController
       flash[:notice] = "Successfully updated monologue."
       redirect_to @monologue
     else
+      @plays = Play.all
+      @genders = Gender.all
       render :action => 'edit'
     end
   end
@@ -57,25 +61,43 @@ class MonologuesController < ApplicationController
       @terms = @ajax_search.split(" ")
       @monologues = []
       @terms.each do |term|
-        case ActiveRecord::Base.connection.adapter_name
-        when 'SQLite'
-          where_clause = "character like '%#{term}%' or body like '%#{term}%' or first_line like '%#{term}%'"
-        when 'PostgreSQL'
-          where_clause =  "character ilike '%#{term}%' or body ilike '%#{term}%' or first_line ilike '%#{term}%'"
-        else
-          raise 'Query not implemented for DB adapter: ' + ActiveRecord::Base.connection.adapter_name
+
+        # Delete database vendor specific logic
+        # 
+#        case ActiveRecord::Base.connection.adapter_name
+#        when 'SQLite'
+#          # development using SQLite
+#          where_clause = "character like '%#{term}%' or body like '%#{term}%' or first_line like '%#{term}%'"
+#        when 'PostgreSQL'
+#          # heroku uses Postgress
+#          where_clause =  "character ilike '%#{term}%' or body ilike '%#{term}%' or first_line ilike '%#{term}%'"
+#        else
+#          raise 'Query not implemented for DB adapter: ' + ActiveRecord::Base.connection.adapter_name
+#        end
+#        results = Monologue.find(:all, :conditions => where_clause)
+
+        results = Monologue.find(:all, :conditions => ['character like ? or body like ? or first_line like ?', "%#{term}%", "%#{term}%", "%#{term}%"])
+
+        if results
+          if @monologues.empty?
+            @monologues = results
+          else
+            # append results for each seach term
+            @monologues &= results
+          end
         end
-        results = Monologue.find(:all, :conditions => where_clause)
-        @monologues = results if results and @monologues.empty?
-        @monologues &= results if results
+
       end
+
       @monologues.compact!
       @monologues.uniq!
-      @monologues = @monologues.paginate :search => @ajax_search, :page => params[:page], :per_page => 10
+
     else
       @monologues = Monologue.paginate :page => params[:page], :per_page => 20
     end
+
     render :partial => 'search', :layout => false
+
   end
 
   def men

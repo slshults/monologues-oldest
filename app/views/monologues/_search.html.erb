@@ -2,22 +2,19 @@
   <p><br/>Alas, no monologues match your search</p>
 <% else %>
 
-<!--
+  <% if params[:search] %>
 
-  <% if @monologues.size == 1 %>
-    <p>Behold! Your monologue.</p>
-  <% else %>
-    <% if params[:search].nil? or params[:search] == '' %>
-      <p>There are <%= @monologues.size.to_s %> monologues</p>
+    <% if @monologues.size == 1 %>
+      <p>Behold! Your monologue.</p>
     <% else %>
       <p><%= @monologues.size.to_s %> monologues match your search</p>
     <% end %>
+
+  <% else %>
+    <p><div class="paginate"><%= will_paginate @monologues, :page => params[:page], :params => [:controller => 'monologues'] %></div></p>
   <% end %>
--->
-
-  <div class="paginate"><%= will_paginate @monologues, :page => params[:page], :params => [:controller => 'monologues'] %></div>
-
-  <table width="580" style="text-align: left; style=font-size: 80%;" cellpadding="1px">
+    
+  <table width="580" style="text-align: left;" cellpadding="1px">
     <tr>
       <th style="font-size: 80%;">Character</th>
       <th style="font-size: 80%;">First Line</th>
