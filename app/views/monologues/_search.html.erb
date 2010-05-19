@@ -12,7 +12,7 @@
     <% end %>
 
   <% else %>
-    <p><div class="paginate"><%= will_paginate @monologues, :page => params[:page], :params => [:controller => 'monologues'] %></div></p>
+    <p><div>First 20 monologues</div></p>
   <% end %>
     
   <table width="580" style="text-align: left;" cellpadding="1px">

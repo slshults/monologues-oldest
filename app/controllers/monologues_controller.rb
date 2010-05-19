@@ -1,7 +1,7 @@
 require 'vendor/plugins/active_record_extensions'
 class MonologuesController < ApplicationController
   def index
-    @monologues = Monologue.paginate :page => params[:page], :per_page => 20
+    @monologues = Monologue.find(:all, :limit => 20)
   end
   
   def show
@@ -101,7 +101,7 @@ class MonologuesController < ApplicationController
       @monologues.uniq!
 
     else
-      @monologues = Monologue.paginate :page => params[:page], :per_page => 20
+      @monologues = Monologue.find(:all, :limit => 20)
     end
 
     render :partial => 'search', :layout => false
