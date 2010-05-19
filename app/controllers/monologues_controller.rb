@@ -68,7 +68,7 @@ class MonologuesController < ApplicationController
             :conditions =>
               ['gender_id = ? and (plays.title like ? or character like ? or body like ?)',
                 params[:g], "%#{term}%", "%#{term}%", "%#{term}%"],
-            :joins => 'LEFT JOIN plays ON plays.id = monologues.play_id'
+            :joins => 'LEFT OUTER JOIN plays ON plays.id = monologues.play_id'
           )
         else
           results = Monologue.find(
@@ -76,7 +76,7 @@ class MonologuesController < ApplicationController
             :conditions =>
               ['plays.title like ? or character like ? or body like ?',
               "%#{term}%", "%#{term}%", "%#{term}%"],
-            :joins => 'LEFT JOIN plays ON plays.id = monologues.play_id'
+            :joins => 'LEFT OUTER JOIN plays ON plays.id = monologues.play_id'
           )
         end
         if results
