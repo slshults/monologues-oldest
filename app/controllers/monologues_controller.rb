@@ -66,14 +66,18 @@ class MonologuesController < ApplicationController
           results = Monologue.find(
             :all,
             :conditions =>
-              ['gender_id = ? and (character like ? or body like ? or first_line like ?)',
-                params[:g], "%#{term}%", "%#{term}%", "%#{term}%"])
+              ['gender_id = ? and (plays.title like ? or character like ? or body like ?)',
+                params[:g], "%#{term}%", "%#{term}%", "%#{term}%"],
+            :joins => :play
+          )
         else
           results = Monologue.find(
             :all,
             :conditions =>
-              ['character like ? or body like ? or first_line like ?',
-              "%#{term}%", "%#{term}%", "%#{term}%"])
+              ['plays.title like ? or character like ? or body like ?',
+              "%#{term}%", "%#{term}%", "%#{term}%"],
+            :joins => :play
+          )
         end
         if results
           if @monologues.empty?
