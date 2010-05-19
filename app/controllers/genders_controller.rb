@@ -12,7 +12,7 @@ class GendersController < ApplicationController
 
   def men
     @gender = Gender.find_by_name('Men')
-    @monologues = Monologue.find_by_gender_id(3)
+#    @monologues = Monologue.find_by_gender_id(3)
     @comedies = Play.find_all_by_classification('Comedy')
     @histories = Play.find_all_by_classification('History')
     @tragedies = Play.find_all_by_classification('Tragedy')
@@ -22,7 +22,7 @@ class GendersController < ApplicationController
 
   def women
     @gender = Gender.find_by_name('Women')
-    @monologues = Monologue.find_by_gender_id(2)
+#    @monologues = Monologue.find_by_gender_id(2)
     @comedies = Play.find_all_by_classification('Comedy')
     @histories = Play.find_all_by_classification('History')
     @tragedies = Play.find_all_by_classification('Tragedy')

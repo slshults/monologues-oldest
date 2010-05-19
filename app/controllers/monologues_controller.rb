@@ -61,23 +61,20 @@ class MonologuesController < ApplicationController
       @terms = @ajax_search.split(" ")
       @monologues = []
       @terms.each do |term|
-
-        # Delete database vendor specific logic
-        # 
-#        case ActiveRecord::Base.connection.adapter_name
-#        when 'SQLite'
-#          # development using SQLite
-#          where_clause = "character like '%#{term}%' or body like '%#{term}%' or first_line like '%#{term}%'"
-#        when 'PostgreSQL'
-#          # heroku uses Postgress
-#          where_clause =  "character ilike '%#{term}%' or body ilike '%#{term}%' or first_line ilike '%#{term}%'"
-#        else
-#          raise 'Query not implemented for DB adapter: ' + ActiveRecord::Base.connection.adapter_name
-#        end
-#        results = Monologue.find(:all, :conditions => where_clause)
-
-        results = Monologue.find(:all, :conditions => ['character like ? or body like ? or first_line like ?', "%#{term}%", "%#{term}%", "%#{term}%"])
-
+        
+        if params[:g]
+          results = Monologue.find(
+            :all,
+            :conditions =>
+              ['gender_id = ? and (character like ? or body like ? or first_line like ?)',
+                params[:g], "%#{term}%", "%#{term}%", "%#{term}%"])
+        else
+          results = Monologue.find(
+            :all,
+            :conditions =>
+              ['character like ? or body like ? or first_line like ?',
+              "%#{term}%", "%#{term}%", "%#{term}%"])
+        end
         if results
           if @monologues.empty?
             @monologues = results
