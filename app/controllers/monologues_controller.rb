@@ -61,22 +61,29 @@ class MonologuesController < ApplicationController
       @terms = @ajax_search.split(" ")
       @monologues = []
       @terms.each do |term|
-        
+
+        case ActiveRecord::Base.connection.adapter_name
+        when 'PostgreSQL'
+             term_like_sql = '(plays.title ilike ? or character ilike ? or body ilike ?)'
+        else
+             term_like_sql = '(plays.title like ? or character like ? or body like ?)'
+        end
+
         if params[:g]
           results = Monologue.find(
             :all,
             :conditions =>
-              ['gender_id = ? and (plays.title like ? or character like ? or body like ?)',
+              ['gender_id = ? and ' + term_like_sql,
                 params[:g], "%#{term}%", "%#{term}%", "%#{term}%"],
-            :joins => 'LEFT OUTER JOIN plays ON plays.id = monologues.play_id'
+            :joins => :play
           )
         else
           results = Monologue.find(
             :all,
             :conditions =>
-              ['plays.title like ? or character like ? or body like ?',
+              [term_like_sql,
               "%#{term}%", "%#{term}%", "%#{term}%"],
-            :joins => 'LEFT OUTER JOIN plays ON plays.id = monologues.play_id'
+            :joins => :play
           )
         end
         if results
