@@ -7,5 +7,19 @@
 # Visit http://www.pragmaticprogrammer.com/titles/nrtest for more book information.
 #---
 class User < ActiveRecord::Base
-  acts_as_authentic
+  validates_uniqueness_of :email
+  validates_presence_of :email
+  validates_presence_of :name
+  validates_presence_of :password
+
+
+  def self.authenticate(email, password)
+    user = self.find_by_email(email)
+    if user
+      if user.password != password
+        user = nil
+      end
+    end
+    user
+  end
 end

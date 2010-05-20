@@ -44,6 +44,7 @@ class GendersController < ApplicationController
   # GET /genders/new
   # GET /genders/new.xml
   def new
+    redirect_to new_login_url unless logged_in?
     @gender = Gender.new
 
     respond_to do |format|
@@ -54,6 +55,7 @@ class GendersController < ApplicationController
 
   # GET /genders/1/edit
   def edit
+    redirect_to new_login_url unless logged_in?
     @gender = Gender.find(params[:id])
   end
 
@@ -94,6 +96,7 @@ class GendersController < ApplicationController
   # DELETE /genders/1
   # DELETE /genders/1.xml
   def destroy
+    redirect_to new_login_url unless logged_in?
     @gender = Gender.find(params[:id])
     @gender.destroy
 
