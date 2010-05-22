@@ -46,8 +46,8 @@ return true;
 <BODY BGCOLOR="#F9F9DF" background="/images/parchment.jpg">
 
 
-<div class="login_banner">
-<%= user_link %></div>
+<!-- div class="login_banner">
+<%= user_link %></div -->
 <p style="color: green"><%= flash[:notice] %></p>
 
 
@@ -58,7 +58,7 @@ return true;
 </tr>
 </table>
 
-<table width="100%" align=left valign="top" cellpadding=5 cellspacing=5 nowrap>
+<table width="140" align=left valign="top" cellpadding=5 cellspacing=5 nowrap>
 <tr>
 <td valign="top" align="middle">
 
@@ -68,19 +68,33 @@ return true;
 <%= link_to '[The Women]', '/women' %><br/>
 <a HREF="http://shakespeare-monologues.org/store/">[Books]</a>&nbsp;<a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>&nbsp;<a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>&nbsp;<a HREF="/">[Home]</a>
 <br/><br/>&nbsp;<br/>
-<!-- left column amazon ads -->
-
+<!-- left column ads -->
+<p>
 <script type="text/javascript"><!--
-amazon_ad_tag="shakessmonolo-20";
-amazon_ad_width="120";
-amazon_ad_height="600";
-amazon_color_background="F9F9D1";
-amazon_color_border="F9F9D1";
-amazon_color_logo="0A0909";
-amazon_color_link="A43907";
-amazon_ad_logo="hide";
-amazon_ad_title="Shakespeare's Monologues' Bookshelves"; //--></script>
-<script type="text/javascript" src="http://www.assoc-amazon.com/s/asw.js"></script>
+google_ad_client = "pub-5236095389905910";
+/* leftcol1 */
+google_ad_slot = "3862062942";
+google_ad_width = 120;
+google_ad_height = 90;
+//-->
+</script>
+<br>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5236095389905910";
+/* leftcol2 */
+google_ad_slot = "8729942714";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
 
 
 </td>
@@ -155,33 +169,7 @@ border="0" alt="Google"></img></a>
 
 </td>
 <td width=343 align=center  valign=top>
-<form name="PaypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="includeemail()">
-<font face=verdana size="-2">Tip Jar</font><br/>
-<input type="hidden" name="cmd" value="_xclick"/>
-<input type="hidden" name="business" value=""/>
-<input type="hidden" name="item_name" value="Shakespeare's Monologues Donations"/>
-<input type="hidden" name="item_number" value="031806"/>
-<input type="hidden" name="no_shipping" value="1"/>
-<input type="hidden" name="return" value="http://shakespeare-monologues.org/thanks.htm"/>
-<input type="hidden" name="cn" value="Include a note if you like:"/>
-<input type="hidden" name="currency_code" value="USD"/>
-<input type="hidden" name="tax" value="0"/>
-<input type="hidden" name="lc" value="US"/>
-<input type="hidden" name="bn" value="PP-DonationsBF"/>
-<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="Make payments
-with PayPal - it's fast, free and secure!"/>
-<img alt="Tip Jar" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/><br/>
-<font face="verdana" size="-2">
-Other ways to help:<br/>
-Click a few ads<br/>
-Buy books <a href="http://shakespeare-monologues.org/store/">here</a>
-<br/>
-Tips this month:&nbsp&nbsp;&nbsp; $1.00<br>
-From ads in Jan.:$17.15
-<br/></font>
-
-
-</span></form>
+<%= render :partial => 'monologues/tip_jar' %>
 <p>
 
 <!-- ADDTHIS BUTTON BEGIN -->
@@ -216,11 +204,21 @@ google_color_url = "696969";
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </p>
-
+<script type="text/javascript"><!--
+amazon_ad_tag="shakessmonolo-20";
+amazon_ad_width="120";
+amazon_ad_height="600";
+amazon_color_background="F9F9D1";
+amazon_color_border="F9F9D1";
+amazon_color_logo="0A0909";
+amazon_color_link="A43907";
+amazon_ad_logo="hide";
+amazon_ad_title="Shakespeare's Monologues' Bookshelves"; //--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.com/s/asw.js"></script>
 </td>
 </tr>
 </table>
-<script src="http://tweetboard.com/tb.js?v=1.0&amp;user=ShakesMonos" type="text/javascript"></script>
+
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
