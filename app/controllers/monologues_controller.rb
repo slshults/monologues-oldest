@@ -1,7 +1,7 @@
 require 'vendor/plugins/active_record_extensions'
 class MonologuesController < ApplicationController
   def index
-    @monologues = Monologue.paginate :page => params[:page], :per_page => 20
+    @monologues = Monologue.find(:all, :limit => 20)
   end
   
   def show
@@ -14,6 +14,7 @@ class MonologuesController < ApplicationController
   end
   
   def new
+    redirect_to new_login_url unless logged_in?
     @monologue = Monologue.new
     @plays = Play.all
     @genders = Gender.all
@@ -25,11 +26,14 @@ class MonologuesController < ApplicationController
       flash[:notice] = "Successfully created monologue."
       redirect_to @monologue
     else
+      @plays = Play.all
+      @genders = Gender.all
       render :action => 'new'
     end
   end
   
   def edit
+    redirect_to new_login_url unless logged_in?
     @monologue = Monologue.find(params[:id])
     @plays = Play.all
   end
@@ -40,11 +44,14 @@ class MonologuesController < ApplicationController
       flash[:notice] = "Successfully updated monologue."
       redirect_to @monologue
     else
+      @plays = Play.all
+      @genders = Gender.all
       render :action => 'edit'
     end
   end
   
   def destroy
+    redirect_to new_login_url unless logged_in?
     @monologue = Monologue.find(params[:id])
     @monologue.destroy
     flash[:notice] = "Successfully destroyed monologue."
@@ -57,25 +64,51 @@ class MonologuesController < ApplicationController
       @terms = @ajax_search.split(" ")
       @monologues = []
       @terms.each do |term|
+
         case ActiveRecord::Base.connection.adapter_name
-        when 'SQLite'
-          where_clause = "character like '%#{term}%' or body like '%#{term}%' or first_line like '%#{term}%'"
         when 'PostgreSQL'
-          where_clause =  "character ilike '%#{term}%' or body ilike '%#{term}%' or first_line ilike '%#{term}%'"
+             term_like_sql = '(plays.title ilike ? or character ilike ? or body ilike ?)'
         else
-          raise 'Query not implemented for DB adapter: ' + ActiveRecord::Base.connection.adapter_name
+             term_like_sql = '(plays.title like ? or character like ? or body like ?)'
         end
-        results = Monologue.find(:all, :conditions => where_clause)
-        @monologues = results if results and @monologues.empty?
-        @monologues &= results if results
+
+        if params[:g]
+          results = Monologue.find(
+            :all,
+            :conditions =>
+              ['gender_id = ? and ' + term_like_sql,
+                params[:g], "%#{term}%", "%#{term}%", "%#{term}%"],
+            :joins => :play
+          )
+        else
+          results = Monologue.find(
+            :all,
+            :conditions =>
+              [term_like_sql,
+              "%#{term}%", "%#{term}%", "%#{term}%"],
+            :joins => :play
+          )
+        end
+        if results
+          if @monologues.empty?
+            @monologues = results
+          else
+            # append results for each seach term
+            @monologues &= results
+          end
+        end
+
       end
+
       @monologues.compact!
       @monologues.uniq!
-      @monologues = @monologues.paginate :search => @ajax_search, :page => params[:page], :per_page => 10
+
     else
-      @monologues = Monologue.paginate :page => params[:page], :per_page => 20
+      @monologues = Monologue.find(:all, :limit => 20)
     end
+
     render :partial => 'search', :layout => false
+
   end
 
   def men

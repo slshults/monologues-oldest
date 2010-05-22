@@ -24,6 +24,7 @@ class AuthorsController < ApplicationController
   # GET /authors/new
   # GET /authors/new.xml
   def new
+    redirect_to new_login_url unless logged_in?
     @author = Author.new
 
     respond_to do |format|
@@ -34,6 +35,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
+    redirect_to new_login_url unless logged_in?
     @author = Author.find(params[:id])
   end
 
@@ -74,6 +76,7 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1
   # DELETE /authors/1.xml
   def destroy
+    redirect_to new_login_url unless logged_in?
     @author = Author.find(params[:id])
     @author.destroy
 

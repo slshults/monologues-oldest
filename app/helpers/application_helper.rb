@@ -1,6 +1,20 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def user_link
+    return session_user_link if @current_user
+    sessionless_user_link
+  end
+
+  def session_user_link
+      "<div class='user_session_link'>Yo #{@current_user.name} - <small>" + link_to('logout', '/logout') + "</small></div>"
+  end
+
+  def sessionless_user_link
+      '<div class="user_session_link"><small>' + link_to("Sign Up", new_user_path) + " or \n" + link_to("Login", new_login_path) + '</small></div>'
+  end
+
+
   def link_to_monologue( monologue )
     if monologue.body
       link_to( monologue.first_line, monologue )

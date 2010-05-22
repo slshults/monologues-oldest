@@ -1,28 +1,28 @@
 <p>
   <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
+
+  <span>
+    <% form_tag('javascript:void(0)') do %>
+      <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 140%;"/>
+      <%= image_tag '/images/ajax-loader.gif',
+            :id => 'spinner',
+            :style => "display: none;" %>
+    <% end %>
+  </span>
+
 </p>
 
-<table cellpadding="8" style="line-height: 160%;"border="1">
-  <tr>
-    <td style="font-size: 140%;"><b>Comedies</b></td>
-    <td style="font-size: 140%;"><b>Histories</b></td>
-    <td style="font-size: 140%;"><b>Tragedies</b></td>
-  </tr>
-  <tr>
-    <td style="vertical-align: text-top;">
-        <% @comedies.each do |comedy| %>
-          <%= link_to comedy.title, play_path(comedy, :g => @gender.id) %><br/>
-        <% end %>
-    </td>
-    <td style="vertical-align: text-top;">
-        <% @histories.each do |history| %>
-          <%= link_to history.title, play_path(history, :g => @gender.id) %><br/>
-        <% end %>
-    </td>
-    <td style="vertical-align: text-top;">
-        <% @tragedies.each do |tragedy| %>
-          <%= link_to tragedy.title, play_path(tragedy, :g => @gender.id) %><br/>
-        <% end %>
-    </td>
-  </tr>
-</table>
+<%=  observe_field :search,
+                  :frequency => 1,
+                  :update => 'ajaxResults',
+                  :before => "Element.show('spinner')",
+                  :complete => "Element.hide('spinner')",
+                  :url => {:controller => 'monologues', :action => 'search', :only_path => false},
+                  :with => "'g=#{@gender.id}&search=' + encodeURIComponent(value)" %>
+
+<div id='ajaxResults'>
+  <%= render :controller => 'monologues', :partial => "search" %>
+</div>
+
+
+

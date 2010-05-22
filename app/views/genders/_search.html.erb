@@ -1,6 +1,30 @@
-<% if @monologues.empty? %>
+<% if @monologues.nil? %>
 
-  <p><br/>Alas, no monologues match your search</p>
+  <table cellpadding="8" style="line-height: 160%;"border="1">
+    <tr>
+      <td style="font-size: 140%;"><b>Comedies</b></td>
+      <td style="font-size: 140%;"><b>Histories</b></td>
+      <td style="font-size: 140%;"><b>Tragedies</b></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: text-top;">
+          <% @comedies.each do |comedy| %>
+            <%= link_to comedy.title, play_path(comedy, :g => @gender.id) %><br/>
+          <% end %>
+      </td>
+      <td style="vertical-align: text-top;">
+          <% @histories.each do |history| %>
+            <%= link_to history.title, play_path(history, :g => @gender.id) %><br/>
+          <% end %>
+      </td>
+      <td style="vertical-align: text-top;">
+          <% @tragedies.each do |tragedy| %>
+            <%= link_to tragedy.title, play_path(tragedy, :g => @gender.id) %><br/>
+          <% end %>
+      </td>
+    </tr>
+  </table>
+
 <% else %>
 
   <% if params[:search] %>
@@ -11,8 +35,6 @@
       <p><%= @monologues.size.to_s %> monologues match your search</p>
     <% end %>
 
-  <% else %>
-    <p><div>First 20 monologues</div></p>
   <% end %>
     
   <table width="580" style="text-align: left;" cellpadding="1px">

@@ -1,0 +1,17 @@
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>Shakespeares Monologues</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag 'jquery', 'application', :cached => :true  %>
+</head>
+<body>
+  <div class="login_banner">
+    <%= user_link %></div>
+  <p style="color: green"><%= flash[:notice] %></p>
+
+  <div class="content">
+    <%= yield %>
+  </div>
+</body>
+</html>

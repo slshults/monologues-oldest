@@ -7,12 +7,8 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  # config.gem "paperclip"
-  config.gem 'will_paginate', :version => '~> 2.3.12', :source => 'http://gemcutter.org'
+#  config.gem "authlogic"
+
   config.time_zone = 'UTC'
-  # config.gem 'memcached', :version => '-> 0.19.2', :source => 'http://gemcutter.org'
 
 end
-
-# require 'memcached'
-require "will_paginate"

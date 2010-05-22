@@ -11,6 +11,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/women', :controller => :genders, :action => 'women', :id => 2
 
+  map.resources :users
+
+  map.resources :logins
+
+  map.connect '/logout', :controller => 'logins', :action => 'destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
