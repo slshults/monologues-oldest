@@ -18,7 +18,7 @@
   <table width="580" style="text-align: left;" cellpadding="1px">
     <tr>
       <th style="font-size: 80%;">Character</th>
-      <th style="font-size: 80%;">First Line</th>
+      <th width="420" style="font-size: 80%;">First Line</th>
       <th style="font-size: 80%;">Act & Sc</th>
       <th style="font-size: 80%;">pdf</th>
     </tr>
@@ -31,7 +31,7 @@
             <%= link_to 'edit', edit_monologue_path(monologue) %>
           </span>
         </td>
-        <td style="font-size: 100%;" style="vertical-align: top;">
+        <td width="420" style="font-size: 100%;" style="vertical-align: top;">
           <span id="preview_mono_<%= monologue.id -%>">
             <%= link_to_remote monologue.first_line,
                             :update => "preview_mono_#{monologue.id}",

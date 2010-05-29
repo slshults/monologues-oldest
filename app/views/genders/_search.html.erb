@@ -1,10 +1,10 @@
 <% if @monologues.nil? %>
 
-  <table cellpadding="8" style="line-height: 160%;"border="1">
+  <table width="486" cellpadding="8" style="line-height: 160%;"border="1">
     <tr>
-      <td style="font-size: 140%;"><b>Comedies</b></td>
-      <td style="font-size: 140%;"><b>Histories</b></td>
-      <td style="font-size: 140%;"><b>Tragedies</b></td>
+      <td width="230" nowrap style="font-size: 140%;"><b>Comedies</b></td>
+      <td width="100" style="font-size: 140%;"><b>Histories</b></td>
+      <td width="150" style="font-size: 140%;"><b>Tragedies</b></td>
     </tr>
     <tr>
       <td style="vertical-align: text-top;">
@@ -40,7 +40,7 @@
   <table width="580" style="text-align: left;" cellpadding="1px">
     <tr>
       <th style="font-size: 80%;">Character</th>
-      <th style="font-size: 80%;">First Line</th>
+      <th width="420" style="font-size: 80%;">First Line</th>
       <th style="font-size: 80%;">Act & Sc</th>
       <th style="font-size: 80%;">pdf</th>
     </tr>
@@ -53,7 +53,7 @@
             <%= link_to 'edit', edit_monologue_path(monologue) %>
           </span>
         </td>
-        <td style="font-size: 100%;" style="vertical-align: top;">
+        <td width="420" style="font-size: 100%;" style="vertical-align: top;">
           <span id="preview_mono_<%= monologue.id -%>">
             <%= link_to_remote monologue.first_line,
                             :update => "preview_mono_#{monologue.id}",
