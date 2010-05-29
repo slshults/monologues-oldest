@@ -8,11 +8,15 @@ module ApplicationHelper
   end
 
   def session_user_link
-      "<div class='user_session_link'>Yo #{@current_user.name} - <small>" + link_to('logout', '/logout') + "</small></div>"
+      "<div class='user_session_link'>" +
+      "Logged In as: #{@current_user.name} - " +
+      "<small>" + link_to('logout', '/logout') + "</small></div>"
   end
 
   def sessionless_user_link
-      '<div class="user_session_link"><small>' + link_to("Sign Up", new_user_path) + " or \n" + link_to("Login", new_login_path) + '</small></div>'
+      '<div class="user_session_link"><small>Not Logged In</small></div>'
+      # link_to("Sign Up", new_user_path)
+      # link_to("Login", new_login_path)
   end
 
 

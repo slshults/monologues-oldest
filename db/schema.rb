@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(:version => 20100519065234) do
   end
 
   create_table "plays", :force => true do |t|
-    t.integer  "author_id"
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "classification"
+    t.integer   "author_id"
+    t.string    "title"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "classification"
   end
 
   create_table "users", :force => true do |t|
