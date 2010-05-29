@@ -12,30 +12,30 @@
 ActiveRecord::Schema.define(:version => 20100519065234) do
 
   create_table "authors", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "genders", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "monologues", :force => true do |t|
-    t.integer  "play_id"
-    t.string   "location"
-    t.string   "first_line"
-    t.text     "body"
-    t.integer  "gender_id"
-    t.string   "character"
-    t.string   "style"
-    t.string   "pdf_link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "body_link"
-    t.integer  "intercut"
+    t.integer   "play_id"
+    t.string    "location"
+    t.string    "first_line"
+    t.text      "body"
+    t.integer   "gender_id"
+    t.string    "character"
+    t.string    "style"
+    t.string    "pdf_link"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "body_link"
+    t.integer   "intercut"
   end
 
   create_table "plays", :force => true do |t|

@@ -36,7 +36,10 @@ class PlaysController < ApplicationController
   # GET /plays/new
   # GET /plays/new.xml
   def new
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @play = Play.new
 
     respond_to do |format|
@@ -47,7 +50,10 @@ class PlaysController < ApplicationController
 
   # GET /plays/1/edit
   def edit
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @play = Play.find(params[:id])
   end
 
@@ -88,7 +94,10 @@ class PlaysController < ApplicationController
   # DELETE /plays/1
   # DELETE /plays/1.xml
   def destroy
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url      
+      return
+    end
     @play = Play.find(params[:id])
     @play.destroy
 

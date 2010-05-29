@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'spec/matchers'
 
 class PlaysControllerTest < ActionController::TestCase
   test "should get index" do
@@ -7,16 +8,22 @@ class PlaysControllerTest < ActionController::TestCase
     assert_not_nil assigns(:plays)
   end
 
-  test "should get new" do
+  test "should get new when logged in" do
+    PlaysController.any_instance.stubs(:logged_in?).returns(true)
     get :new
     assert_response :success
+  end
+
+  test "should not get new unless logged in" do
+    # not logged in
+    get :new
+    assert_response :redirect
   end
 
   test "should create play" do
     assert_difference('Play.count') do
       post :create, :play => {:title => 'One night in Burbank', :author_id => 1, :classification => 'Comedy' }
     end
-
     assert_redirected_to play_path(assigns(:play))
   end
 
@@ -25,9 +32,16 @@ class PlaysControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
+  test "should get edit when logged in" do
+    PlaysController.any_instance.stubs(:logged_in?).returns(true)
     get :edit, :id => plays(:hamlet).to_param
     assert_response :success
+  end
+
+  test "should not get edit unless logged in" do
+    # not logged in
+    get :edit, :id => plays(:hamlet).to_param
+    assert_response :redirect
   end
 
   test "should update play" do
@@ -36,6 +50,7 @@ class PlaysControllerTest < ActionController::TestCase
   end
 
   test "should destroy play" do
+    PlaysController.any_instance.stubs(:logged_in?).returns(true)
     assert_difference('Play.count', -1) do
       delete :destroy, :id => plays(:hamlet).to_param
     end

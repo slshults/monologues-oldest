@@ -14,7 +14,10 @@ class MonologuesController < ApplicationController
   end
   
   def new
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @monologue = Monologue.new
     @plays = Play.all
     @genders = Gender.all
@@ -33,7 +36,10 @@ class MonologuesController < ApplicationController
   end
   
   def edit
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @monologue = Monologue.find(params[:id])
     @plays = Play.all
   end
@@ -51,7 +57,10 @@ class MonologuesController < ApplicationController
   end
   
   def destroy
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @monologue = Monologue.find(params[:id])
     @monologue.destroy
     flash[:notice] = "Successfully destroyed monologue."

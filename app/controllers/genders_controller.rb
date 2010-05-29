@@ -2,6 +2,10 @@ class GendersController < ApplicationController
   # GET /genders
   # GET /genders.xml
   def index
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @genders = Gender.all
 
     respond_to do |format|
@@ -44,7 +48,10 @@ class GendersController < ApplicationController
   # GET /genders/new
   # GET /genders/new.xml
   def new
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @gender = Gender.new
 
     respond_to do |format|
@@ -55,13 +62,20 @@ class GendersController < ApplicationController
 
   # GET /genders/1/edit
   def edit
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @gender = Gender.find(params[:id])
   end
 
   # POST /genders
   # POST /genders.xml
   def create
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @gender = Gender.new(params[:gender])
 
     respond_to do |format|
@@ -79,6 +93,10 @@ class GendersController < ApplicationController
   # PUT /genders/1
   # PUT /genders/1.xml
   def update
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @gender = Gender.find(params[:id])
 
     respond_to do |format|
@@ -96,7 +114,10 @@ class GendersController < ApplicationController
   # DELETE /genders/1
   # DELETE /genders/1.xml
   def destroy
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @gender = Gender.find(params[:id])
     @gender.destroy
 
