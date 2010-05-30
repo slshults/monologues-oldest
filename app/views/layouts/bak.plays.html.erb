@@ -1,59 +1,66 @@
-<html>
-<head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-  <title>Shakespeares Monologues</title>
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag :defaults, 'jquery', 'application', :cached => :true  %>
+<HTML>
+<HEAD>
+<TITLE>Shakespeare's Monologues</TITLE>
 
-  <META NAME="KEYWORDS"
-  CONTENT="shakespeare, monologue, shakespeare's, monologues,
-  shakespearean, discussion, monologue, shakespeare's, monologues,
-  shakespearean, discussion, theatre, resource, actor, resource, acting,
-  resource, online, forum, shakespeare shakespeare's monologues
-  shakespearean discussion shakespeare monologue monologues
-  shakespearean discussion shakespeare monologue shakespeare's
-  theatre resource acting resource acting resources forum online
-  shakespearean, discussion, shakespeare, monologue, shakespeare's,
-  monologues, discussion, shakespeare, monologue, shakespeare's monologues, shakespearean, find, locate, search, index, All's Well That Ends Well, As You Like It, The Comedy of Errors, Cymbeline, Love's Labours Lost, Measure for Measure, The Merry Wives of Windsor, The Merchant of Venice, A Midsummer Night's Dream, Much Ado About Nothing, Pericles, Prince of Tyre, Taming of the Shrew, The Tempest, Troilus and Cressida, Twelfth Night, Two Gentlemen of Verona, Winter's Tale, Henry IV, part 1
-  , Henry IV, part 2
-  , Henry V
-  , Henry VI, part 1
-  , Henry VI, part 2
-  , Henry VI, part 3
-  , Henry VIII
-  , King John
-  , Richard II
-  , Richard III
-  ">
-  <style fprolloverstyle>A:hover {color: #5E2612; text-decoration: underline; font-weight: bold}
-  </style>
-  <style>A {text-decoration: none; color: #696969; font-style: italic  }
-  </style>
-  <script language="JavaScript">
-  function includeemail()
-  {
-  var f = document.PaypalForm;
-  var name = "donations";
-  var at = "@";
-  var url = "shakespeare-monologues.org";
-  f.business.value = name + at + url;
-  return true;
-  }
-  </script>
+<%= javascript_include_tag :defaults %>
 
-</head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="KEYWORDS"
+CONTENT="shakespeare, monologue, shakespeare's, monologues,
+shakespearean, discussion, monologue, shakespeare's, monologues,
+shakespearean, discussion, theatre, resource, actor, resource, acting,
+resource, online, forum, shakespeare shakespeare's monologues
+shakespearean discussion shakespeare monologue monologues
+shakespearean discussion shakespeare monologue shakespeare's
+theatre resource acting resource acting resources forum online
+shakespearean, discussion, shakespeare, monologue, shakespeare's,
+monologues, discussion, shakespeare, monologue, shakespeare's monologues, shakespearean, find, locate, search, index, All's Well That Ends Well, As You Like It, The Comedy of Errors, Cymbeline, Love's Labours Lost, Measure for Measure, The Merry Wives of Windsor, The Merchant of Venice, A Midsummer Night's Dream, Much Ado About Nothing, Pericles, Prince of Tyre, Taming of the Shrew, The Tempest, Troilus and Cressida, Twelfth Night, Two Gentlemen of Verona, Winter's Tale, Henry IV, part 1
+, Henry IV, part 2
+, Henry V
+, Henry VI, part 1
+, Henry VI, part 2
+, Henry VI, part 3
+, Henry VIII
+, King John
+, Richard II
+, Richard III
+">
+<style fprolloverstyle>A:hover {color: #5E2612; text-decoration: underline; font-weight: bold}
+</style>
+<style>A {text-decoration: none; color: #696969; font-style: italic  }
+</style>
+<script language="JavaScript">
+function includeemail()
+{
+var f = document.PaypalForm;
+var name = "donations";
+var at = "@";
+var url = "shakespeare-monologues.org";
+f.business.value = name + at + url;
+return true;
+}
+</script>
+
+</HEAD>
 <BODY BGCOLOR="#F9F9DF" background="/images/parchment.jpg">
+
+
+<!-- div class="login_banner">
+<%= user_link %></div -->
+<p style="color: green"><%= flash[:notice] %></p>
+
+
+<table width="100%" align=center valign="top" cellpadding=0 cellspacing=0 nowrap>
+<tr>
+<td width=520 align=left valign=top cellspacing=0 cellpadding=0>
+</td>
+</tr>
+</table>
 
 <table width="140" align=left valign="top" cellpadding=5 cellspacing=5 nowrap>
 <tr>
 <td valign="top" align="middle">
-
-  <div class="login_banner">
-    <%= user_link %>
-  </div>
-  <p style="color: green"><%= flash[:notice] %></p>
-
-
 
 <font size="-2">
 <%= link_to '[The Men]', '/men' %>

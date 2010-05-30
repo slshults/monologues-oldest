@@ -2,10 +2,12 @@ require 'vendor/plugins/active_record_extensions'
 class MonologuesController < ApplicationController
   def index
     @monologues = Monologue.find(:all, :limit => 20)
+    render :index
   end
   
   def show
     @monologue = Monologue.find(params[:id])
+    render :show
   end
 
   def preview
@@ -121,12 +123,12 @@ class MonologuesController < ApplicationController
   end
 
   def men
-    @monologues = Monologue.find_all_by_gender_id(3)
+    @monologues = Monologue.find_all_by_name('Men')
     render :index
   end
 
   def women
-    @monologues = Monologue.find_all_by_gender_id(2)
+    @monologues = Monologue.find_all_by_name('Women')
     render :index
   end
 

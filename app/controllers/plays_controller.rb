@@ -8,7 +8,7 @@ class PlaysController < ApplicationController
     @tragedies = Play.find_all_by_classification('Tragedy')
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :index }
       format.xml  { render :xml => @plays }
     end
   end
@@ -28,7 +28,7 @@ class PlaysController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :show }
       format.xml  { render :xml => @play }
     end
   end
@@ -43,7 +43,7 @@ class PlaysController < ApplicationController
     @play = Play.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :new }
       format.xml  { render :xml => @play }
     end
   end

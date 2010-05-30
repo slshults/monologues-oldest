@@ -1,59 +1,70 @@
-<html>
-<head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-  <title>Shakespeares Monologues</title>
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag :defaults, 'jquery', 'application', :cached => :true  %>
+<HTML>
+<HEAD>
+<TITLE>Shakespeare's Monologues</TITLE>
 
-  <META NAME="KEYWORDS"
-  CONTENT="shakespeare, monologue, shakespeare's, monologues,
-  shakespearean, discussion, monologue, shakespeare's, monologues,
-  shakespearean, discussion, theatre, resource, actor, resource, acting,
-  resource, online, forum, shakespeare shakespeare's monologues
-  shakespearean discussion shakespeare monologue monologues
-  shakespearean discussion shakespeare monologue shakespeare's
-  theatre resource acting resource acting resources forum online
-  shakespearean, discussion, shakespeare, monologue, shakespeare's,
-  monologues, discussion, shakespeare, monologue, shakespeare's monologues, shakespearean, find, locate, search, index, All's Well That Ends Well, As You Like It, The Comedy of Errors, Cymbeline, Love's Labours Lost, Measure for Measure, The Merry Wives of Windsor, The Merchant of Venice, A Midsummer Night's Dream, Much Ado About Nothing, Pericles, Prince of Tyre, Taming of the Shrew, The Tempest, Troilus and Cressida, Twelfth Night, Two Gentlemen of Verona, Winter's Tale, Henry IV, part 1
-  , Henry IV, part 2
-  , Henry V
-  , Henry VI, part 1
-  , Henry VI, part 2
-  , Henry VI, part 3
-  , Henry VIII
-  , King John
-  , Richard II
-  , Richard III
-  ">
-  <style fprolloverstyle>A:hover {color: #5E2612; text-decoration: underline; font-weight: bold}
-  </style>
-  <style>A {text-decoration: none; color: #696969; font-style: italic  }
-  </style>
-  <script language="JavaScript">
-  function includeemail()
-  {
-  var f = document.PaypalForm;
-  var name = "donations";
-  var at = "@";
-  var url = "shakespeare-monologues.org";
-  f.business.value = name + at + url;
-  return true;
-  }
-  </script>
+<%= javascript_include_tag :defaults %>
 
-</head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="KEYWORDS"
+CONTENT="shakespeare, monologue, shakespeare's, monologues,
+shakespearean, discussion, monologue, shakespeare's, monologues,
+shakespearean, discussion, theatre, resource, actor, resource, acting,
+resource, online, forum, shakespeare shakespeare's monologues
+shakespearean discussion shakespeare monologue monologues
+shakespearean discussion shakespeare monologue shakespeare's
+theatre resource acting resource acting resources forum online
+shakespearean, discussion, shakespeare, monologue, shakespeare's,
+monologues, discussion, shakespeare, monologue, shakespeare's monologues, shakespearean, find, locate, search, index, All's Well That Ends Well, As You Like It, The Comedy of Errors, Cymbeline, Love's Labours Lost, Measure for Measure, The Merry Wives of Windsor, The Merchant of Venice, A Midsummer Night's Dream, Much Ado About Nothing, Pericles, Prince of Tyre, Taming of the Shrew, The Tempest, Troilus and Cressida, Twelfth Night, Two Gentlemen of Verona, Winter's Tale, Henry IV, part 1
+, Henry IV, part 2
+, Henry V
+, Henry VI, part 1
+, Henry VI, part 2
+, Henry VI, part 3
+, Henry VIII
+, King John
+, Richard II
+, Richard III
+">
+<style fprolloverstyle>A:hover {color: #5E2612; text-decoration: underline; font-weight: bold}
+</style>
+<style>
+  A {text-decoration: none; color: #696969; font-style: italic;  }
+  .no-link {text-decoration: none; color: #696969; font-style: italic;}
+  .small {
+    font-family: verdana;
+    font-size: 10px;
+}
+
+</style>
+<script language="JavaScript">
+function includeemail()
+{
+var f = document.PaypalForm;
+var name = "donations";
+var at = "@";
+var url = "shakespeare-monologues.org";
+f.business.value = name + at + url;
+return true;
+}
+</script>
+
+</HEAD>
 <BODY BGCOLOR="#F9F9DF" background="/images/parchment.jpg">
 
-<table width="140" align=left valign="top" cellpadding=5 cellspacing=5 nowrap>
+<table width="100%" align=center valign="top" cellpadding=0 cellspacing=0 nowrap>
+<tr>
+<td width=520 align=left valign=top cellspacing=0 cellpadding=0>
+</td>
+</tr>
+</table>
+
+<table width="140" align="left" valign="top" cellpadding=5 cellspacing=5 nowrap>
 <tr>
 <td valign="top" align="middle">
 
-  <div class="login_banner">
-    <%= user_link %>
-  </div>
-  <p style="color: green"><%= flash[:notice] %></p>
-
-
+<div class="login_banner">
+<%= user_link %></div>
 
 <font size="-2">
 <%= link_to '[The Men]', '/men' %>
@@ -62,7 +73,7 @@
 <a HREF="http://shakespeare-monologues.org/store/">[Books]</a>&nbsp;<a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>&nbsp;<a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>&nbsp;<a HREF="/">[Home]</a>
 <br/><br/>&nbsp;<br/>
 <!-- left column ads -->
-<p>
+
 <script type="text/javascript"><!--
 google_ad_client = "pub-5236095389905910";
 /* leftcol1 */
@@ -86,7 +97,6 @@ google_ad_height = 600;
 <script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
-
 
 
 
@@ -162,7 +172,7 @@ border="0" alt="Google"></img></a>
 
 </td>
 <td width=343 align=center  valign=top>
-<%= render :partial => 'monologues/tip_jar' %>
+  <%= render :partial => 'tip_jar' %>
 <p>
 
 <!-- ADDTHIS BUTTON BEGIN -->
@@ -176,27 +186,23 @@ addthis_options = 'digg, delicious, stumbleupon, facebook, myspace, twitter, goo
 <script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
 <!-- ADDTHIS BUTTON END -->
 </p>
-<p>
 
+<p>
 
 <script type="text/javascript"><!--
 google_ad_client = "pub-5236095389905910";
+/* rightcolgraphic */
+google_ad_slot = "1016396307";
 google_ad_width = 300;
 google_ad_height = 250;
-google_ad_format = "300x250_as";
-google_ad_type = "text_image";
-//2007-01-27: ShakesMonos Men's Index
-google_ad_channel = "9016325956";
-google_color_border = "F9F9DF";
-google_color_bg = "F9F9DF";
-google_color_link = "696969";
-google_color_text = "000000";
-google_color_url = "696969";
-//--></script>
-<script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+//-->
 </script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
 </p>
+
 <script type="text/javascript"><!--
 amazon_ad_tag="shakessmonolo-20";
 amazon_ad_width="120";
@@ -208,10 +214,10 @@ amazon_color_link="A43907";
 amazon_ad_logo="hide";
 amazon_ad_title="Shakespeare's Monologues' Bookshelves"; //--></script>
 <script type="text/javascript" src="http://www.assoc-amazon.com/s/asw.js"></script>
+
 </td>
 </tr>
 </table>
-
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

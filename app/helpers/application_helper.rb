@@ -1,7 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-
   def user_link
     return session_user_link if @current_user
     sessionless_user_link

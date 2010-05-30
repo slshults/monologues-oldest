@@ -11,13 +11,6 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   private
-  # force user to login if they are not already
-  def authorize!
-    unless logged_in?
-      redirect_to new_login_url
-      return
-    end
-  end
 
   # true if user is already logged in
   def logged_in?
@@ -25,7 +18,6 @@ class ApplicationController < ActionController::Base
       @current_user = User.find( session[:user_id] )
     else
       @current_user = nil
-#      redirect_to new_login_url
     end
   end
 
