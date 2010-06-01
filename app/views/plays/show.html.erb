@@ -1,45 +1,63 @@
 
 <% if @gender %>
-  <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
-  <h3><%=h @play.title %></h3>
-  <span style="font-size: 75%;">
-    <%= link_to "Show #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
-    <%= link_to "Show All", play_path(@play) %>
-  </span>
+  <div>
+    <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
+    <h3><%=h @play.title %></h3>
+    <span>
+      <% form_tag('javascript:void(0)') do %>
+        <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 140%;"/>
+        <%= image_tag '/images/ajax-loader.gif',
+              :id => 'spinner',
+              :style => "display: none;" %>
+      <% end %>
+      <span style="font-size: 75%;">
+        Searching <%= @gender.name %> &nbsp;
+        <%= link_to "Search #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
+        <%= link_to "Search #{@play.title}", play_path(@play) %>
+        <%= link_to "Search Complete Works", plays_path  %>
+        <br/>
+      </span>
+    </span>
+  </div>
+  <%=  observe_field :search,
+                    :frequency => 1,
+                    :update => 'ajaxResults',
+                    :before => "Element.show('spinner')",
+                    :complete => "Element.hide('spinner')",
+                    :url => {:controller => 'monologues', :action => 'search', :only_path => false},
+                    :with => "'g=#{@gender.id}&p=#{@play.id}&search=' + encodeURIComponent(value)" %>
 <% else %>
+  <div>
   <h2>Monologues in Shakespeare</h2>
   <h3><%=h @play.title %></h3>
-  <span style="font-size: 75%;">
-    <%= link_to "Show Women", play_path(@play, :g => 2) %> &nbsp;
-    <%= link_to "Show Men", play_path(@play, :g => 3) %>
-  </span>
+    <span>
+      <% form_tag('javascript:void(0)') do %>
+        <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 140%;"/>
+        <%= image_tag '/images/ajax-loader.gif',
+              :id => 'spinner',
+              :style => "display: none;" %>
+      <% end %>
+      <span style="font-size: 75%;">
+        Searching <%= @play.title %> &nbsp;
+        <%= link_to "Search Men", play_path(@play, :g => 3) %> &nbsp;
+        <%= link_to "Search Women", play_path(@play, :g => 2) %> &nbsp;
+        <%= link_to "Search Complete Works", plays_path  %>
+        <br/>
+      </span>
+    </span>
+  </div>
+  <%=  observe_field :search,
+                    :frequency => 1,
+                    :update => 'ajaxResults',
+                    :before => "Element.show('spinner')",
+                    :complete => "Element.hide('spinner')",
+                    :url => {:controller => 'monologues', :action => 'search', :only_path => false},
+                    :with => "'p=#{@play.id}&search=' + encodeURIComponent(value)" %>
+
 <% end %>
 
-  <table width="576" style="text-align: left; style=font-size: 80%;" cellpadding="1px">
-    <tr>
-      <th style="font-size: 80%;">Character</th>
-      <th width="420" style="font-size: 80%;">First Line</th>
-      <th style="font-size: 80%;">Act & Sc</th>
-      <th style="font-size: 80%;">pdf</th>
-    </tr>
-    <% for monologue in @monologues %>
-      <tr id="<%= cycle 'odd-row', 'even-row' %>">
-        <td width="80"><%=h monologue.character %><br/>
-          <span style="font-size: 60%;">
-            <%=h monologue.style %> <%= monologue.intercut_label %><br/>
-            <%= link_to( h(monologue.play.title), play_path(monologue.play) )%><br/>
-          </span>
-        </td>
-        <td width="420" style="font-size: 100%;" valign="top">
-          <%= link_to_monologue(monologue) %>
-        </td>
-        <td  valign="top" align="right" width="50"  style="font-size: 70%;">
-          <%= link_to_monologue_location( monologue ) %>
-        </td>
-        <td  valign="top" width="20">
-          <%= link_to_monologue_pdf( monologue ) %>
-        </td>
+<div id='ajaxResults'>
+  <%= render :controller => 'monologues', :partial => "monologues/search" %>
+</div>
 
-      </tr>
-    <% end %>
-  </table>
+

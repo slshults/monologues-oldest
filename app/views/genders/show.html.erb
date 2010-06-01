@@ -1,5 +1,6 @@
+<h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
+
 <p>
-  <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
 
   <span>
     <% form_tag('javascript:void(0)') do %>
@@ -8,7 +9,13 @@
             :id => 'spinner',
             :style => "display: none;" %>
     <% end %>
+    <span style="font-size: 75%;">
+      Showing <%=  @gender.name %> &nbsp;
+      <%= link_to "Show #{@other_gender.name}", '/' + @other_gender.name.downcase %> &nbsp;
+      <%= link_to "Show All", monologues_path %>
+    </span>
   </span>
+
 
 </p>
 
@@ -21,8 +28,7 @@
                   :with => "'g=#{@gender.id}&search=' + encodeURIComponent(value)" %>
 
 <div id='ajaxResults'>
-  <%= render :controller => 'monologues', :partial => "search" %>
+  <%= render :controller => 'monologues', :partial => "monologues/search" %>
 </div>
-
 
 

@@ -1,7 +1,10 @@
 require 'vendor/plugins/active_record_extensions'
 class MonologuesController < ApplicationController
   def index
-    @monologues = Monologue.find(:all, :limit => 20)
+#    @monologues = Monologue.find(:all, :limit => 20)
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     render :index
   end
   
@@ -71,27 +74,73 @@ class MonologuesController < ApplicationController
 
   def search
     @ajax_search = params[:search]
-    unless @ajax_search.blank?
+    @gender_id = params[:g]
+    @play_id = params[:p]
+
+    if @ajax_search.blank?
+
+      # no search terms
+
+      if @play_id and @gender_id
+        @monologues = Monologue.find_all_by_gender_id_and_play_id(@gender_id, @play_id)
+
+      elsif @play_id
+        @monologues = Monologue.find_all_by_play_id(@play_id)
+        
+      elsif @gender_id
+        @monologues = Monologue.find_all_by_gender_id(@gender_id, :limit => 20)
+      else
+        @monologues = Monologue.all(:limit => 20)
+      end
+
+    else
       @terms = @ajax_search.split(" ")
       @monologues = []
       @terms.each do |term|
-
+        
+        # set the default value for term_like_sql
         case ActiveRecord::Base.connection.adapter_name
         when 'PostgreSQL'
-             term_like_sql = '(plays.title ilike ? or character ilike ? or body ilike ?)'
+          term_like_sql = '(plays.title ilike ? or character ilike ? or body ilike ?)'
+          term_like_sql_no_play = '(character ilike ? or body ilike ?)'
         else
-             term_like_sql = '(plays.title like ? or character like ? or body like ?)'
+          term_like_sql = '(plays.title like ? or character like ? or body like ?)'
+          term_like_sql_no_play = '(character like ? or body like ?)'
         end
 
-        if params[:g]
+
+        if @gender_id and @play_id
+
+          # gender and play specified
+          results = Monologue.find(
+            :all,
+            :conditions =>
+              ['gender_id = ? and play_id = ? and ' + term_like_sql_no_play,
+                @gender_id, @play_id, "%#{term}%", "%#{term}%"],
+            :joins => :play
+          )
+        elsif @play_id
+
+          # play specified
+          results = Monologue.find(
+            :all,
+            :conditions =>
+              ['play_id = ? and ' + term_like_sql_no_play,
+                @play_id, "%#{term}%", "%#{term}%"],
+            :joins => :play
+          )
+        elsif params[:g]
+
+          # gender specified
           results = Monologue.find(
             :all,
             :conditions =>
               ['gender_id = ? and ' + term_like_sql,
-                params[:g], "%#{term}%", "%#{term}%", "%#{term}%"],
+                @gender_id, "%#{term}%", "%#{term}%", "%#{term}%"],
             :joins => :play
           )
         else
+
           results = Monologue.find(
             :all,
             :conditions =>
@@ -114,9 +163,11 @@ class MonologuesController < ApplicationController
       @monologues.compact!
       @monologues.uniq!
 
-    else
-      @monologues = Monologue.find(:all, :limit => 20)
     end
+
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
 
     render :partial => 'search', :layout => false
 
@@ -124,11 +175,17 @@ class MonologuesController < ApplicationController
 
   def men
     @monologues = Monologue.find_all_by_name('Men')
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     render :index
   end
 
   def women
     @monologues = Monologue.find_all_by_name('Women')
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     render :index
   end
 

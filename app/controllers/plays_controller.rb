@@ -17,11 +17,12 @@ class PlaysController < ApplicationController
   # GET /plays/1.xml
   def show
     @play = Play.find(params[:id])
+    @play_id = @play.id
     if params[:g]
       @gender = Gender.find_by_id(params[:g])
       other_gender_id = @gender.id == 2 ? 3 : 2
       @other_gender = Gender.find_by_id( other_gender_id )
-      @monologues = @play.monologues.find_all_by_gender_id(params[:g])
+      @monologues = Monologue.find_all_by_gender_id_and_play_id(@gender.id, @play.id)
     else
       @gender = nil
       @monologues = @play.monologues

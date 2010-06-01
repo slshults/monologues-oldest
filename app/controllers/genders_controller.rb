@@ -19,7 +19,7 @@ class GendersController < ApplicationController
     @comedies = Play.find_all_by_classification('Comedy')
     @histories = Play.find_all_by_classification('History')
     @tragedies = Play.find_all_by_classification('Tragedy')
-
+    @other_gender = Gender.find_by_name('Women')
     render :show
   end
 
@@ -28,7 +28,7 @@ class GendersController < ApplicationController
     @comedies = Play.find_all_by_classification('Comedy')
     @histories = Play.find_all_by_classification('History')
     @tragedies = Play.find_all_by_classification('Tragedy')
-
+    @other_gender = Gender.find_by_name('Men')
     render :show
   end
 
