@@ -4,12 +4,12 @@
 
   <span>
     <% form_tag('javascript:void(0)') do %>
-      <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 140%;"/>
+      <b>Search:</b> <input type="text" id="search" size="40"/>
       <%= image_tag '/images/ajax-loader.gif',
             :id => 'spinner',
             :style => "display: none;" %>
     <% end %>
-    <span style="font-size: 75%;">
+    <span>
       Showing <%=  @gender.name %> &nbsp;
       <%= link_to "Show #{@other_gender.name}", '/' + @other_gender.name.downcase %> &nbsp;
       <%= link_to "Show All", monologues_path %>

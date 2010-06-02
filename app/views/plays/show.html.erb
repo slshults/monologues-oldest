@@ -2,21 +2,19 @@
 <% if @gender %>
   <div>
     <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
-    <h3><%=h @play.title %></h3>
+    <h2><%=h @play.title %></h2>
     <span>
-      <% form_tag('javascript:void(0)') do %>
-        <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 140%;"/>
+      <% form_tag('javascript:void(0);') do %>
+        <b>Search:</b> <input type="text" id="search" size="40"/>
         <%= image_tag '/images/ajax-loader.gif',
               :id => 'spinner',
               :style => "display: none;" %>
       <% end %>
-      <span style="font-size: 75%;">
-        Searching <%= @gender.name %> &nbsp;
+      <div class="search_links">
         <%= link_to "Search #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
-        <%= link_to "Search #{@play.title}", play_path(@play) %>
+        <%= link_to "Search #{@play.title}", play_path(@play) %> &nbsp;
         <%= link_to "Search Complete Works", plays_path  %>
-        <br/>
-      </span>
+      </div>
     </span>
   </div>
   <%=  observe_field :search,
@@ -29,21 +27,19 @@
 <% else %>
   <div>
   <h2>Monologues in Shakespeare</h2>
-  <h3><%=h @play.title %></h3>
+  <h2><%=h @play.title %></h2>
     <span>
-      <% form_tag('javascript:void(0)') do %>
-        <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 140%;"/>
+      <% form_tag('javascript:void(0);') do %>
+        <b>Search:</b> <input type="text" id="search" size="40"/>
         <%= image_tag '/images/ajax-loader.gif',
               :id => 'spinner',
               :style => "display: none;" %>
       <% end %>
-      <span style="font-size: 75%;">
-        Searching <%= @play.title %> &nbsp;
+      <div class="search_links">
         <%= link_to "Search Men", play_path(@play, :g => 3) %> &nbsp;
         <%= link_to "Search Women", play_path(@play, :g => 2) %> &nbsp;
         <%= link_to "Search Complete Works", plays_path  %>
-        <br/>
-      </span>
+      </div>
     </span>
   </div>
   <%=  observe_field :search,
