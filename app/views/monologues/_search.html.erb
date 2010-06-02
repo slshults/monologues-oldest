@@ -7,27 +7,27 @@
 
   <% else %>
 
-    <table width="486" cellpadding="8" style="line-height: 160%;"border="1">
+    <table id="categories_list" border="1">
       <tr>
-        <td width="230" nowrap style="font-size: 140%;"><b>Comedies</b></td>
-        <td width="100" style="font-size: 140%;"><b>Histories</b></td>
-        <td width="150" style="font-size: 140%;"><b>Tragedies</b></td>
+        <th>Comedies</th>
+        <th>Histories</th>
+        <th>Tragedies</th>
       </tr>
       <tr>
-        <td style="vertical-align: text-top;">
-            <% @comedies.each do |comedy| %>
+        <td>
+          <% @comedies.sort{|a,b| a.title <=> b.title }.each do |comedy| %>
               <% path = @gender ? play_path(comedy, :g => @gender.id) : play_path(comedy) %>
               <%= link_to comedy.title, path %><br/>
             <% end %>
         </td>
-        <td style="vertical-align: text-top;">
-            <% @histories.each do |history| %>
+        <td>
+            <% @histories.sort{|a,b| a.title <=> b.title }.each do |history| %>
               <% path = @gender ? play_path(history, :g => @gender.id) : play_path(history) %>
               <%= link_to history.title, path %><br/>
             <% end %>
         </td>
-        <td style="vertical-align: text-top;">
-            <% @tragedies.each do |tragedy| %>
+        <td>
+            <% @tragedies.sort{|a,b| a.title <=> b.title }.each do |tragedy| %>
               <% path = @gender ? play_path(tragedy, :g => @gender.id) : play_path(tragedy) %>
               <%= link_to tragedy.title, path %><br/>
             <% end %>

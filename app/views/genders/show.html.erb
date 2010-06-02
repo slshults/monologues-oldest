@@ -9,11 +9,11 @@
             :id => 'spinner',
             :style => "display: none;" %>
     <% end %>
-    <span>
+      <div class="search_links">
       Showing <%=  @gender.name %> &nbsp;
       <%= link_to "Show #{@other_gender.name}", '/' + @other_gender.name.downcase %> &nbsp;
       <%= link_to "Show All", monologues_path %>
-    </span>
+    </div>
   </span>
 
 

@@ -39,13 +39,37 @@ div .search_links {
     padding-bottom: 15px;
 }
 
+table #categories_list {
+    width: 580px;
+}
+
+table #categories_list th {
+    font-weight: bold;
+    font-size: 110%;
+    text-align: left;
+}
+
+table #categories_list td {
+    padding: 8px;
+    line-height: 130%;
+    font-size: 110%;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: top;
+
+}
+
+table #monologue_list {
+    width: 580px;
+}
+
 table #monologue_list th {
     padding-left: 5px;
-    width: 580px;
     text-align: left;
     white-space: nowrap;
     font-size: 90%;
 }
+
 tr .monologue_listing {
     vertical-align: top;
 }
