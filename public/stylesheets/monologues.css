@@ -89,6 +89,19 @@ td .monologue_firstline {
     width: 90%;
 }
 
+div .monologue_preview {
+    padding: 10px;
+    width: 128%;
+    margin-top: 5px;
+    margin-left: -120px;
+    border: solid gray;
+    border-width: 3px;
+    background-image: url('/images/white.png');
+    background-repeat: repeat;
+    overflow: visible;
+    /* z-index: 0; */
+}
+
 td .monologue_actscene {
     font-size: 90%;
     white-space: nowrap;

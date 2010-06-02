@@ -25,11 +25,11 @@ module MonologuesHelper
       row << "</div>"
       row << "</td>"
       row << "\n<td class='monologue_firstline'>"
-      row << "\n<span id='preview_mono_#{monologue.id}'>"
+      row << "\n<div id='preview_mono_#{monologue.id}'>"
       row << "#{link_to_remote monologue.first_line,
                             :update => 'preview_mono_' + monologue.id.to_s,
-                            :url => { :action => 'preview', :id => monologue.id }}"
-      row << "</span>"
+                            :url => { :controller => 'monologues', :action => 'preview', :id => monologue.id }}"
+      row << "</div>"
       row << "</td>"
       row << "\n<td class='monologue_actscene'>"
       row << "#{link_to_monologue_location( monologue )}"
