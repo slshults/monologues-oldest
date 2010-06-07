@@ -1,8 +1,9 @@
 db/development.sqlite*
+db/test.sqlite*
 log/*
 nbproject/**/*
 nbproject/*
 *~
 *.2010*
-"#*#"
-"#.*#"
+#*#
+#.*#

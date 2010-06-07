@@ -3,19 +3,19 @@ module ApplicationHelper
 
   def user_link
     return session_user_link if @current_user
-    sessionless_user_link
+
+    # don't display anything if not logged in:
+    # sessionless_user_link
   end
 
   def session_user_link
-      "<div class='user_session_link'>" +
-      "Logged In as: #{@current_user.name} - " +
-      "<small>" + link_to('logout', '/logout') + "</small></div>"
+    "<div class='user_session_link'>" +
+    "Logged In as: #{@current_user.name} - " +
+    "<small>" + link_to('logout', '/logout') + "</small></div>"
   end
 
   def sessionless_user_link
-      '<div class="user_session_link"><small>Not Logged In</small></div>'
-      # link_to("Sign Up", new_user_path)
-      # link_to("Login", new_login_path)
+    '<div class="user_session_link"><small>Not Logged In</small></div>'
   end
 
 
