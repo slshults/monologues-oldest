@@ -6,6 +6,7 @@ td#left_column {
     vertical-align: top;
     margin-top: 0px;
     width: 140px;
+    line-height: 10px;
 }
 
 div#login_banner {
@@ -14,7 +15,9 @@ div#login_banner {
 }
 
 div#menu_top_left {
-    font-size: 90%;
+    font-size: 10px;
+    vertical-align: top;
+    margin-top: 0px;
 }
 
 div#left_column_ads {
@@ -36,7 +39,7 @@ input#search {
 div .search_links {
     padding-left: 45px;
     margin-top: -10px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 }
 
 table #categories_list {
@@ -50,8 +53,8 @@ table #categories_list th {
 }
 
 table #categories_list td {
-    padding: 8px;
-    line-height: 130%;
+    padding: 5px;
+    line-height: 120%;
     font-size: 110%;
     text-align: left;
     white-space: nowrap;
@@ -86,17 +89,18 @@ div .monologue_detail {
 
 td .monologue_firstline {
     font-size: 110%;
-    width: 90%;
+    width: 480px;
 }
 
 div .monologue_preview {
     padding: 10px;
-    width: 128%;
+    line-height: 1.25;
+    width: 480px;
     margin-top: 5px;
-    margin-left: -120px;
+    margin-left: -5px;
     border: solid gray;
-    border-width: 3px;
-    background-image: url('/images/white.png');
+    border-width: 1px;
+    /* background-image: url('/images/white.png'); */
     background-repeat: repeat;
     overflow: visible;
     /* z-index: 0; */
@@ -115,7 +119,7 @@ div#center_column_footer {
 
 div#menu_bottom_center {
     text-align: center;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 div#google_sitesearch {
@@ -133,6 +137,8 @@ input#googlesearch {
 td#right_column {
     vertical-align: top;
     text-align: center;
+    line-height: 1;
+    padding: 5px;
 }
 
 body { 
@@ -143,7 +149,7 @@ body {
 body, p, ol, ul, td {
     /* font-family: verdana, arial, helvetica, sans-serif; */
     font-size:   13px;
-    line-height: 18px;
+    line-height: 13px;
 }
 
 pre {
@@ -211,8 +217,8 @@ no-link {
 }
 
 #odd-row {
-    background-color: #fff;
+    background-color: #F9F9DF;
 }
 #even-row {
-    /*background-color: #efe1ef;*/
+    background-color: #F9F9D1;
 }
