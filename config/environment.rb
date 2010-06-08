@@ -11,3 +11,12 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 
 end
+
+class Logger
+  def format_message(severity, timestamp, progname, msg)
+    "[#{timestamp.strftime("%Y-%m-%d %H:%M:%S")}] #{severity} #{msg}\n"
+  end
+end
+
+APPLOG = Logger.new("#{RAILS_ROOT}/log/monologues.log")
+APPLOG.level = Logger::DEBUG

@@ -2,8 +2,8 @@
 
   <% if @play_id %>
 
-    <%# render :partial => 'monologues/list', :locals => { :monologues => @monologues } %>
-    <%= list_monologues( @monologues ) %>
+    <% render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
+    <%#= list_monologues( @monologues ) %>
 
   <% else %>
 
@@ -48,16 +48,16 @@
       <% if @monologues.size == 1 %>
         <p>Behold! Your monologue.</p>
       <% else %>
-        <p><%= @monologues.size.to_s %> monologues match your search</p>
+        <p><%= @monologues.size.to_s %> monologues match your search!</p>
       <% end %>
 
     <% else %>
       <p><div>First 20 monologues</div></p>
     <% end %>
 
-    <%# render :partial => 'monologues/list', :locals => { :monologues => @monologues } %>
+    <% render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
 
-    <%= list_monologues( @monologues ) %>
+    <%#= list_monologues( @monologues ) %>
 
   <% end %>
 <% end %>

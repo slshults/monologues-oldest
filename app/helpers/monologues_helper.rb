@@ -1,6 +1,7 @@
 module MonologuesHelper
 
   def list_monologues( monologues )
+    
     header = <<-HEADER
     <div>
       <table id='monologue_list'>

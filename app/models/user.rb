@@ -1,11 +1,4 @@
-#---
-# Excerpted from "Rails Test Prescriptions",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
-# Visit http://www.pragmaticprogrammer.com/titles/nrtest for more book information.
-#---
+
 class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_presence_of :email
@@ -17,9 +10,15 @@ class User < ActiveRecord::Base
     user = self.find_by_email(email)
     if user
       if user.password != password
-        user = nil
+        APPLOG.warn "User #{email} entered a bad password"
+        return false
+      else
+        APPLOG.info "User #{email} logged in"
+        return user
       end
+    else
+      APPLOG.warn "User #{email} does not exist"
+      return false
     end
-    user
   end
 end

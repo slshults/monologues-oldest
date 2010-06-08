@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.paginate :page => params[:page], :per_page => 2
+    redirect_to new_login_url unless logged_in?
+    @users = User.all
   end
 
   def edit
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    redirect_to new_login_url unless logged_in?
     @user = User.new
   end
 
@@ -21,8 +23,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:notice] = "Welcome #{@user.name}, your account has been created."
-        session[:user_id] = @user.id
+        flash[:notice] = "An account for #{@user.name} (#{@user.email}) has been created."
+        APPLOG.info "User: #{@user.email} created by #{User.find_by_id(session[:user_id]).email} from #{request.env['REMOTE_ADDR']}"
         format.html { redirect_to( root_path ) }
       else
         format.html { render :action => "new" }

@@ -14,6 +14,7 @@ class LoginsController < ApplicationController
     else
       session[:user_id] = nil
       flash[:notice] = "incorrect email and/or password"
+      APPLOG.warn "Failed login from #{request.env['REMOTE_ADDR']}"
       render :new
     end
   end
@@ -21,6 +22,6 @@ class LoginsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = "See ya!"
-    redirect_to root_path
+    redirect_to monologues_path
   end
 end

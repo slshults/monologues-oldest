@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def session_user_link
     "<div class='user_session_link'>" +
-    "Logged In as: #{@current_user.name} - " +
+    "Logged In as: #{h @current_user.name} - " +
     "<small>" + link_to('logout', '/logout') + "</small></div>"
   end
 
@@ -23,7 +23,7 @@ module ApplicationHelper
     if monologue.body
       link_to( monologue.first_line, monologue )
     else
-      "<span class='no-link'>#{monologue.first_line}</span>"
+      "<span class='no-link'>#{h monologue.first_line}</span>"
     end
   end
 
@@ -37,9 +37,9 @@ module ApplicationHelper
 
   def link_to_monologue_location( monologue )
     if monologue.body_link
-      "<a href='#{h monologue.body_link}' target='_blank'>#{h monologue.location}</a>"
+      "<a href='#{monologue.body_link}' target='_blank'>#{h monologue.location}</a>"
     else
-      h monologue.body_link
+      '-'
     end
   end
 

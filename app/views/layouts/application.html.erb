@@ -70,7 +70,6 @@
 
   <div id="login_banner">
     <%= user_link %>
-    <p style="color: green"><%= flash[:notice] %></p>
   </div>
 
   <!-- left column ads -->
@@ -105,6 +104,7 @@
 
 
   <div id="center_column_content">
+    <div style="color: green"><%= flash[:notice] %></div>
     <!-- render the view here -->
     <%= yield :layout%>
   </div>
