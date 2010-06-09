@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+larry:
+  name: larry
+  email: larry@shakes.com
+  password: test123
+
+loius:
+  name: louis
+  email: louis@shakes.com
+  password: test1234

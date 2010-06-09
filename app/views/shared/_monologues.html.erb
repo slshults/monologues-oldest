@@ -1,16 +1,15 @@
-<%=  debug(monologues.inspect) %>
 
 <div>
   <table id='monologue_list'>
     <tr>
-      <th>xCharacter</th>
+      <th>Character</th>
       <th>First Line</th>
       <th>Act & Sc</th>
       <th>pdf</th>
     </tr>
 <% for monologue in monologues %>
   <tr class='monologue_listing' id='<%= cycle('odd-row', 'even-row')-%>'>
-  <td><div class='monologue_character'><%=h monologue.first_line -%></div>
+  <td><div class='monologue_character'><%=h monologue.character -%></div>
   <div class='monologue_detail'>
   <%=h monologue.style -%> <%=h monologue.intercut_label -%> <br/>
   <%= link_to( h(monologue.play.title), play_path(monologue.play) ) -%>

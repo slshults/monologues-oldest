@@ -38,4 +38,17 @@ class UsersController < ApplicationController
     @user.update_attributes params[:user]
     redirect_to @user
   end
+
+  def destroy
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "Successfully destroyed user."
+    redirect_to users_url
+  end
+
+
 end

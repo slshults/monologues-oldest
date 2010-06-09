@@ -2,8 +2,7 @@
 
   <% if @play_id %>
 
-    <% render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
-    <%#= list_monologues( @monologues ) %>
+    <%= render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
 
   <% else %>
 
@@ -55,9 +54,7 @@
       <p><div>First 20 monologues</div></p>
     <% end %>
 
-    <% render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
-
-    <%#= list_monologues( @monologues ) %>
+    <%= render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
 
   <% end %>
 <% end %>

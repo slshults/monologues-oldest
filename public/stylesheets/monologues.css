@@ -141,6 +141,15 @@ td#right_column {
     padding: 5px;
 }
 
+/*NOT IN USE*/
+iframe#tip_jar {
+    border: none;
+    overflow: hidden;
+    width: 54px;
+    height: 21px;
+    vertical-align: bottom;    
+}
+
 body { 
     background-color: #F9F9DF;
     background-image: url("/images/parchment.jpg");

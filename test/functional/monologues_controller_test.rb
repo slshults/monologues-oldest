@@ -72,4 +72,10 @@ class MonologuesControllerTest < ActionController::TestCase
     assert_redirected_to new_login_url
     assert Monologue.exists?(monologue.id)
   end
+
+  test "should view monologue" do
+    get :show, :id => monologues(:is_this_a_dagger)
+    assert_response :success
+    assert_select "div"
+  end
 end

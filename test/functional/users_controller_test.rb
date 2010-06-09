@@ -26,7 +26,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-## FAILING!
+## FAILING!?!
 ############
 #  test "should create user" do
 #    assert_difference('User.count') do
@@ -35,13 +35,13 @@ class UsersControllerTest < ActionController::TestCase
 #    assert_redirected_to monologues_path
 #  end
 
-#  test "should destroy user" do
-#    UsersController.any_instance.stubs(:logged_in?).returns(true)
-#    assert_difference('User.count', -1) do
-#      delete :destroy, :id => plays(:hamlet).to_param
-#    end
-#
-#    assert_redirected_to plays_path
-#  end
+  test "should destroy user" do
+    UsersController.any_instance.stubs(:logged_in?).returns(true)
+    assert_difference('User.count', -1) do
+      delete :destroy, :id => users(:larry).to_param
+    end
+
+    assert_redirected_to users_path
+  end
 
 end

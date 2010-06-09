@@ -15,7 +15,7 @@ class MonologuesController < ApplicationController
 
   def preview
     @monologue = Monologue.find(params[:id]) if params[:id]
-    render :partial => 'preview', :layout => false
+    render :partial => 'shared/preview', :layout => false
   end
   
   def new
@@ -101,11 +101,11 @@ class MonologuesController < ApplicationController
         # set the default value for term_like_sql
         case ActiveRecord::Base.connection.adapter_name
         when 'PostgreSQL'
-          term_like_sql = '(plays.title ilike ? or character ilike ? or body ilike ?)'
-          term_like_sql_no_play = '(character ilike ? or body ilike ?)'
+          term_like_sql = '(plays.title ilike ? or character ilike ? or body ilike ? or first_line ilike ?)'
+          term_like_sql_no_play = '(character ilike ? or body ilike ? or first_line ilike ?)'
         else
-          term_like_sql = '(plays.title like ? or character like ? or body like ?)'
-          term_like_sql_no_play = '(character like ? or body like ?)'
+          term_like_sql = '(plays.title like ? or character like ? or body like ? or first_line like ?)'
+          term_like_sql_no_play = '(character like ? or body like ? or first_line like ?)'
         end
 
 
@@ -116,7 +116,7 @@ class MonologuesController < ApplicationController
             :all,
             :conditions =>
               ['gender_id = ? and play_id = ? and ' + term_like_sql_no_play,
-                @gender_id, @play_id, "%#{term}%", "%#{term}%"],
+                @gender_id, @play_id, "%#{term}%", "%#{term}%", "%#{term}%"],
             :joins => :play
           )
         elsif @play_id
@@ -126,7 +126,7 @@ class MonologuesController < ApplicationController
             :all,
             :conditions =>
               ['play_id = ? and ' + term_like_sql_no_play,
-                @play_id, "%#{term}%", "%#{term}%"],
+                @play_id, "%#{term}%", "%#{term}%", "%#{term}%"],
             :joins => :play
           )
         elsif params[:g]
@@ -136,7 +136,7 @@ class MonologuesController < ApplicationController
             :all,
             :conditions =>
               ['gender_id = ? and ' + term_like_sql,
-                @gender_id, "%#{term}%", "%#{term}%", "%#{term}%"],
+                @gender_id, "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"],
             :joins => :play
           )
         else
@@ -145,7 +145,7 @@ class MonologuesController < ApplicationController
             :all,
             :conditions =>
               [term_like_sql,
-              "%#{term}%", "%#{term}%", "%#{term}%"],
+              "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"],
             :joins => :play
           )
         end
@@ -169,7 +169,7 @@ class MonologuesController < ApplicationController
     @histories = Play.find_all_by_classification('History')
     @tragedies = Play.find_all_by_classification('Tragedy')
 
-    render :partial => 'search', :layout => false
+    render :partial => 'shared/search', :layout => false
 
   end
 
