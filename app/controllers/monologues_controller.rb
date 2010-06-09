@@ -74,8 +74,9 @@ class MonologuesController < ApplicationController
 
   def search
     @ajax_search = params[:search]
-    @gender_id = params[:g]
     @play_id = params[:p]
+    @gender_id = params[:g]
+    @both_gender_id = Gender.find_by_name('Both').id
 
     if @ajax_search.blank?
 
@@ -101,11 +102,11 @@ class MonologuesController < ApplicationController
         # set the default value for term_like_sql
         case ActiveRecord::Base.connection.adapter_name
         when 'PostgreSQL'
-          term_like_sql = '(plays.title ilike ? or character ilike ? or body ilike ? or first_line ilike ?)'
-          term_like_sql_no_play = '(character ilike ? or body ilike ? or first_line ilike ?)'
+          term_like_sql = '(plays.title ilike ? OR character ilike ? OR body ilike ? OR first_line ilike ?)'
+          term_like_sql_no_play = '(character ilike ? OR body ilike ? OR first_line ilike ?)'
         else
-          term_like_sql = '(plays.title like ? or character like ? or body like ? or first_line like ?)'
-          term_like_sql_no_play = '(character like ? or body like ? or first_line like ?)'
+          term_like_sql = '(plays.title like ? OR character like ? OR body like ? OR first_line like ?)'
+          term_like_sql_no_play = '(character like ? OR body like ? OR first_line like ?)'
         end
 
 
@@ -115,8 +116,8 @@ class MonologuesController < ApplicationController
           results = Monologue.find(
             :all,
             :conditions =>
-              ['gender_id = ? and play_id = ? and ' + term_like_sql_no_play,
-                @gender_id, @play_id, "%#{term}%", "%#{term}%", "%#{term}%"],
+              ['(gender_id = ? OR gender_id = ?) AND play_id = ? AND ' + term_like_sql_no_play,
+                @gender_id, @both_gender_id, @play_id, "%#{term}%", "%#{term}%", "%#{term}%"],
             :joins => :play
           )
         elsif @play_id
@@ -125,18 +126,18 @@ class MonologuesController < ApplicationController
           results = Monologue.find(
             :all,
             :conditions =>
-              ['play_id = ? and ' + term_like_sql_no_play,
+              ['play_id = ? AND ' + term_like_sql_no_play,
                 @play_id, "%#{term}%", "%#{term}%", "%#{term}%"],
             :joins => :play
           )
-        elsif params[:g]
+        elsif @gender_id
 
           # gender specified
           results = Monologue.find(
             :all,
             :conditions =>
-              ['gender_id = ? and ' + term_like_sql,
-                @gender_id, "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"],
+              ['(gender_id = ? OR gender_id = ?) AND ' + term_like_sql,
+                @gender_id, @both_gender_id, "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"],
             :joins => :play
           )
         else
