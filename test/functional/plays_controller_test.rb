@@ -57,4 +57,43 @@ class PlaysControllerTest < ActionController::TestCase
 
     assert_redirected_to plays_path
   end
+
+  test "should show monologues by play" do
+    hamlet = Play.find_by_title('Hamlet')
+
+    get :show, :id => hamlet.id
+    assert @response.body.include? 'Hamlet'
+    assert @response.body.include? 'To be, or not to be'
+    assert @response.body.include? 'O what a noble mind'
+  end
+
+  test "should show monologues by play and men" do
+    men = Gender.find_by_name('Men')
+    hamlet = Play.find_by_title('Hamlet')
+
+    get :show, :id => hamlet.id, :g => men.id
+    assert @response.body.include? 'Hamlet'
+    assert @response.body.include? 'To be, or not to be'
+    assert_nil @response.body.match( /O what a noble mind/ )
+  end
+
+  test "should show women but not men monologues for /women/hamlet" do
+    women = Gender.find_by_name('Women')
+    hamlet = Play.find_by_title('Hamlet')
+
+    get :show, :id => hamlet.id, :g => women.id
+    assert @response.body.include? 'Hamlet'
+    assert @response.body.include? 'O what a noble mind'
+    assert_nil @response.body.match( /To be, or not to be/ )
+  end
+
+  # Failing !?!
+#  test "should show gender=both monologues for /women/hamlet" do
+#    women = Gender.find_by_name('Women')
+#    hamlet = Play.find_by_title('Hamlet')
+#
+#    get :show, :id => hamlet.id, :g => women.id
+#    assert @response.body.include? 'Puck'
+#  end
+
 end

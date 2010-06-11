@@ -20,8 +20,7 @@ class PlaysController < ApplicationController
     @play_id = @play.id
     if params[:g]
       @gender = Gender.find_by_id(params[:g])
-      other_gender_id = @gender.id == 2 ? 3 : 2
-      @other_gender = Gender.find_by_id( other_gender_id )
+      @other_gender = Gender.all.reject{ |g| g == @gender or g == Gender.find_by_name('Both') }.shift
       @monologues = Monologue.find_all_by_gender_id_and_play_id(@gender.id, @play.id)
     else
       @gender = nil

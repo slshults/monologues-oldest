@@ -169,7 +169,7 @@ class MonologuesController < ApplicationController
     @comedies = Play.find_all_by_classification('Comedy')
     @histories = Play.find_all_by_classification('History')
     @tragedies = Play.find_all_by_classification('Tragedy')
-
+    
     render :partial => 'shared/search', :layout => false
 
   end
