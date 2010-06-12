@@ -13,7 +13,7 @@
       <div class="search_links">
         <%= link_to "Search #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
         <%= link_to "Search #{@play.title}", play_path(@play) %> &nbsp;
-        <%= link_to "Search Complete Works", plays_path  %>
+        <%= link_to "Search All Plays", plays_path  %>
       </div>
     </span>
   </div>
@@ -38,7 +38,7 @@
       <div class="search_links">
         <%= link_to "Search Men", play_path(@play, :g => 3) %> &nbsp;
         <%= link_to "Search Women", play_path(@play, :g => 2) %> &nbsp;
-        <%= link_to "Search Complete Works", plays_path  %>
+        <%= link_to "Search All Plays", plays_path  %>
       </div>
     </span>
   </div>
