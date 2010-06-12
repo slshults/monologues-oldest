@@ -5,6 +5,11 @@ class MonologuesController < ApplicationController
   HISTORIES = Play.find_all_by_classification('History')
   TRAGEDIES = Play.find_all_by_classification('Tragedy')
 
+  # map gender id to gender, AND gender name to object
+  GENDER = Hash.new
+  Gender.all.map{|g| GENDER[g.id.to_s] = g}
+  Gender.all.map{|g| GENDER[g.name] = g}
+
   def index
     @comedies = COMEDIES
     @histories = HISTORIES
@@ -80,7 +85,7 @@ class MonologuesController < ApplicationController
     @ajax_search = params[:search]
     @play_id = params[:p]
     @gender_id = params[:g]
-    @both_gender_id = Gender.find_by_name('Both').id
+    @both_gender_id = GENDER[ 'Both' ]
 
     if @ajax_search.blank?
 
@@ -104,6 +109,7 @@ class MonologuesController < ApplicationController
             ['gender_id = ? OR gender_id = ?', @gender_id, @both_gender_id]
         )
       else
+        # this branch (no search terms) might be unused
         @monologues = Monologue.all(:limit => 20)
       end
 
@@ -122,9 +128,7 @@ class MonologuesController < ApplicationController
           term_like_sql_no_play = '(character like ? OR body like ? OR first_line like ?)'
         end
 
-
         if @gender_id and @play_id
-
           # gender and play specified
           results = Monologue.find(
             :all,
@@ -134,7 +138,6 @@ class MonologuesController < ApplicationController
             :joins => :play
           )
         elsif @play_id
-
           # play specified
           results = Monologue.find(
             :all,
@@ -144,7 +147,6 @@ class MonologuesController < ApplicationController
             :joins => :play
           )
         elsif @gender_id
-
           # gender specified
           results = Monologue.find(
             :all,
@@ -154,13 +156,12 @@ class MonologuesController < ApplicationController
             :joins => :play
           )
         else
-
+          # all monologues
           results = Monologue.find(
             :all,
             :conditions =>
               [term_like_sql,
-              "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"],
-            :joins => :play
+              "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"]
           )
         end
         if results

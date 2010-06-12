@@ -87,7 +87,7 @@ class PlaysControllerTest < ActionController::TestCase
     assert_nil @response.body.match( /To be, or not to be/ )
   end
 
-  # Failing !?!
+##   Failing !?!
 #  test "should show gender=both monologues for /women/hamlet" do
 #    women = Gender.find_by_name('Women')
 #    hamlet = Play.find_by_title('Hamlet')

@@ -4,6 +4,11 @@ class GendersController < ApplicationController
   HISTORIES = Play.find_all_by_classification('History')
   TRAGEDIES = Play.find_all_by_classification('Tragedy')
 
+  # map gender id to gender, AND gender name to object
+  GENDER = Hash.new
+  Gender.all.map{|g| GENDER[g.id.to_s] = g}
+  Gender.all.map{|g| GENDER[g.name] = g}
+
   # GET /genders
   # GET /genders.xml
   def index
@@ -20,7 +25,7 @@ class GendersController < ApplicationController
   end
 
   def men
-    @gender = Gender.find_by_name('Men')
+    @gender = GENDER[ 'Men' ]
     @comedies = COMEDIES
     @histories = HISTORIES
     @tragedies = TRAGEDIES
@@ -29,7 +34,7 @@ class GendersController < ApplicationController
   end
 
   def women
-    @gender = Gender.find_by_name('Women')
+    @gender = GENDER[ 'Women' ]
     @comedies = COMEDIES
     @histories = HISTORIES
     @tragedies = TRAGEDIES
@@ -40,7 +45,7 @@ class GendersController < ApplicationController
   # GET /genders/1
   # GET /genders/1.xml
   def show
-    @gender = Gender.find(params[:id])
+    @gender = GENDER[ params[:id] ]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -69,7 +74,7 @@ class GendersController < ApplicationController
       redirect_to new_login_url
       return
     end
-    @gender = Gender.find(params[:id])
+    @gender = GENDER[ params[:id] ]
   end
 
   # POST /genders
@@ -79,7 +84,7 @@ class GendersController < ApplicationController
       redirect_to new_login_url
       return
     end
-    @gender = Gender.new(params[:gender])
+    @gender = GENDER[ params[:gender] ]
 
     respond_to do |format|
       if @gender.save
@@ -100,7 +105,7 @@ class GendersController < ApplicationController
       redirect_to new_login_url
       return
     end
-    @gender = Gender.find(params[:id])
+    @gender = GENDER[ params[:id] ]
 
     respond_to do |format|
       if @gender.update_attributes(params[:gender])
@@ -121,7 +126,7 @@ class GendersController < ApplicationController
       redirect_to new_login_url
       return
     end
-    @gender = Gender.find(params[:id])
+    @gender = GENDER[ params[:id] ]
     @gender.destroy
 
     respond_to do |format|

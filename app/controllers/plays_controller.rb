@@ -4,6 +4,11 @@ class PlaysController < ApplicationController
   HISTORIES = Play.find_all_by_classification('History')
   TRAGEDIES = Play.find_all_by_classification('Tragedy')
 
+  # map gender id to gender, AND gender name to object
+  GENDER = Hash.new
+  Gender.all.map{|g| GENDER[g.id.to_s] = g}
+  Gender.all.map{|g| GENDER[g.name] = g}
+
   # GET /plays
   # GET /plays.xml
   def index
@@ -24,8 +29,8 @@ class PlaysController < ApplicationController
     @play = Play.find(params[:id])
     @play_id = @play.id
     if params[:g]
-      @gender = Gender.find_by_id(params[:g])
-      @other_gender = Gender.all.reject{ |g| g == @gender or g == Gender.find_by_name('Both') }.shift
+      @gender = GENDER[ params[:g] ]
+      @other_gender = Gender.all.reject{ |g| g == @gender or g == GENDER['Both'] }.shift
       @monologues = Monologue.find(
         :all,
         :conditions =>
