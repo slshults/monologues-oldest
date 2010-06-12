@@ -11,7 +11,7 @@ end
 
 When /I search for "(.*)"/ do |query|
   @browser.text_field(:id, 'search').set(query)
-  sleep 1
+  sleep 2
   # Watir::Waiter::wait_until { @browser.div(:id, 'ajaxResults').exists? }
 end
 

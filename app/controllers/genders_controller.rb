@@ -1,4 +1,9 @@
 class GendersController < ApplicationController
+
+  COMEDIES = Play.find_all_by_classification('Comedy')
+  HISTORIES = Play.find_all_by_classification('History')
+  TRAGEDIES = Play.find_all_by_classification('Tragedy')
+
   # GET /genders
   # GET /genders.xml
   def index
@@ -16,18 +21,18 @@ class GendersController < ApplicationController
 
   def men
     @gender = Gender.find_by_name('Men')
-    @comedies = Play.find_all_by_classification('Comedy')
-    @histories = Play.find_all_by_classification('History')
-    @tragedies = Play.find_all_by_classification('Tragedy')
+    @comedies = COMEDIES
+    @histories = HISTORIES
+    @tragedies = TRAGEDIES
     @other_gender = Gender.find_by_name('Women')
     render :show
   end
 
   def women
     @gender = Gender.find_by_name('Women')
-    @comedies = Play.find_all_by_classification('Comedy')
-    @histories = Play.find_all_by_classification('History')
-    @tragedies = Play.find_all_by_classification('Tragedy')
+    @comedies = COMEDIES
+    @histories = HISTORIES
+    @tragedies = TRAGEDIES
     @other_gender = Gender.find_by_name('Men')
     render :show
   end

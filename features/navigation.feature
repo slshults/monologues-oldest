@@ -14,20 +14,20 @@ Feature: Navigation
       Alas! poor Yorick.
       """
 
-#  Scenario: Find all Men / Midsummer monologues
-#    Given I am on the women/midsummer page
-#    # men
-#    Then I should see
-#      """
-#      Full of vexation come I, with complaint
-#      """
-#    # women
-#    Then I should not see
-#      """
-#      Puppet? Why so?
-#      """
-#    # both
-#    Then I should see
-#      """
-#      Puck
-#      """
+  Scenario: Find all Men / Midsummer monologues
+    Given I am on the men/midsummer page
+    # men
+    Then I should see
+      """
+      Full of vexation come I, with complaint
+      """
+    # women
+    Then I should not see
+      """
+      Puppet? Why so?
+      """
+    # both (Puck)
+    Then I should see
+      """
+      Through the forest have I gone
+      """

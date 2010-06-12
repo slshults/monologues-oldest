@@ -79,11 +79,4 @@ class MonologuesControllerTest < ActionController::TestCase
     assert_select "div"
   end
 
-#  test "should show monologues by gender" do
-#    men = Gender.find_by_name('Men')
-#    hamlet = Play.find_by_title('Hamlet')
-#
-#    post :search, :g => men.id, :p => hamlet.id, :search => 'a'
-#    assert_equal @response.inspect, 'a'
-#  end
 end

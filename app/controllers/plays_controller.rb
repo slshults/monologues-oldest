@@ -1,12 +1,17 @@
 class PlaysController < ApplicationController
+
+  COMEDIES = Play.find_all_by_classification('Comedy')
+  HISTORIES = Play.find_all_by_classification('History')
+  TRAGEDIES = Play.find_all_by_classification('Tragedy')
+
   # GET /plays
   # GET /plays.xml
   def index
     @plays = Play.all
-    @comedies = Play.find_all_by_classification('Comedy')
-    @histories = Play.find_all_by_classification('History')
-    @tragedies = Play.find_all_by_classification('Tragedy')
-
+    @comedies = COMEDIES
+    @histories = HISTORIES
+    @tragedies = TRAGEDIES
+    
     respond_to do |format|
       format.html { render :index }
       format.xml  { render :xml => @plays }
@@ -21,7 +26,11 @@ class PlaysController < ApplicationController
     if params[:g]
       @gender = Gender.find_by_id(params[:g])
       @other_gender = Gender.all.reject{ |g| g == @gender or g == Gender.find_by_name('Both') }.shift
-      @monologues = Monologue.find_all_by_gender_id_and_play_id(@gender.id, @play.id)
+      @monologues = Monologue.find(
+        :all,
+        :conditions =>
+          ['gender_id <> ? AND play_id = ?', @other_gender.id, @play.id]
+      )
     else
       @gender = nil
       @monologues = @play.monologues

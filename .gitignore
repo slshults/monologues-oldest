@@ -7,3 +7,6 @@ nbproject/*
 *.2010*
 #*#
 #.*#
+screenshot-*.png
+results.htm
+rerun.txt

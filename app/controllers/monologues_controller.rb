@@ -1,10 +1,14 @@
 require 'vendor/plugins/active_record_extensions'
 class MonologuesController < ApplicationController
+
+  COMEDIES = Play.find_all_by_classification('Comedy')
+  HISTORIES = Play.find_all_by_classification('History')
+  TRAGEDIES = Play.find_all_by_classification('Tragedy')
+
   def index
-#    @monologues = Monologue.find(:all, :limit => 20)
-    @comedies = Play.find_all_by_classification('Comedy')
-    @histories = Play.find_all_by_classification('History')
-    @tragedies = Play.find_all_by_classification('Tragedy')
+    @comedies = COMEDIES
+    @histories = HISTORIES
+    @tragedies = TRAGEDIES
     render :index
   end
   
@@ -81,15 +85,24 @@ class MonologuesController < ApplicationController
     if @ajax_search.blank?
 
       # no search terms
-
       if @play_id and @gender_id
-        @monologues = Monologue.find_all_by_gender_id_and_play_id(@gender_id, @play_id)
+        @monologues = Monologue.find(
+          :all,
+          :conditions =>
+            ['(gender_id = ? OR gender_id = ?) AND play_id = ?', @gender_id, @both_gender_id, @play_id]
+        )
 
       elsif @play_id
         @monologues = Monologue.find_all_by_play_id(@play_id)
         
       elsif @gender_id
-        @monologues = Monologue.find_all_by_gender_id(@gender_id, :limit => 20)
+        # this branch (gender_id, but no search terms) might be unused
+        @monologues = Monologue.find(
+          :all,
+          :limit => 20,
+          :conditions =>
+            ['gender_id = ? OR gender_id = ?', @gender_id, @both_gender_id]
+        )
       else
         @monologues = Monologue.all(:limit => 20)
       end
@@ -166,9 +179,9 @@ class MonologuesController < ApplicationController
 
     end
 
-    @comedies = Play.find_all_by_classification('Comedy')
-    @histories = Play.find_all_by_classification('History')
-    @tragedies = Play.find_all_by_classification('Tragedy')
+    @comedies = COMEDIES
+    @histories = HISTORIES
+    @tragedies = TRAGEDIES
     
     render :partial => 'shared/search', :layout => false
 
@@ -176,17 +189,17 @@ class MonologuesController < ApplicationController
 
   def men
     @monologues = Monologue.find_all_by_name('Men')
-    @comedies = Play.find_all_by_classification('Comedy')
-    @histories = Play.find_all_by_classification('History')
-    @tragedies = Play.find_all_by_classification('Tragedy')
+    @comedies = COMEDIES
+    @histories = HISTORIES
+    @tragedies = TRAGEDIES
     render :index
   end
 
   def women
     @monologues = Monologue.find_all_by_name('Women')
-    @comedies = Play.find_all_by_classification('Comedy')
-    @histories = Play.find_all_by_classification('History')
-    @tragedies = Play.find_all_by_classification('Tragedy')
+    @comedies = COMEDIES
+    @histories = HISTORIES
+    @tragedies = TRAGEDIES
     render :index
   end
 
