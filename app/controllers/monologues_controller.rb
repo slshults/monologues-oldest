@@ -161,7 +161,8 @@ class MonologuesController < ApplicationController
             :all,
             :conditions =>
               [term_like_sql,
-              "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"]
+              "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"],
+            :joins => :play
           )
         end
         if results
