@@ -89,14 +89,14 @@ div .monologue_detail {
 
 td .monologue_firstline {
     font-size: 90%;
-    width: 480px;
+    width: 405px;
 }
 
 div .monologue_preview {
     padding: 10px;
     font-size: 95%;
     line-height: 1.25;
-    width: 480px;
+    width: 405px;
     margin-top: 5px;
     margin-left: -5px;
     border: solid gray;
