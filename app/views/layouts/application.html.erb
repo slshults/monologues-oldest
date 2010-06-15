@@ -61,8 +61,8 @@
 <table id="layout">
 <tr>
 <td id="left_column">
-  <div id="menu_top_left">
-    <%= link_to '[The Men]', '/men' %> <%= link_to '[The Women]', '/women' %><br/>
+  <div id="menu_top_left" align=center>
+    <%= link_to '[The Men]', '/men' %> <%= link_to '[The Women]', '/women' %> <%= link_to '[Both]', '/monologues' %> <br/>
     <a HREF="http://shakespeare-monologues.org/store/">[Books]</a>
     <a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>
     <a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>
@@ -109,18 +109,23 @@
     <%= yield :layout%>
   </div>
 
+<!-- this here is the footer -->
 
   <div id="center_column_footer">
     <div id="menu_bottom_center">
-      <a href="http://shakespeare-monologues.org/mensmonos.old.shtml#other">[Other Works]</a><br/>
+
       <%= link_to '[The Men]', '/men' %>&nbsp;
       <%= link_to '[The Women]', '/women' %>&nbsp;
-      <%= link_to '[FAQ]', '/faq.html' %>&nbsp;
-      <%= link_to '[About]', '/about.html' %>
-<br/>
+       <%= link_to '[Search All]', '/monologues' %>&nbsp;
+<br>
+      <a href="http://shakespeare-monologues.org/mensmonos.old.shtml#other">[Other Works]</a>
+<br>    
       <a HREF="http://shakespeare-monologues.org/store/">[Books]</a>&nbsp;
       <a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>&nbsp;
       <a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>&nbsp;
+<br>
+  <%= link_to '[FAQ]', '/faq.html' %>&nbsp;
+      <%= link_to '[About]', '/about.html' %>
       <a HREF="http://shakespeare-monologues.org/contact.php">[Contact]</a>
     </div>
     <div id="google_sitesearch">
