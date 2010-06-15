@@ -1,24 +1,25 @@
 class UsersController < ApplicationController
-  def show
-    @user = User.find(params[:id])
-  end
-  
   def index
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @users = User.all
   end
 
-  def edit
-    redirect_to new_login_url unless logged_in?
-    @user = User.find(params[:id])
-  end
-
   def new
-    redirect_to new_login_url unless logged_in?
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @user = User.new
   end
 
   def create
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @user = User.new(params[:user])
 
     respond_to do |format|
@@ -31,12 +32,6 @@ class UsersController < ApplicationController
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
-  end
-
-  def update
-    @user = User.find(params[:id])
-    @user.update_attributes params[:user]
-    redirect_to @user
   end
 
   def destroy
