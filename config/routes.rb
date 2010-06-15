@@ -26,13 +26,13 @@ ActionController::Routing::Routes.draw do |map|
     map.connect '/women/hamlet', :controller => 'plays', :action => 'show', :id => play.id, :g => women.id
 
     # A Midsummer Night's Dream
-    play = Play.find_by_title('A Midsummer Nights Dream')
+    play = Play.find_by_title('A Midsummer Night\'s Dream')
     map.connect '/midsummer', :controller => 'plays', :action => 'show', :id => play.id
     map.connect '/men/midsummer', :controller => 'plays', :action => 'show', :id => play.id, :g => men.id
     map.connect '/women/midsummer', :controller => 'plays', :action => 'show', :id => play.id, :g => women.id
 
     # All's Well That Ends Well
-    play = Play.find_by_title('Alls Well That Ends Well')
+    play = Play.find_by_title('All\'s Well That Ends Well')
     map.connect '/AllsWell', :controller => 'plays', :action => 'show', :id => play.id
     map.connect '/men/AllsWell', :controller => 'plays', :action => 'show', :id => play.id, :g => men.id
     map.connect '/women/AllsWell', :controller => 'plays', :action => 'show', :id => play.id, :g => women.id
@@ -57,7 +57,7 @@ ActionController::Routing::Routes.draw do |map|
     map.connect '/women/Cymbeline', :controller => 'plays', :action => 'show', :id => play.id, :g => women.id
 
     # Love's Labours Lost
-    play = Play.find_by_title('Loves Labours Lost')
+    play = Play.find_by_title('Love\'s Labours Lost')
     map.connect '/LLL', :controller => 'plays', :action => 'show', :id => play.id
     map.connect '/men/LLL', :controller => 'plays', :action => 'show', :id => play.id, :g => men.id
     map.connect '/women/LLL', :controller => 'plays', :action => 'show', :id => play.id, :g => women.id
