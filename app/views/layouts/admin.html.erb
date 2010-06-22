@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>Admin Shakespeares Monologues</title>
+  <%= stylesheet_link_tag "monologues" %>
+  <%= javascript_include_tag :defaults, 'jquery'%>
+</head>
+
+<body id="admin_body">
+
+<table id="layout">
+  <tr>
+    <td id="left_column">
+      <div id="menu_top_left">
+        <%= link_to '[The Men]', '/men' %> <%= link_to '[The Women]', '/women' %> <%= link_to '[Both]', '/monologues' %> <br/>
+        <a HREF="http://shakespeare-monologues.org/store/">[Books]</a>
+        <a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>
+        <a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>
+      </div>
+    </td>
+    <td >
+
+      <!-- render the view here -->
+      <%= yield :layout%>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

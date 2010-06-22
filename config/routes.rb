@@ -1,9 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
+
+
   map.resources :monologues
+
+  map.resources :adminmono, :controller => 'admin/monologues'
+#  map.resources :admin do |admin|
+#    admin.resources :monologues
+#  end
   
   map.resources :genders
 
   map.resources :plays
+
+  map.resources :adminplays, :controller => 'admin/plays'
 
   map.resources :authors
 

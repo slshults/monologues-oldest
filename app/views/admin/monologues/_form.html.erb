@@ -1,0 +1,59 @@
+<% form_for @monologue do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :play_id %><br />
+        <%= f.select(:play_id, @plays.map {|p| [p.title, p.id]}) %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <%= f.label :first_line %><br />
+        <%= f.text_field :first_line, :size => 75 %>
+      </td>
+      <td>
+        <%= f.label :character %><br />
+        <%= f.text_field :character %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= f.label :location %><br />
+        <%= f.text_field :location, :size => 15 %>
+      </td>
+      <td>
+        <%= f.label :style %><br />
+        <%= f.select :style, ['Verse', 'Prose', 'Verse & Prose'] %>
+      </td>
+      <td>
+        <%= f.label :intercut %><br />
+        <%= f.check_box :intercut %>
+      </td>
+      <td>
+        <%= f.label :gender_id %><br />
+        <%= f.select :gender_id, [['Men',3],['Women',2],['Both',1]] %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5"">
+        <%= f.label :body_link %><br />
+        <%= f.text_field :body_link, :size => 120 %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5"">
+        <%= f.label :pdf_link %><br />
+        <%= f.text_field :pdf_link, :size => 120 %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5"">
+        <%= f.label :body %><br />
+        <%= f.text_area :body, :cols => 80 %>
+      </td>
+    </tr>
+  </table>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

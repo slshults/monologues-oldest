@@ -10,3 +10,5 @@ nbproject/*
 screenshot-*.png
 results.htm
 rerun.txt
+public/plays/*
+public/monologues/*

@@ -1,3 +1,13 @@
+A {
+  text-decoration: none;
+  color: #696969;
+  font-style: italic
+}
+
+img {
+    border: 0;
+}
+
 table#layout {
     margin-left: 22px;
 }
@@ -151,7 +161,7 @@ iframe#tip_jar {
     vertical-align: bottom;    
 }
 
-body { 
+body#main {
     background-color: #F9F9DF;
     background-image: url("/images/parchment.jpg");
 }

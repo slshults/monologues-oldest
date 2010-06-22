@@ -51,9 +51,9 @@
                     :with => "'p=#{@play.id}&search=' + encodeURIComponent(value)" %>
 
 <% end %>
-
-<div id='ajaxResults'>
-  <%= render :controller => 'monologues', :partial => "shared/search" %>
-</div>
-
+<% cache "#{@play.id.to_s}:#{@gender ? @gender.id.to_s : ''}" do %>
+  <div id='ajaxResults'>
+    <%= render :controller => 'monologues', :partial => "shared/search" %>
+  </div>
+<% end %>
 

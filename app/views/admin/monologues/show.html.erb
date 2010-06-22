@@ -1,0 +1,24 @@
+
+<p>
+  <span style="font-size: 150%;"><%=h @monologue.play.title %></span> &nbsp;- <a href='<%= @monologue.body_link %>'><%=h @monologue.location %></a><br/>
+  <span style="font-size: 150%;"><%=h @monologue.character %></span>
+</p>
+<h1><span style="line-height: 150%;"><%=h @monologue.first_line %></span></h1>
+<p>
+  (<%= case @monologue.gender_id
+      when 2 then 'Women'
+      when 3 then 'Men'
+      end %>
+  - <%=h @monologue.style %> )
+</p>
+
+<p>
+  <%= link_to "Edit", edit_adminmono_path(@monologue) %> |
+  <%= link_to "Destroy", @monologue, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", '/adminmono' %>
+</p>
+<p>
+  <div style="margin-left: 30px; padding: 5px; width: 420px;">
+    <%= @monologue.body %>
+  </div>
+</p>

@@ -1,0 +1,37 @@
+
+<div>
+  <table id='monologue_list'>
+    <tr>
+      <th>Character</th>
+      <th>First Line</th>
+      <th>Act & Sc</th>
+      <th>pdf</th>
+    </tr>
+<% for monologue in monologues %>
+  <tr class='monologue_listing' id='<%= cycle('odd-row', 'even-row')-%>'>
+  <td><div class='monologue_character'><%=h monologue.character -%></div>
+  <div class='monologue_detail'>
+  <%=h monologue.style -%> <%=h monologue.intercut_label -%> <br/>
+  <%= monologue.play.title -%>
+    
+  </div>
+  </td>
+  <td class='monologue_firstline'>
+  <div id='preview_mono_
+    <%=h monologue.id -%>'><%= monologue.first_line %>
+    <%= monologue.body.nil? ? '<br/>(<strong>empty</strong>)' : '' %>
+    <br/> <%= link_to 'Edit', edit_adminmono_path(monologue) -%>
+  <%#= link_to_remote monologue.first_line,
+                          :update => 'preview_mono_' + monologue.id.to_s,
+                          :url => { :controller => 'monologues', :action => 'preview', :id => monologue.id } -%>
+  </div>
+  </td>
+  <td class='monologue_actscene'>
+  <%= link_to_monologue_location( monologue ) -%>
+  </td>
+  <td  class='monologue_pdflink'>
+  <%= link_to_monologue_pdf( monologue ) -%>
+  </td>
+  </tr>
+<% end %>
+</table></div>

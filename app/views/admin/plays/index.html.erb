@@ -1,0 +1,43 @@
+<div>
+  <h2>Shakespeare's Monologues</h2>
+</div>
+
+
+<% if @play_id %>
+
+  <%= render :partial => 'admin/monologues', :locals => { :monologues => @monologues } %>
+
+<% else %>
+
+  <table id="categories_list" border="1">
+    <tr>
+      <th>Comedies</th>
+      <th>Histories</th>
+      <th>Tragedies</th>
+    </tr>
+    <tr>
+      <td>
+        <% @comedies.sort{|a,b| a.title <=> b.title }.each do |comedy| %>
+            <% path = @gender ? adminplay_path(comedy, :g => @gender.id) : adminplay_path(comedy) %>
+            <%= link_to comedy.title, path %><br/>
+          <% end %>
+      </td>
+      <td>
+          <% @histories.sort{|a,b| a.title <=> b.title }.each do |history| %>
+            <% path = @gender ? adminplay_path(history, :g => @gender.id) : adminplay_path(history) %>
+            <%= link_to history.title, path %><br/>
+          <% end %>
+      </td>
+      <td>
+          <% @tragedies.sort{|a,b| a.title <=> b.title }.each do |tragedy| %>
+            <% path = @gender ? adminplay_path(tragedy, :g => @gender.id) : adminplay_path(tragedy) %>
+            <%= link_to tragedy.title, path %><br/>
+          <% end %>
+      </td>
+    </tr>
+  </table>
+
+<% end %>
+
+
+
