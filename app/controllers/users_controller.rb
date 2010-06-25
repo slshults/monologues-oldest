@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       if @user.save
         flash[:notice] = "An account for #{@user.name} (#{@user.email}) has been created."
         APPLOG.info "User: #{@user.email} created by #{User.find_by_id(session[:user_id]).email} from #{request.env['REMOTE_ADDR']}"
-        format.html { redirect_to( root_path ) }
+        format.html { redirect_to( users_path ) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }

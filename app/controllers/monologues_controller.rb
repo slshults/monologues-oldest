@@ -30,6 +30,7 @@ class MonologuesController < ApplicationController
     @monologue = Monologue.new
     @plays = Play.all
     @genders = Gender.all
+    render :action => 'new', :layout => 'admin'
   end
 
   def edit

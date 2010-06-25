@@ -45,6 +45,10 @@ class GendersController < ApplicationController
   # GET /genders/1
   # GET /genders/1.xml
   def show
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @gender = GENDER[ params[:id] ]
 
     respond_to do |format|

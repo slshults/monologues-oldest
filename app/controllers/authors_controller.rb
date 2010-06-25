@@ -2,6 +2,10 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.xml
   def index
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @authors = Author.all
 
     respond_to do |format|
@@ -13,6 +17,10 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.xml
   def show
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @author = Author.find(params[:id])
 
     respond_to do |format|
