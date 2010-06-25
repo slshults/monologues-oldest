@@ -5,6 +5,7 @@ class UsersController < ApplicationController
       return
     end
     @users = User.all
+    render :action => 'index', :layout => 'admin'
   end
 
   def new
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
       return
     end
     @user = User.new
+    render :action => 'new', :layout => 'admin'
   end
 
   def create

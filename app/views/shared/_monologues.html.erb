@@ -14,7 +14,6 @@
   <%=h monologue.style -%> <%=h monologue.intercut_label -%> <br/>
   <%= link_to( h(monologue.play.title), play_path(monologue.play) ) -%>
     <%  if session[:user_id] %>
-    <br/> <%= link_to 'edit', edit_monologue_path(monologue) -%>
     <%  end %>
   </div>
   </td>

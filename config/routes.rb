@@ -20,9 +20,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :logins
 
+  map.connect '/admin', :controller => 'admin', :action => 'index'
+
   map.connect '/logout', :controller => 'logins', :action => 'destroy'
 
-  unless RAILS_ENV['test']
+  unless RAILS_ENV == 'test'
+#    raise RAILS_ENV.inspect
     men = Gender.find_by_name('Men')
     women = Gender.find_by_name('Women')
     map.connect '/men', :controller => :genders, :action => 'men', :id => men.id

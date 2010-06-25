@@ -20,7 +20,7 @@
   <div id='preview_mono_
     <%=h monologue.id -%>'><%= monologue.first_line %>
     <%= monologue.body.nil? ? '<br/>(<strong>empty</strong>)' : '' %>
-    <br/> <%= link_to 'Edit', edit_adminmono_path(monologue) -%>
+    <br/> <%= link_to 'Edit', edit_monologue_path(monologue) -%>
   <%#= link_to_remote monologue.first_line,
                           :update => 'preview_mono_' + monologue.id.to_s,
                           :url => { :controller => 'monologues', :action => 'preview', :id => monologue.id } -%>

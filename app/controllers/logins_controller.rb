@@ -10,7 +10,7 @@ class LoginsController < ApplicationController
     if u
       session[:user_id] = u.id
       flash[:notice] = nil
-      redirect_to root_path
+      redirect_to '/admin'
     else
       session[:user_id] = nil
       flash[:notice] = "incorrect email and/or password"

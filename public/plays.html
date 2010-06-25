@@ -1,0 +1,440 @@
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>Shakespeares Monologues</title>
+  <link href="/stylesheets/monologues.css?1277215712" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/prototype.js?1264832104" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1264832104" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1264832104" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1264832104" type="text/javascript"></script>
+<script src="/javascripts/jquery.js?1275439347" type="text/javascript"></script>
+<script src="/javascripts/application.js?1270864519" type="text/javascript"></script>
+  <script type="text/javascript">
+    jQuery.noConflict()
+  </script>
+  
+  <meta NAME="KEYWORDS"
+  CONTENT="shakespeare, monologue, shakespeare's, monologues,
+  shakespearean, discussion, monologue, shakespeare's, monologues,
+  shakespearean, discussion, theatre, resource, actor, resource, acting,
+  resource, online, forum, shakespeare shakespeare's monologues
+  shakespearean discussion shakespeare monologue monologues
+  shakespearean discussion shakespeare monologue shakespeare's
+  theatre resource acting resource acting resources forum online
+  shakespearean, discussion, shakespeare, monologue, shakespeare's,
+  monologues, discussion, shakespeare, monologue, shakespeare's monologues, shakespearean, find, locate, search, index
+  , All's Well That Ends Well, As You Like It, The Comedy of Errors, Cymbeline, Love's Labours Lost
+  , Measure for Measure, The Merry Wives of Windsor, The Merchant of Venice, A Midsummer Night's Dream
+  , Much Ado About Nothing, Pericles, Prince of Tyre, Taming of the Shrew, The Tempest, Troilus and Cressida
+  , Twelfth Night, Two Gentlemen of Verona, Winter's Tale, Henry IV, part 1, Henry IV, part 2, Henry V
+  , Henry VI, part 1, Henry VI, part 2, Henry VI, part 3, Henry VIII, King John, Richard II, Richard III
+  "/>
+
+  <script type="text/javascript">
+    // set focus on search box
+    ( function($) {
+      $(document).ready(
+        function(){
+          $('#search').focus();
+        }
+      );
+    }) ( jQuery );
+    ( function($) {
+      $(document).ready(
+        function includeemail(){
+          var f = document.PaypalForm;
+          var name = "donations";
+          var at = "@";
+          var url = "shakespeare-monologues.org";
+          f.business.value = name + at + url;
+          return true;
+        }
+      );
+    }) ( jQuery );
+  </script>
+</head>
+
+<body id="main">
+
+<table id="layout">
+<tr>
+<td id="left_column">
+  <div id="menu_top_left">
+    <a href="/men">[The Men]</a> <a href="/women">[The Women]</a> <a href="/monologues">[Both]</a> <br/>
+    <a HREF="http://shakespeare-monologues.org/store/">[Books]</a>
+    <a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>
+    <a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>
+  </div>
+
+  <!-- left column ads -->
+  <div id="left_column_ads">
+<p>&nbsp;</p>
+    <script type="text/javascript"><!--
+      google_ad_client = "pub-5236095389905910";
+      /* leftcol1 */
+      google_ad_slot = "3862062942";
+      google_ad_width = 120;
+      google_ad_height = 90;
+      //-->
+    </script>
+    <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+    <script type="text/javascript"><!--
+      google_ad_client = "pub-5236095389905910";
+      /* leftcol2 */
+      google_ad_slot = "8729942714";
+      google_ad_width = 120;
+      google_ad_height = 600;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+</td>
+
+<td id="center_column">
+
+
+  <div id="center_column_content">
+    <div style="color: green"></div>
+    <!-- render the view here -->
+    <div>
+  <h2>Shakespeare's Monologues</h2>
+  <span>
+    <form action="javascript:void(0)" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="wRbWSNedO9hZ8rKFI0VzERkU1/vfHR7QtFWvPci51gw=" /></div>
+      <b>Search:</b> <input type="text" id="search" size="30" style="font-size: 140%;"/>
+      <img alt="Ajax-loader" id="spinner" src="/images/ajax-loader.gif?1270864518" style="display: none;" />
+    </form>
+  </span>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+new Form.Element.Observer('search', 1, function(element, value) {Element.show('spinner'); new Ajax.Updater('ajaxResults', 'http://localhost:3000/monologues/search', {asynchronous:true, evalScripts:true, onComplete:function(request){Element.hide('spinner')}, parameters:'search=' + encodeURIComponent(value) + '&authenticity_token=' + encodeURIComponent('wRbWSNedO9hZ8rKFI0VzERkU1/vfHR7QtFWvPci51gw=')})})
+//]]>
+</script>
+
+  <div id='ajaxResults'>
+    
+
+  
+    
+      <table id="categories_list" border="1">
+        <tr>
+          <th>Comedies</th>
+          <th>Histories</th>
+          <th>Tragedies</th>
+        </tr>
+        <tr>
+          <td>
+            
+                
+                <a href="/plays/13">A Midsummer Night's Dream</a><br/>
+              
+                
+                <a href="/plays/9">All's Well That Ends Well</a><br/>
+              
+                
+                <a href="/plays/1">As You Like It</a><br/>
+              
+                
+                <a href="/plays/3">Cymbeline</a><br/>
+              
+                
+                <a href="/plays/4">Love's Labours Lost</a><br/>
+              
+                
+                <a href="/plays/10">Measure for Measure</a><br/>
+              
+                
+                <a href="/plays/12">Merchant of Venice</a><br/>
+              
+                
+                <a href="/plays/11">Merry Wives of Windsor</a><br/>
+              
+                
+                <a href="/plays/6">Much Ado About Nothing</a><br/>
+              
+                
+                <a href="/plays/18">Pericles, Prince of Tyre</a><br/>
+              
+                
+                <a href="/plays/2">The Comedy of Errors</a><br/>
+              
+                
+                <a href="/plays/5">The Merchant of Venice</a><br/>
+              
+                
+                <a href="/plays/7">The Taming of the Shrew</a><br/>
+              
+                
+                <a href="/plays/14">The Tempest</a><br/>
+              
+                
+                <a href="/plays/17">The Winter's Tale</a><br/>
+              
+                
+                <a href="/plays/15">Troilus and Cressida</a><br/>
+              
+                
+                <a href="/plays/8">Twelfth Night, Or What You Will</a><br/>
+              
+                
+                <a href="/plays/16">Two Gentlemen of Verona</a><br/>
+              
+          </td>
+          <td>
+              
+                
+                <a href="/plays/19">Henry IV i</a><br/>
+              
+                
+                <a href="/plays/20">Henry IV ii</a><br/>
+              
+                
+                <a href="/plays/21">Henry V</a><br/>
+              
+                
+                <a href="/plays/22">Henry VI i</a><br/>
+              
+                
+                <a href="/plays/23">Henry VI ii</a><br/>
+              
+                
+                <a href="/plays/24">Henry VI iii</a><br/>
+              
+                
+                <a href="/plays/25">Henry VIII</a><br/>
+              
+                
+                <a href="/plays/26">King John</a><br/>
+              
+                
+                <a href="/plays/27">Richard II</a><br/>
+              
+                
+                <a href="/plays/28">Richard III</a><br/>
+              
+          </td>
+          <td>
+              
+                
+                <a href="/plays/29">Antony & Cleopatra</a><br/>
+              
+                
+                <a href="/plays/30">Coriolanus</a><br/>
+              
+                
+                <a href="/plays/31">Hamlet</a><br/>
+              
+                
+                <a href="/plays/38">Julius Caesar</a><br/>
+              
+                
+                <a href="/plays/32">King Lear</a><br/>
+              
+                
+                <a href="/plays/33">Macbeth</a><br/>
+              
+                
+                <a href="/plays/34">Othello</a><br/>
+              
+                
+                <a href="/plays/35">Romeo and Juliet</a><br/>
+              
+                
+                <a href="/plays/36">Timon of Athens</a><br/>
+              
+                
+                <a href="/plays/37">Titus Andronicus</a><br/>
+              
+          </td>
+        </tr>
+      </table>
+    
+  
+
+
+
+
+  </div>
+
+
+
+  </div>
+
+<!-- this here is the footer -->
+
+  <div id="center_column_footer">
+    <div id="menu_bottom_center">
+
+      <a href="/men">[The Men]</a>&nbsp;
+      <a href="/women">[The Women]</a>&nbsp;
+       <a href="/monologues">[Search All]</a>&nbsp;
+<br/>
+      <a href="http://shakespeare-monologues.org/mensmonos.old.shtml#other">[Other Works]</a>
+<br/>
+      <a HREF="http://shakespeare-monologues.org/store/">[Books]</a>&nbsp;
+      <a HREF="http://twitter.com/ShakesMonos" target="_blank">[Twitter]</a>&nbsp;
+      <a href="http://www.facebook.com/pages/Shakespeares-Monologues/108569596643" target="_blank">[FB]</a>&nbsp;
+<br/>
+  <a href="/faq.html">[FAQ]</a>&nbsp;
+      <a href="/about.html">[About]</a>
+      <a HREF="http://shakespeare-monologues.org/contact.php">[Contact]</a>
+    </div>
+    <div id="google_sitesearch">
+      <!-- SiteSearch Google -->
+      <form method="get" action="http://www.google.com/custom" target="google_window">
+        <a href="http://www.google.com/">
+          <img src="http://www.google.com/logos/Logo_25wht.gif" alt="Google"/>
+        </a>
+        <input type="hidden" name="domains" value="shakespeare-monologues.org"/>
+        <input type="text" id="googlesearch" name="q" size="31" maxlength="255" value=""/>
+        <input type="submit" name="sa" value="Search"/>
+        <br/> <br/>
+        <input type="radio" name="sitesearch" value=""/>
+        Web
+        <input type="radio" name="sitesearch" checked="checked" value="shakespeare-monologues.org"/>
+        shakespeare-monologues.org
+        <input type="hidden" name="client" value="pub-5236095389905910"/>
+        <input type="hidden" name="forid" value="1"/>
+        <input type="hidden" name="ie" value="ISO-8859-1"/>
+        <input type="hidden" name="oe" value="ISO-8859-1"/>
+        <input type="hidden" name="cof" value="GALT:#333333;GL:1;DIV:#D5CA9D;VLC:000000;AH:center;BGC:F9F9DF;LBGC:F9F9DF;ALC:000000;LC:000000;T:44423A;GFNT:663333;GIMP:663333;LH:100;LW:100;L:http://shakespeare-monologues.org/foliocover.gif;S:http://shakespearesmonologues.com;LP:1;FORID:1;"/>
+        <input type="hidden" name="hl" value="en"/>
+      </form>
+
+      <a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=70961&amp;t=62">
+        <img alt="Get Firefox!" title="Get Firefox!" src="http://sfx-images.mozilla.org/affiliates/Buttons/110x32/take.gif"/>
+      </a>
+    </div>
+  </div>
+
+<!-- end center column -->
+</td>
+
+<td id="right_column">
+  
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+&nbsp;
+<form style='display:inline;' name='PaypalForm' action='https://www.paypal.com/cgi-bin/webscr' method='post' onsubmit='includeemail()'>
+    <font face=verdana size='-2'>Tip Jar</font><br/>
+    <input type='hidden' name='cmd' value='_xclick'/>
+    <input type='hidden' name='business' value=''/>
+    <input type='hidden' name='item_name' value='Shakespeare's Monologues Donations'/>
+    <input type='hidden' name='item_number' value='031806'/>
+    <input type='hidden' name='no_shipping' value='1'/>
+    <input type='hidden' name='return' value='http://shakespeare-monologues.org/thanks.htm'/>
+    <input type='hidden' name='cn' value='Include a note if you like:'/>
+    <input type='hidden' name='currency_code' value='USD'/>
+    <input type='hidden' name='tax' value='0'/>
+    <input type='hidden' name='lc' value='US'/>
+    <input type='hidden' name='bn' value='PP-DonationsBF'/>
+    <input type='image' src='https://www.paypal.com/en_US/i/btn/x-click-but04.gif' border='0' name='submit' alt='Make payments
+    with PayPal - it's fast, free and secure!'/>
+    <img alt='Tip Jar' border='0' src='https://www.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'/></form> <br/>
+<span class="small">
+  <font face=verdana size='-2'>
+    Other ways to help:<br/>
+    Click a few ads<br/>
+    Buy books <a href="http://shakespeare-monologues.org/store/" target="_blank">here</a>
+  </font>
+  <!-- Begin FB Like button -->
+  <br/>
+  <iframe
+    src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fshakespare-monologues.org&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;actionlike&amp;font=verdana&amp;colorscheme=dark" 
+    align="bottom"
+    scrolling="no"
+    allowTrasparency="true"
+    frameborder="0" 
+    style="border:none; overflow:hidden; width:54px; height:21px;">
+    &nbsp; &nbsp;
+  </iframe>
+  &nbsp; &nbsp;
+  <!-- Twitter Badge here -->
+  <font size="1">
+    <a href="http://twitter.com/ShakesMonos" target="_blank">
+      <img src="http://shakespeare-monologues.org/img/twitter.png" border="0" alt="Follow on Twitter" title="Follow on Twitter" align="top" />
+    </a>
+  </font>
+</span>
+
+  <br/>
+  <!-- ADDTHIS BUTTON BEGIN -->
+  <script type="text/javascript"><!--
+    addthis_pub = 'ShakespearesMonologues';
+    addthis_logo = 'http://shakespeare-monologues.org/foliocover.gif';
+    addthis_logo_background = 'F9F9DF';
+    addthis_brand = 'Shakespeare\'s Monologues';
+    addthis_options = 'digg, delicious, stumbleupon, facebook, myspace, twitter, google, live, email, more';
+    //-->
+  </script>
+  <a href="http://www.addthis.com/bookmark.php"
+     onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')"
+     onMouseOut="addthis_close()"
+     onClick="return addthis_sendto()">
+      <img src="http://s9.addthis.com/button1-share.gif"
+           width="125" height="16" alt="Share or Bookmark"
+           title="Share or Bookmark"/>
+  </a>
+  <script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
+  <!-- ADDTHIS BUTTON END -->
+
+  <p>
+  <script type="text/javascript"><!--
+    google_ad_client = "pub-5236095389905910";
+    google_ad_width = 300;
+    google_ad_height = 250;
+    google_ad_format = "300x250_as";
+    google_ad_type = "text_image";
+    //2007-01-27: ShakesMonos Men's Index
+    google_ad_channel = "9016325956";
+    google_color_border = "F9F9DF";
+    google_color_bg = "F9F9DF";
+    google_color_link = "696969";
+    google_color_text = "000000";
+    google_color_url = "696969";
+    //-->
+  </script>
+  <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </p>
+  <script type="text/javascript"><!--
+  amazon_ad_tag="shakessmonolo-20";
+  amazon_ad_width="120";
+  amazon_ad_height="600";
+  amazon_color_background="F9F9D1";
+  amazon_color_border="F9F9D1";
+  amazon_color_logo="0A0909";
+  amazon_color_link="A43907";
+  amazon_ad_logo="hide";
+  amazon_ad_title="Shakespeare's Monologues' Bookshelves"; //--></script>
+  <script type="text/javascript" src="http://www.assoc-amazon.com/s/asw.js"></script>
+</td>
+<!-- end right column -->
+
+</tr>
+</table>
+
+<script type="text/javascript"><!--
+  // google analytics
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  //-->
+</script>
+
+<script type="text/javascript"><!--
+  // more google analytics ?
+  try {
+    var pageTracker = _gat._getTracker("UA-600620-1");
+    pageTracker._trackPageview();
+  }
+  catch(err) {}
+  //-->
+</script>
+
+</body>
+</html>

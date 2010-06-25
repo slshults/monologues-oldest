@@ -2,7 +2,12 @@
 
 <%= render :partial => 'form' %>
 
+<b>Preview:</b><br/>
+<div style="margin-left: 30px; padding: 5px; width: 420px;">
+  <%= @monologue.body %>
+</div>
+
 <p>
-  <%= link_to "Show", @monologue %> |
-  <%= link_to "View All", monologues_path %>
+  <%= link_to "Show", adminmono_path(@monologue) %> |
+  <%= link_to "View All", '/adminmono/' %>
 </p>

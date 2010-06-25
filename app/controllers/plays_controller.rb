@@ -10,6 +10,8 @@ class PlaysController < ApplicationController
   Gender.all.map{|g| GENDER[g.id.to_s] = g}
   Gender.all.map{|g| GENDER[g.name] = g}
 
+  caches_page :index
+  
   # GET /plays
   # GET /plays.xml
   def index
@@ -59,7 +61,7 @@ class PlaysController < ApplicationController
     @play = Play.new
 
     respond_to do |format|
-      format.html { render :new }
+      format.html { render :new, :layout => 'admin' }
       format.xml  { render :xml => @play }
     end
   end
@@ -71,11 +73,17 @@ class PlaysController < ApplicationController
       return
     end
     @play = Play.find(params[:id])
+    render :edit, :layout => 'admin'
   end
+
 
   # POST /plays
   # POST /plays.xml
   def create
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @play = Play.new(params[:play])
 
     respond_to do |format|
@@ -93,6 +101,10 @@ class PlaysController < ApplicationController
   # PUT /plays/1
   # PUT /plays/1.xml
   def update
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @play = Play.find(params[:id])
 
     respond_to do |format|
@@ -111,7 +123,7 @@ class PlaysController < ApplicationController
   # DELETE /plays/1.xml
   def destroy
     unless logged_in?
-      redirect_to new_login_url      
+      redirect_to new_login_url
       return
     end
     @play = Play.find(params[:id])

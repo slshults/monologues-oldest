@@ -22,11 +22,6 @@ class MonologuesController < ApplicationController
     render :show
   end
 
-  def preview
-    @monologue = Monologue.find(params[:id]) if params[:id]
-    render :partial => 'shared/preview', :layout => false
-  end
-  
   def new
     unless logged_in?
       redirect_to new_login_url
@@ -36,8 +31,22 @@ class MonologuesController < ApplicationController
     @plays = Play.all
     @genders = Gender.all
   end
-  
+
+  def edit
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
+    @monologue = Monologue.find(params[:id])
+    @plays = Play.all
+    render :action => 'edit', :layout => 'admin'
+  end
+
   def create
+    unless logged_in?
+      redirect_to new_login_url
+      return
+    end
     @monologue = Monologue.new(params[:monologue])
     if @monologue.save
       flash[:notice] = "Successfully created monologue."
@@ -48,17 +57,12 @@ class MonologuesController < ApplicationController
       render :action => 'new'
     end
   end
-  
-  def edit
+
+  def update
     unless logged_in?
       redirect_to new_login_url
       return
     end
-    @monologue = Monologue.find(params[:id])
-    @plays = Play.all
-  end
-  
-  def update
     @monologue = Monologue.find(params[:id])
     if @monologue.update_attributes(params[:monologue])
       flash[:notice] = "Successfully updated monologue."
@@ -69,7 +73,7 @@ class MonologuesController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     unless logged_in?
       redirect_to new_login_url
@@ -81,6 +85,13 @@ class MonologuesController < ApplicationController
     redirect_to monologues_url
   end
 
+
+
+  def preview
+    @monologue = Monologue.find(params[:id]) if params[:id]
+    render :partial => 'shared/preview', :layout => false
+  end
+  
   def search
     @ajax_search = params[:search]
     @play_id = params[:p]
@@ -178,7 +189,6 @@ class MonologuesController < ApplicationController
 
       @monologues.compact!
       @monologues.uniq!
-
     end
 
     @comedies = COMEDIES
@@ -186,7 +196,6 @@ class MonologuesController < ApplicationController
     @tragedies = TRAGEDIES
     
     render :partial => 'shared/search', :layout => false
-
   end
 
   def men
