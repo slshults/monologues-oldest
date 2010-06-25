@@ -24,6 +24,7 @@ class MonologuesControllerTest < ActionController::TestCase
   end
 
   def test_create_invalid
+    MonologuesController.any_instance.stubs(:logged_in?).returns(true)
     Monologue.any_instance.stubs(:valid?).returns(false)
     post :create
     assert_template 'new'
@@ -47,6 +48,7 @@ class MonologuesControllerTest < ActionController::TestCase
   end
 
   def test_update_invalid
+    MonologuesController.any_instance.stubs(:logged_in?).returns(true)
     Monologue.any_instance.stubs(:valid?).returns(false)
     put :update, :id => Monologue.first
     assert_template 'edit'
