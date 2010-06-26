@@ -2,10 +2,14 @@
 
   <% if @play_id %>
 
-    <%= render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
+    <% cache "play#{@play_id}/_search-gender#{@gender ? @gender.id : '_empty'}" do %>
+      <%= render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
+    <% end %>
 
   <% else %>
-    <% cache "searchEmpty:gender#{@gender ? @gender.id : ''}" do %>
+
+    <% cache "allplays/_search-gender#{@gender ? @gender.id : '_empty'}" do %>
+
       <table id="categories_list" border="1">
         <tr>
           <th>Comedies</th>
@@ -33,7 +37,9 @@
           </td>
         </tr>
       </table>
+
     <% end %>
+
   <% end %>
 
 <% else %>

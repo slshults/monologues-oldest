@@ -10,6 +10,8 @@ class MonologuesController < ApplicationController
   Gender.all.map{|g| GENDER[g.id.to_s] = g}
   Gender.all.map{|g| GENDER[g.name] = g}
 
+  caches_page :index
+  
   def index
     @comedies = COMEDIES
     @histories = HISTORIES

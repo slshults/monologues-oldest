@@ -1,22 +1,28 @@
-<% if @monologue %>
-  <!-- Rendered when monologue body is rendered -->
-  <!-- Contains link to hide monologue body -->
-  <span id="preview_mono_<%= @monologue.id -%>">
-    <%= @monologue.first_line %><br/> <br/>
-    <%= link_to_remote "hide",
-                        :update => "preview_mono_#{@monologue.id}",
-                        :url => { :controller => 'monologues', :action => "preview", :id => nil, :monologue_id => @monologue.id} %>
-    <br/>
-    <div class="monologue_preview">
-        <%= @monologue.body %>
-    </div>
-  </span>
-<% else %>
-  <% mono = Monologue.find(params[:monologue_id]) %>
-  <!-- Rendered when monologue has been hidden -->
-  <span id="preview_mono_<%= mono.id -%>">
-    <%= link_to_remote mono.first_line,
-                        :update => "preview_mono_#{mono.id}",
-                        :url => { :controller => 'monologues', :action => "preview", :id => mono.id } %>
-  </span>
+<% cache "monologues/#{@monologue ? @monologue.id : '_empty'}/_id#{params[:monologue_id] ? params[:monologue_id] : '_empty'}" do %>
+
+  <% if @monologue %>
+
+    <!-- Rendered when monologue body is rendered -->
+    <!-- Contains link to hide monologue body -->
+    <span id="preview_mono_<%= @monologue.id -%>">
+      <%= @monologue.first_line %><br/> <br/>
+      <%= link_to_remote "hide",
+                          :update => "preview_mono_#{@monologue.id}",
+                          :url => { :controller => 'monologues', :action => "preview", :id => nil, :monologue_id => @monologue.id} %>
+      <br/>
+      <div class="monologue_preview">
+          <%= @monologue.body %>
+      </div>
+    </span>
+
+  <% else %>
+    <% mono = Monologue.find(params[:monologue_id]) %>
+    <!-- Rendered when monologue has been hidden -->
+    <span id="preview_mono_<%= mono.id -%>">
+      <%= link_to_remote mono.first_line,
+                          :update => "preview_mono_#{mono.id}",
+                          :url => { :controller => 'monologues', :action => "preview", :id => mono.id } %>
+    </span>
+  <% end %>
+
 <% end %>

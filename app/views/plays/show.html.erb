@@ -1,59 +1,61 @@
 
-<% if @gender %>
-  <div>
-    <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
-    <h2><%=h @play.title %></h2>
-    <span>
-      <% form_tag('javascript:void(0);') do %>
-        <b>Search:</b> <input type="text" id="search" size="40"/>
-        <%= image_tag '/images/ajax-loader.gif',
-              :id => 'spinner',
-              :style => "display: none;" %>
-      <% end %>
-      <div class="search_links">
-        <%= link_to "Search #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
-        <%= link_to "Search #{@play.title}", play_path(@play) %> &nbsp;
-        <%= link_to "Search All Plays", plays_path  %>
-      </div>
-    </span>
-  </div>
-  <%=  observe_field :search,
-                    :frequency => 1,
-                    :update => 'ajaxResults',
-                    :before => "Element.show('spinner')",
-                    :complete => "Element.hide('spinner')",
-                    :url => {:controller => 'monologues', :action => 'search', :only_path => false},
-                    :with => "'g=#{@gender.id}&p=#{@play.id}&search=' + encodeURIComponent(value)" %>
-<% else %>
-  <div>
-  <h2>Monologues in Shakespeare</h2>
-  <h2><%=h @play.title %></h2>
-    <span>
-      <% form_tag('javascript:void(0);') do %>
-        <b>Search:</b> <input type="text" id="search" size="40"/>
-        <%= image_tag '/images/ajax-loader.gif',
-              :id => 'spinner',
-              :style => "display: none;" %>
-      <% end %>
-      <div class="search_links">
-        <%= link_to "Search Men", play_path(@play, :g => 3) %> &nbsp;
-        <%= link_to "Search Women", play_path(@play, :g => 2) %> &nbsp;
-        <%= link_to "Search All Plays", plays_path  %>
-      </div>
-    </span>
-  </div>
-  <%=  observe_field :search,
-                    :frequency => 1,
-                    :update => 'ajaxResults',
-                    :before => "Element.show('spinner')",
-                    :complete => "Element.hide('spinner')",
-                    :url => {:controller => 'monologues', :action => 'search', :only_path => false},
-                    :with => "'p=#{@play.id}&search=' + encodeURIComponent(value)" %>
+<% cache "play#{@play.id.to_s}/gender#{@gender ? @gender.id.to_s : '_empty'}" do %>
 
-<% end %>
-<% cache "#{@play.id.to_s}:#{@gender ? @gender.id.to_s : ''}" do %>
-  <div id='ajaxResults'>
-    <%= render :controller => 'monologues', :partial => "shared/search" %>
-  </div>
+  <% if @gender %>
+    <div>
+      <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
+      <h2><%=h @play.title %></h2>
+      <span>
+        <% form_tag('javascript:void(0);') do %>
+          <b>Search:</b> <input type="text" id="search" size="40"/>
+          <%= image_tag '/images/ajax-loader.gif',
+                :id => 'spinner',
+                :style => "display: none;" %>
+        <% end %>
+        <div class="search_links">
+          <%= link_to "Search #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
+          <%= link_to "Search #{@play.title}", play_path(@play) %> &nbsp;
+          <%= link_to "Search All Plays", plays_path  %>
+        </div>
+      </span>
+    </div>
+    <%=  observe_field :search,
+                      :frequency => 1,
+                      :update => 'ajaxResults',
+                      :before => "Element.show('spinner')",
+                      :complete => "Element.hide('spinner')",
+                      :url => {:controller => 'monologues', :action => 'search', :only_path => false},
+                      :with => "'g=#{@gender.id}&p=#{@play.id}&search=' + encodeURIComponent(value)" %>
+  <% else %>
+    <div>
+    <h2>Monologues in Shakespeare</h2>
+    <h2><%=h @play.title %></h2>
+      <span>
+        <% form_tag('javascript:void(0);') do %>
+          <b>Search:</b> <input type="text" id="search" size="40"/>
+          <%= image_tag '/images/ajax-loader.gif',
+                :id => 'spinner',
+                :style => "display: none;" %>
+        <% end %>
+        <div class="search_links">
+          <%= link_to "Search Men", play_path(@play, :g => 3) %> &nbsp;
+          <%= link_to "Search Women", play_path(@play, :g => 2) %> &nbsp;
+          <%= link_to "Search All Plays", plays_path  %>
+        </div>
+      </span>
+    </div>
+    <%=  observe_field :search,
+                      :frequency => 1,
+                      :update => 'ajaxResults',
+                      :before => "Element.show('spinner')",
+                      :complete => "Element.hide('spinner')",
+                      :url => {:controller => 'monologues', :action => 'search', :only_path => false},
+                      :with => "'p=#{@play.id}&search=' + encodeURIComponent(value)" %>
+
+  <% end %>
+    <div id='ajaxResults'>
+      <%= render :controller => 'monologues', :partial => "shared/search" %>
+    </div>
+
 <% end %>
 
