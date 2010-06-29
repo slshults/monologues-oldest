@@ -20,3 +20,17 @@ end
 
 APPLOG = Logger.new("#{RAILS_ROOT}/log/monologues.log")
 APPLOG.level = Logger::DEBUG
+
+####
+## load some unchanging data
+##
+## classifications
+#COMEDIES = Play.find_all_by_classification('Comedy')
+#HISTORIES = Play.find_all_by_classification('History')
+#TRAGEDIES = Play.find_all_by_classification('Tragedy')
+#
+## map gender name and id object
+#GENDER = Hash.new
+#Gender.all.map{|g| GENDER[g.name] = g}
+#Gender.all.map{|g| GENDER[g.id] = g}
+#Gender.all.map{|g| GENDER[g.id.to_s] = g}

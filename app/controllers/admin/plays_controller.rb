@@ -1,14 +1,5 @@
 class Admin::PlaysController < ApplicationController
 
-  COMEDIES = Play.find_all_by_classification('Comedy')
-  HISTORIES = Play.find_all_by_classification('History')
-  TRAGEDIES = Play.find_all_by_classification('Tragedy')
-
-  # map gender id to gender, AND gender name to object
-  GENDER = Hash.new
-  Gender.all.map{|g| GENDER[g.id] = g}
-  Gender.all.map{|g| GENDER[g.id.to_s] = g}
-  Gender.all.map{|g| GENDER[g.name] = g}
 
   # GET /plays
   # GET /plays.xml
@@ -18,9 +9,9 @@ class Admin::PlaysController < ApplicationController
       return
     end
     @plays = Play.all
-    @comedies = COMEDIES
-    @histories = HISTORIES
-    @tragedies = TRAGEDIES
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     
     respond_to do |format|
       format.html { render :index, :layout => 'admin' }

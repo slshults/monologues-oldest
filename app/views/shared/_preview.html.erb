@@ -1,4 +1,4 @@
-<% cache "monologues/#{@monologue ? @monologue.id : '_empty'}/_id#{params[:monologue_id] ? params[:monologue_id] : '_empty'}" do %>
+<% cache "monologue/#{@monologue ? @monologue.id : params[:monologue_id]}/#{params[:monologue_id] ? 'shown' : 'hidden'}" do %>
 
   <% if @monologue %>
 

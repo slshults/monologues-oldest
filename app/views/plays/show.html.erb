@@ -1,6 +1,3 @@
-
-<% cache "play#{@play.id.to_s}/gender#{@gender ? @gender.id.to_s : '_empty'}" do %>
-
   <% if @gender %>
     <div>
       <h2><%=h @gender.name %>'s Monologues in Shakespeare</h2>
@@ -56,6 +53,3 @@
     <div id='ajaxResults'>
       <%= render :controller => 'monologues', :partial => "shared/search" %>
     </div>
-
-<% end %>
-

@@ -1,24 +1,16 @@
 class PlaysController < ApplicationController
 
-  COMEDIES = Play.find_all_by_classification('Comedy')
-  HISTORIES = Play.find_all_by_classification('History')
-  TRAGEDIES = Play.find_all_by_classification('Tragedy')
-
-  # map gender id to gender, AND gender name to object
-  GENDER = Hash.new
-  Gender.all.map{|g| GENDER[g.id] = g}
-  Gender.all.map{|g| GENDER[g.id.to_s] = g}
-  Gender.all.map{|g| GENDER[g.name] = g}
-
-  caches_page :index
+  caches_action :show, :cache_path => Proc.new {|c| "play/#{c.params[:id]}/#{c.params[:g]}" }, :layout => false
+  caches_action :index, :cache_path => Proc.new {|c| "play/index" }, :layout => false
   
+
   # GET /plays
   # GET /plays.xml
   def index
     @plays = Play.all
-    @comedies = COMEDIES
-    @histories = HISTORIES
-    @tragedies = TRAGEDIES
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     
     respond_to do |format|
       format.html { render :index }
@@ -88,6 +80,7 @@ class PlaysController < ApplicationController
 
     respond_to do |format|
       if @play.save
+        expire_action :show
         flash[:notice] = 'Play was successfully created.'
         format.html { redirect_to(@play) }
         format.xml  { render :xml => @play, :status => :created, :location => @play }
@@ -109,6 +102,9 @@ class PlaysController < ApplicationController
 
     respond_to do |format|
       if @play.update_attributes(params[:play])
+        expire_fragment /play\/#{@play.id}\/.+/
+        expire_fragment /play\/index.*/
+        expire_fragment /play\/_search\/.*/
         flash[:notice] = 'Play was successfully updated.'
         format.html { redirect_to(@play) }
         format.xml  { head :ok }
@@ -128,6 +124,7 @@ class PlaysController < ApplicationController
     end
     @play = Play.find(params[:id])
     @play.destroy
+    expire_action :show
 
     respond_to do |format|
       format.html { redirect_to(plays_url) }

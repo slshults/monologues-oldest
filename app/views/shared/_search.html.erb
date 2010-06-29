@@ -2,13 +2,11 @@
 
   <% if @play_id %>
 
-    <% cache "play#{@play_id}/_search-gender#{@gender ? @gender.id : '_empty'}" do %>
       <%= render :partial => 'shared/monologues', :locals => { :monologues => @monologues } %>
-    <% end %>
 
   <% else %>
 
-    <% cache "allplays/_search-gender#{@gender ? @gender.id : '_empty'}" do %>
+    <% cache "play/_search/gender_#{@gender ? @gender.name.downcase : 'both '}" do %>
 
       <table id="categories_list" border="1">
         <tr>

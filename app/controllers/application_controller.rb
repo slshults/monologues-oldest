@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :logged_in?
 
+  # map gender name and id object
+  GENDER = Hash.new
+  Gender.all.map{|g| GENDER[g.name] = g}
+  Gender.all.map{|g| GENDER[g.id] = g}
+  Gender.all.map{|g| GENDER[g.id.to_s] = g}
+
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 

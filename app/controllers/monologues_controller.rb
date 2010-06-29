@@ -1,21 +1,10 @@
 require 'vendor/plugins/active_record_extensions'
 class MonologuesController < ApplicationController
-
-  COMEDIES = Play.find_all_by_classification('Comedy')
-  HISTORIES = Play.find_all_by_classification('History')
-  TRAGEDIES = Play.find_all_by_classification('Tragedy')
-
-  # map gender id to gender, AND gender name to object
-  GENDER = Hash.new
-  Gender.all.map{|g| GENDER[g.id.to_s] = g}
-  Gender.all.map{|g| GENDER[g.name] = g}
-
-  caches_page :index
   
   def index
-    @comedies = COMEDIES
-    @histories = HISTORIES
-    @tragedies = TRAGEDIES
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     render :index
   end
   
@@ -68,6 +57,7 @@ class MonologuesController < ApplicationController
     end
     @monologue = Monologue.find(params[:id])
     if @monologue.update_attributes(params[:monologue])
+      expire_fragment /\/monologue\/#{@monologue.id}\/.+/
       flash[:notice] = "Successfully updated monologue."
       redirect_to @monologue
     else
@@ -194,26 +184,26 @@ class MonologuesController < ApplicationController
       @monologues.uniq!
     end
 
-    @comedies = COMEDIES
-    @histories = HISTORIES
-    @tragedies = TRAGEDIES
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     
     render :partial => 'shared/search', :layout => false
   end
 
   def men
     @monologues = Monologue.find_all_by_name('Men')
-    @comedies = COMEDIES
-    @histories = HISTORIES
-    @tragedies = TRAGEDIES
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     render :index
   end
 
   def women
     @monologues = Monologue.find_all_by_name('Women')
-    @comedies = COMEDIES
-    @histories = HISTORIES
-    @tragedies = TRAGEDIES
+    @comedies = Play.find_all_by_classification('Comedy')
+    @histories = Play.find_all_by_classification('History')
+    @tragedies = Play.find_all_by_classification('Tragedy')
     render :index
   end
 
