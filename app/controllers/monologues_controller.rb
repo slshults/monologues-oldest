@@ -182,6 +182,11 @@ class MonologuesController < ApplicationController
 
       @monologues.compact!
       @monologues.uniq!
+      if @play_id
+        @monologues = @monologues.sort_by{|mono| mono.location }
+      elsif
+        @monologues = @monologues.sort_by{|mono| [mono.play.title, mono.location] }
+      end
     end
 
     @comedies = Play.find_all_by_classification('Comedy')
