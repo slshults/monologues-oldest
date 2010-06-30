@@ -24,6 +24,7 @@ end
 
 # Passenger customized tasks
 namespace :deploy do
+
   desc "Restarting mod_rails (Passenger) with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
@@ -33,4 +34,20 @@ namespace :deploy do
     desc "#{t} task is a no-op with mod_rails (Passenger)"
     task t, :roles => :app do ; end
   end
+
+  namespace :mono do
+
+    desc "Clear Monologue file cache on server"
+    task :clearcache, :roles => :app, :except => { :no_release => true } do
+      run "rm -r  #{current_path}/tmp/cache/views/"
+    end
+
+    desc "Backup the current Monologue db"
+    task :backupdb, :roles => :app, :except => { :no_release => true } do
+      date = Time.now.strftime("%Y_%m_%d")
+      run "cp #{current_path}/db/production.sqlite3 /home/freeinte/mono/db_backups/#{date}_production.sqlite3"
+    end
+
+  end
+
 end
