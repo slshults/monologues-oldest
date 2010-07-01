@@ -45,7 +45,7 @@ namespace :deploy do
     desc "Backup the current Monologue db"
     task :backupdb, :roles => :app, :except => { :no_release => true } do
       date = Time.now.strftime("%Y_%m_%d")
-      run "cp #{current_path}/db/production.sqlite3 #{deploy_to}/db_backups/#{date}_production.sqlite3"
+      run "cp #{deploy_to}/shared/db/production.sqlite3 #{deploy_to}/shared/db/backup/#{date}_production.sqlite3"
     end
 
   end
