@@ -28,6 +28,7 @@ div#menu_top_left {
     font-size: 10px;
     vertical-align: top;
     margin-top: 0px;
+    white-space: nowrap;
 }
 
 div#left_column_ads {
