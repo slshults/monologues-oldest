@@ -19,9 +19,22 @@
   </td>
   <td class='monologue_firstline'>
   <div id='preview_mono_<%=h monologue.id -%>'>
-  <%= link_to_remote monologue.first_line,
+  <% if params[:expand] %>
+    <span id="preview_mono_<%= monologue.id -%>">
+      <%= monologue.first_line %><br/> <br/>
+      <%= link_to_remote "hide",
+                          :update => "preview_mono_#{monologue.id}",
+                          :url => { :controller => 'monologues', :action => "preview", :id => nil, :monologue_id => monologue.id} %>
+      <br/>
+      <div class="monologue_preview">
+          <%= monologue.body %>
+      </div>
+    </span>
+  <% else %>
+    <%= link_to_remote monologue.first_line,
                           :update => 'preview_mono_' + monologue.id.to_s,
                           :url => { :controller => 'monologues', :action => 'preview', :id => monologue.id } -%>
+  <% end %>
   </div>
   </td>
   <td class='monologue_actscene'>

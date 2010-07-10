@@ -99,8 +99,13 @@ div .monologue_detail {
 }
 
 td .monologue_firstline {
-    font-size: 90%;
+    font-size: 100%;
+    line-height: 20px;
     width: 405px;
+}
+
+.monologue_firstline A {
+    color: #555;
 }
 
 div .monologue_preview {

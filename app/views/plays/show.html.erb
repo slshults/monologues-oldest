@@ -10,9 +10,14 @@
                 :style => "display: none;" %>
         <% end %>
         <div class="search_links">
-          <%= link_to "Search #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;
-          <%= link_to "Search #{@play.title}", play_path(@play) %> &nbsp;
-          <%= link_to "Search All Plays", plays_path  %>
+          <%= link_to "Search #{@other_gender.name}", play_path(@play, :g => @other_gender.id) %> &nbsp;|&nbsp;
+          <%= link_to "Search #{@play.title}", play_path(@play) %> &nbsp;|&nbsp;
+          <%= link_to "Search All Plays", plays_path  %> &nbsp;|&nbsp;
+          <% if params[:expand] %>
+            <%= link_to "Collapse All", play_path(@play, :g => @gender.id) %>
+          <% else %>
+            <%= link_to "Expand All", play_path(@play, :g => @gender.id, :expand => 1) %>
+          <% end %>
         </div>
       </span>
     </div>
@@ -35,9 +40,14 @@
                 :style => "display: none;" %>
         <% end %>
         <div class="search_links">
-          <%= link_to "Search Men", play_path(@play, :g => 3) %> &nbsp;
-          <%= link_to "Search Women", play_path(@play, :g => 2) %> &nbsp;
-          <%= link_to "Search All Plays", plays_path  %>
+          <%= link_to "Search Men", play_path(@play, :g => 3) %> &nbsp;|&nbsp;
+          <%= link_to "Search Women", play_path(@play, :g => 2) %> &nbsp;|&nbsp;
+          <%= link_to "Search All Plays", plays_path  %> &nbsp;|&nbsp;
+          <% if params[:expand] %>
+            <%= link_to "Collapse All", play_path(@play) %>
+          <% else %>
+            <%= link_to "Expand All", play_path(@play, :expand => 1) %>
+          <% end %>
         </div>
       </span>
     </div>
