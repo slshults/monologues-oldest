@@ -29,6 +29,13 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/men', :controller => :genders, :action => 'men', :id => men.id
   map.connect '/women', :controller => :genders, :action => 'women', :id => women.id
 
+# common entry pages from old site
+  map.connect '/womenindex.shtml', :controller => :genders, :action => 'women', :id => women.id
+  map.connect '/menindex.shtml', :controller => :genders, :action => 'men', :id => men.id
+  map.connect '/womensmonosold.htm', :controller => :genders, :action => 'women', :id => women.id
+  map.connect '/mensmonosold.shtml', :controller => :genders, :action => 'men', :id => men.id
+  map.connect '/womensmonos.htm', :controller => :genders, :action => 'women', :id => women.id
+
   # Hamlet
   play_id = 31
   map.connect '/hamlet', :controller => 'plays', :action => 'show', :id => play_id
